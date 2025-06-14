@@ -1,0 +1,506 @@
+/* Print Styles for Resume */
+@media print {
+    /* Reset and base styles for print */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    body {
+        font-family: 'Times New Roman', Georgia, serif;
+        font-size: 12pt;
+        line-height: 1.4;
+        color: #000;
+        background: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Hide elements not needed in print */
+    .navbar,
+    .hero-buttons,
+    .back-to-top,
+    .footer,
+    .nav-toggle,
+    .project-btn,
+    .btn,
+    .modal,
+    .loading-screen,
+    .expertise-animation {
+        display: none !important;
+    }
+
+    /* Hide interactive elements */
+    .contact-section,
+    #contact {
+        display: none !important;
+    }
+
+    /* Page breaks */
+    .section {
+        page-break-inside: avoid;
+        margin-bottom: 20pt;
+        padding: 0;
+    }
+
+    .hero-section {
+        page-break-after: avoid;
+        min-height: auto;
+        padding: 20pt 0;
+        background: white !important;
+    }
+
+    h1, h2, h3 {
+        page-break-after: avoid;
+        color: #000 !important;
+    }
+
+    .section-title {
+        font-size: 18pt;
+        font-weight: bold;
+        margin-bottom: 12pt;
+        text-align: left;
+        border-bottom: 2pt solid #000;
+        padding-bottom: 4pt;
+    }
+
+    .section-title::after {
+        display: none;
+    }
+
+    /* Hero section adjustments */
+    .hero-content {
+        display: block !important;
+        text-align: left;
+    }
+
+    .hero-image {
+        float: right;
+        margin: 0 0 12pt 12pt;
+    }
+
+    .profile-img {
+        width: 120pt;
+        height: 120pt;
+        border: 2pt solid #000;
+    }
+
+    .hero-title {
+        font-size: 24pt;
+        font-weight: bold;
+        margin-bottom: 6pt;
+        color: #000 !important;
+    }
+
+    .hero-subtitle {
+        font-size: 14pt;
+        margin-bottom: 6pt;
+        font-weight: normal;
+        color: #333 !important;
+    }
+
+    .hero-description {
+        font-size: 12pt;
+        margin-bottom: 12pt;
+        color: #000 !important;
+    }
+
+    /* Professional summary */
+    .summary-text {
+        font-size: 11pt;
+        text-align: justify;
+        margin-bottom: 12pt;
+        color: #000 !important;
+        font-style: normal;
+    }
+
+    /* Timeline adjustments */
+    .timeline {
+        margin: 0;
+    }
+
+    .timeline::before {
+        display: none;
+    }
+
+    .timeline-item {
+        width: 100% !important;
+        left: 0 !important;
+        text-align: left !important;
+        margin-bottom: 12pt;
+        page-break-inside: avoid;
+    }
+
+    .timeline-marker {
+        display: none;
+    }
+
+    .timeline-content {
+        background: white !important;
+        border: 1pt solid #000;
+        padding: 8pt;
+        box-shadow: none !important;
+    }
+
+    .timeline-period {
+        background: #000 !important;
+        color: white !important;
+        padding: 2pt 6pt;
+        font-size: 10pt;
+        display: inline-block;
+        margin-bottom: 4pt;
+    }
+
+    .timeline-content h3 {
+        font-size: 13pt;
+        font-weight: bold;
+        margin-bottom: 3pt;
+        color: #000 !important;
+    }
+
+    .timeline-content h4 {
+        font-size: 11pt;
+        font-weight: normal;
+        font-style: italic;
+        margin-bottom: 6pt;
+        color: #333 !important;
+    }
+
+    .timeline-content ul {
+        margin: 6pt 0;
+        padding-left: 12pt;
+    }
+
+    .timeline-content li {
+        font-size: 10pt;
+        margin-bottom: 3pt;
+        padding-left: 0;
+    }
+
+    .timeline-content li::before {
+        content: '• ';
+        color: #000;
+    }
+
+    /* Education section */
+    .education-carousel-container {
+        overflow: visible !important;
+    }
+
+    .education-carousel {
+        display: block !important;
+        transform: none !important;
+        width: 100% !important;
+    }
+
+    .education-card {
+        background: white !important;
+        border: 1pt solid #000;
+        padding: 8pt;
+        margin-bottom: 8pt;
+        display: block !important;
+        box-shadow: none !important;
+        flex: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        min-height: auto !important;
+    }
+
+    .carousel-navigation,
+    .carousel-indicators {
+        display: none !important;
+    }
+
+    .university-logo {
+        display: none;
+    }
+
+    .education-details h3 {
+        font-size: 12pt;
+        font-weight: bold;
+        margin-bottom: 3pt;
+        color: #000 !important;
+    }
+
+    .education-details h4 {
+        font-size: 11pt;
+        margin-bottom: 3pt;
+        color: #333 !important;
+    }
+
+    .university {
+        font-weight: bold;
+        color: #000 !important;
+    }
+
+    .year {
+        font-style: italic;
+        color: #333 !important;
+    }
+
+    /* Skills section */
+    .skills-grid {
+        display: block !important;
+    }
+
+    .skill-category {
+        margin-bottom: 12pt;
+        page-break-inside: avoid;
+    }
+
+    .skill-category h3 {
+        font-size: 13pt;
+        font-weight: bold;
+        margin-bottom: 6pt;
+        color: #000 !important;
+        text-align: left;
+    }
+
+    .skills-list {
+        margin-bottom: 8pt;
+    }
+
+    .skill-item {
+        margin-bottom: 3pt;
+        display: block;
+    }
+
+    .skill-name {
+        font-size: 11pt;
+        font-weight: normal;
+        color: #000 !important;
+    }
+
+    .skill-bar {
+        display: none;
+    }
+
+    /* Display skills as comma-separated list for print */
+    .skills-list {
+        font-size: 10pt;
+        line-height: 1.3;
+    }
+
+    .skill-item {
+        display: inline;
+    }
+
+    .skill-item:not(:last-child)::after {
+        content: ', ';
+    }
+
+    /* Language skills */
+    .language-skills {
+        background: white !important;
+        border: 1pt solid #000;
+        padding: 8pt;
+        box-shadow: none !important;
+    }
+
+    .language-item {
+        border-bottom: none !important;
+        padding: 2pt 0;
+        font-size: 10pt;
+    }
+
+    .language-level {
+        background: #000 !important;
+        color: white !important;
+        padding: 1pt 4pt;
+        font-size: 9pt;
+    }
+
+    /* Projects section */
+    .projects-grid {
+        display: block !important;
+    }
+
+    .project-card {
+        background: white !important;
+        border: 1pt solid #000;
+        padding: 8pt;
+        margin-bottom: 8pt;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+    }
+
+    .project-image {
+        display: none;
+    }
+
+    .project-content h3 {
+        font-size: 11pt;
+        font-weight: bold;
+        margin-bottom: 4pt;
+        color: #000 !important;
+    }
+
+    .project-content p {
+        font-size: 10pt;
+        margin-bottom: 4pt;
+        color: #000 !important;
+    }
+
+    .project-status {
+        background: #000 !important;
+        color: white !important;
+        padding: 1pt 4pt;
+        font-size: 8pt;
+        border-radius: 0;
+    }
+
+    /* Certifications */
+    .certifications-grid {
+        display: block !important;
+    }
+
+    .certification-card {
+        background: white !important;
+        border: 1pt solid #000;
+        padding: 6pt;
+        margin-bottom: 6pt;
+        text-align: left;
+        box-shadow: none !important;
+    }
+
+    .cert-icon {
+        display: none;
+    }
+
+    .certification-card h3 {
+        font-size: 11pt;
+        font-weight: bold;
+        margin-bottom: 2pt;
+        color: #000 !important;
+    }
+
+    .certification-card p {
+        font-size: 10pt;
+        color: #333 !important;
+    }
+
+    /* Impact metrics - simplified for print */
+    .impact-section {
+        background: white !important;
+        color: #000 !important;
+    }
+
+    .impact-section .section-title {
+        color: #000 !important;
+    }
+
+    .metrics-grid {
+        display: block !important;
+    }
+
+    .metric-card {
+        background: white !important;
+        border: 1pt solid #000;
+        padding: 6pt;
+        margin-bottom: 4pt;
+        display: inline-block;
+        width: 30%;
+        margin-right: 3%;
+        vertical-align: top;
+    }
+
+    .metric-number {
+        font-size: 14pt;
+        font-weight: bold;
+        color: #000 !important;
+    }
+
+    .metric-label {
+        font-size: 10pt;
+        font-weight: bold;
+        color: #000 !important;
+    }
+
+    .metric-description {
+        font-size: 9pt;
+        color: #333 !important;
+    }
+
+    /* Contact information in header */
+    .print-header {
+        display: block !important;
+        text-align: center;
+        border-bottom: 2pt solid #000;
+        padding-bottom: 8pt;
+        margin-bottom: 12pt;
+    }
+
+    /* Add contact info to print version */
+    .hero-section::after {
+        content: "Email: tretasharma@gmail.com | Phone: +1 (773) 739-7326 | LinkedIn: tretasharma | Chicago, IL, USA";
+        display: block;
+        text-align: center;
+        font-size: 10pt;
+        margin-top: 8pt;
+        padding-top: 8pt;
+        border-top: 1pt solid #000;
+        color: #000;
+    }
+
+    /* Ensure proper spacing */
+    .container {
+        max-width: none;
+        padding: 0 20pt;
+    }
+
+    /* Page margins */
+    @page {
+        margin: 0.5in;
+        size: letter;
+    }
+
+    /* Typography adjustments */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Times New Roman', Georgia, serif;
+    }
+
+    p, li, span {
+        font-family: 'Times New Roman', Georgia, serif;
+        orphans: 2;
+        widows: 2;
+    }
+
+    /* Ensure all text is black */
+    * {
+        color: #000 !important;
+    }
+
+    /* Remove any background colors */
+    .section {
+        background: white !important;
+    }
+
+    /* Make sure links are visible in print */
+    a[href^="mailto:"]::after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+    }
+
+    a[href^="tel:"]::after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+    }
+
+    /* Force page breaks where needed */
+    .experience-section {
+        page-break-before: auto;
+    }
+
+    .education-section {
+        page-break-before: auto;
+    }
+
+    .research-section {
+        page-break-before: auto;
+    }
+
+    .skills-section {
+        page-break-before: auto;
+    }
+}

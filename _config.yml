@@ -1,0 +1,60 @@
+# Site settings
+title: "Treta Sharma - Learning Sciences & Educational Technology Specialist"
+description: "Portfolio of Treta Sharma, MS in Learning Sciences from Northwestern University. 8+ years experience in educational technology, curriculum design, and teacher training."
+url: "https://tretasharma.com"
+baseurl: ""
+
+# Personal information
+author:
+  name: "Treta Sharma"
+  email: "tretasharma@gmail.com"
+  phone: "+1 (773) 739-7326"
+  location: "Chicago, IL, USA"
+  linkedin: "tretasharma"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+# Removed minima theme to avoid SCSS deprecation warnings
+# theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Sass configuration to suppress warnings
+sass:
+  style: compressed
+  quiet_deps: true
+  verbose: false
+
+# Development server settings
+webrick:
+  headers:
+    'Access-Control-Allow-Origin': '*'
+    'Cache-Control': 'no-cache'
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:name/
+
+# SEO
+seo:
+  type: "Person"
+  name: "Treta Sharma"
+  links:
+    - "https://www.linkedin.com/in/tretasharma"
+    - "https://tretasharma.com"
+
+# Google Analytics (add your tracking ID)
+# google_analytics: UA-XXXXXXXX-X

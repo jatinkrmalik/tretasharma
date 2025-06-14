@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tretasharma.com/sitemap.xml
+
+# Disallow admin and config files
+Disallow: /_site/
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /Gemfile
+Disallow: /Gemfile.lock
+Disallow: /_config.yml
+
+# Allow important files
+Allow: /assets/
+Allow: /index.html
+Allow: /sitemap.xml

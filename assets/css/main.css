@@ -1148,9 +1148,13 @@ body {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-bottom: 2rem;
+}
+
+.footer-section:last-child {
+    text-align: right;
 }
 
 .footer-section h4 {
@@ -1599,6 +1603,10 @@ body {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2.5rem;
+    }
+    
+    .footer-section:last-child {
+        text-align: center;
     }
     
     .footer-section {

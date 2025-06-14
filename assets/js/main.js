@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const animateCounter = (element, target) => {
             let current = 0;
-            const increment = target / 150; // Slower animation - 150 steps instead of 100
+            const increment = target / 50; // Adjusted for 2-second animation (50 steps * 40ms = 2000ms)
             const metricCard = element.closest('.metric-card');
             
             // Add animating class for visual effect
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 element.textContent = displayValue;
-            }, 40); // Slower interval - 40ms instead of 20ms for more dramatic effect
+            }, 40); // Interval remains 40ms
         };
 
         const observer = new IntersectionObserver((entries) => {

@@ -279,15 +279,24 @@ function openProjectModal(projectId) {
     modalBody.innerHTML = `
         <h2>${projectData.title}</h2>
         <div class="modal-project-image">
-            <img src="${projectData.image}" alt="${projectData.title}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+            <img src="${projectData.image}" alt="${projectData.title}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem;">
         </div>
-        <p class="project-status ${projectData.status}">${projectData.status.toUpperCase()}</p>
-        <p><strong>Description:</strong> ${projectData.description}</p>
-        <p><strong>Objectives:</strong> ${projectData.objectives}</p>
-        <p><strong>Methodology:</strong> ${projectData.methodology}</p>
-        <p><strong>Impact:</strong> ${projectData.impact}</p>
-        ${projectData.technologies ? `<p><strong>Technologies Used:</strong> ${projectData.technologies}</p>` : ''}
-        ${projectData.publications ? `<p><strong>Publications:</strong> ${projectData.publications}</p>` : ''}
+        <div class="project-details">
+            <div class="project-detail-section">
+                <p><strong>Description:</strong> ${projectData.description}</p>
+            </div>
+            <div class="project-detail-section">
+                <p><strong>Objectives:</strong> ${projectData.objectives}</p>
+            </div>
+            <div class="project-detail-section">
+                <p><strong>Methodology:</strong> ${projectData.methodology}</p>
+            </div>
+            <div class="project-detail-section">
+                <p><strong>Impact:</strong> ${projectData.impact}</p>
+            </div>
+            ${projectData.technologies ? `<div class="project-detail-section"><p><strong>Technologies Used:</strong> ${projectData.technologies}</p></div>` : ''}
+            ${projectData.publications ? `<div class="project-detail-section"><p><strong>Publications:</strong> ${projectData.publications}</p></div>` : ''}
+        </div>
     `;
     
     modal.style.display = 'block';

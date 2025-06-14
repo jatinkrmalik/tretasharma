@@ -1095,13 +1095,51 @@ body {
     position: absolute;
     top: 1rem;
     right: 1.5rem;
+    z-index: 3; /* Ensure close button is above status pill */
 }
 
 .close:hover {
     color: var(--primary-color);
 }
 
-/* Footer */
+/* Project Modal Detail Sections */
+.project-details {
+    margin-top: 1.5rem;
+}
+
+.project-detail-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(var(--border-color), 0.1);
+}
+
+.project-detail-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.project-detail-section p {
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+.project-detail-section strong {
+    color: var(--primary-color);
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Modal-specific adjustments - hide status pills in modal */
+.modal-content .project-status {
+    display: none;
+}
+
+.modal-content .close {
+    z-index: 3; /* Ensure close button is accessible */
+}
+
 .footer {
     background: var(--primary-color);
     color: white;
@@ -1703,7 +1741,6 @@ button:focus {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
-    border: 0;
 }
 
 /* Smooth Scrolling Enhancement */

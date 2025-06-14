@@ -593,7 +593,6 @@ body {
 .logo-placeholder {
     width: 90px;
     height: 90px;
-    background: linear-gradient(135deg, var(--background-gray), var(--background-light));
     border-radius: 12px;
     object-fit: contain;
     border: 2px solid rgba(30, 58, 138, 0.1);

@@ -1033,6 +1033,7 @@ body {
     padding: 1rem;
     border-radius: var(--border-radius);
     border-left: 4px solid var(--primary-color);
+    text-align: center;
 }
 
 /* Back to Top Button */

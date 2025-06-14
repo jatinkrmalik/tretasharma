@@ -1406,8 +1406,8 @@ body {
     display: block;
 }
 
-/* Improved touch targets for mobile */
-@media (max-width: 768px) {
+/* Improved touch targets for mobile and tablet */
+@media (max-width: 992px) {
     .btn,
     .nav-link,
     .project-btn {
@@ -1440,7 +1440,7 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .nav-container {
         position: relative;
         display: flex;

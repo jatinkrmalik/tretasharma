@@ -434,32 +434,25 @@ function initRotatingText() {
     const rotatingTexts = document.querySelectorAll('.rotating-text span');
     if (rotatingTexts.length === 0) return;
     
-    let currentIndex = 0;
+    // The CSS animation handles the rotation automatically
+    // This function can be simplified or removed since CSS animations are preferred
+    // CSS animation duration: 24s total for 12 items = 2s per item
     
-    // Hide all texts first
-    rotatingTexts.forEach(text => {
-        text.style.opacity = '0';
-        text.style.transform = 'translateY(10px)';
-    });
-    
-    // Show first text
-    rotatingTexts[0].style.opacity = '1';
-    rotatingTexts[0].style.transform = 'translateY(0)';
-    
-    setInterval(() => {
-        // Hide current text
-        rotatingTexts[currentIndex].style.opacity = '0';
-        rotatingTexts[currentIndex].style.transform = 'translateY(-10px)';
+    // Optional: Add hover pause functionality
+    const rotatingContainer = document.querySelector('.rotating-text');
+    if (rotatingContainer) {
+        rotatingContainer.addEventListener('mouseenter', () => {
+            rotatingTexts.forEach(text => {
+                text.style.animationPlayState = 'paused';
+            });
+        });
         
-        // Move to next text
-        currentIndex = (currentIndex + 1) % rotatingTexts.length;
-        
-        // Show next text after a brief delay
-        setTimeout(() => {
-            rotatingTexts[currentIndex].style.opacity = '1';
-            rotatingTexts[currentIndex].style.transform = 'translateY(0)';
-        }, 200);
-    }, 2000);
+        rotatingContainer.addEventListener('mouseleave', () => {
+            rotatingTexts.forEach(text => {
+                text.style.animationPlayState = 'running';
+            });
+        });
+    }
 }
 
 // PDF Resume download functionality

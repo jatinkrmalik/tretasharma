@@ -358,7 +358,7 @@ body {
     left: 0;
     width: 100%;
     opacity: 0;
-    animation: rotate-text 8s infinite;
+    animation: rotate-text 24s infinite;
     white-space: nowrap;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -367,13 +367,21 @@ body {
 .rotating-text span:nth-child(2) { animation-delay: 2s; }
 .rotating-text span:nth-child(3) { animation-delay: 4s; }
 .rotating-text span:nth-child(4) { animation-delay: 6s; }
+.rotating-text span:nth-child(5) { animation-delay: 8s; }
+.rotating-text span:nth-child(6) { animation-delay: 10s; }
+.rotating-text span:nth-child(7) { animation-delay: 12s; }
+.rotating-text span:nth-child(8) { animation-delay: 14s; }
+.rotating-text span:nth-child(9) { animation-delay: 16s; }
+.rotating-text span:nth-child(10) { animation-delay: 18s; }
+.rotating-text span:nth-child(11) { animation-delay: 20s; }
+.rotating-text span:nth-child(12) { animation-delay: 22s; }
 
 @keyframes rotate-text {
-    0%, 25% { 
+    0%, 8.33% { 
         opacity: 1; 
         transform: translateY(0); 
     }
-    30%, 95% { 
+    10%, 95% { 
         opacity: 0; 
         transform: translateY(-10px); 
     }

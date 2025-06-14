@@ -435,7 +435,7 @@ body {
 
 .timeline-item:nth-child(odd) {
     left: 0;
-    text-align: right;
+    text-align: left;
 }
 
 .timeline-item:nth-child(even) {
@@ -659,6 +659,7 @@ body {
     margin-bottom: 1rem;
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
+    width: fit-content;
 }
 
 .year:hover {
@@ -688,7 +689,7 @@ body {
     position: absolute;
     left: 0;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
 }
 
 /* Research Section */

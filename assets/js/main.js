@@ -279,7 +279,7 @@ function openProjectModal(projectId) {
     modalBody.innerHTML = `
         <h2>${projectData.title}</h2>
         <div class="modal-project-image">
-            <img src="${projectData.image}" alt="${projectData.title}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem;">
+            <img src="${projectData.image}" alt="${projectData.title}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
         </div>
         <div class="project-details">
             <div class="project-detail-section">

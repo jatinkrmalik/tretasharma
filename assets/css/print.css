@@ -184,17 +184,11 @@
     }
 
     /* Education section */
-    .education-carousel-container {
-        overflow: visible !important;
-    }
-
-    .education-carousel {
+    .education-grid {
         display: block !important;
-        transform: none !important;
-        width: 100% !important;
     }
 
-    .education-card {
+    .education-tile {
         background: white !important;
         border: 1pt solid #000;
         padding: 8pt;
@@ -205,11 +199,6 @@
         opacity: 1 !important;
         transform: none !important;
         min-height: auto !important;
-    }
-
-    .carousel-navigation,
-    .carousel-indicators {
-        display: none !important;
     }
 
     .university-logo {

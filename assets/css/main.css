@@ -353,14 +353,15 @@ body {
 }
 
 .rotating-text span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    animation: rotate-text 24s infinite;
-    white-space: nowrap;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;   /* Revert to absolute for proper animation layering */
+    left: 0;            /* Align to the left of the parent .rotating-text */
+    width: 100%;        /* Make span take full width of .rotating-text */
+    text-align: center; /* Center the text content within the span */
+    white-space: normal; /* Allow text to wrap if very long */
+    top: 0;             /* Align to the top of the parent */
+    opacity: 0; /* Add back initial opacity for animation */
+    animation: rotate-text 24s infinite; /* Add back animation property */
+    /* display: inline-block; is removed as position:absolute handles its layout context */
 }
 
 .rotating-text span:nth-child(1) { animation-delay: 0s; }
@@ -1425,158 +1426,143 @@ body {
     }
 }
 
-/* Print accessibility */
-@media print {
-    .sr-only {
-        position: static;
-        width: auto;
-        height: auto;
-        padding: 0;
-        margin: 0;
-        overflow: visible;
-        clip: auto;
-        white-space: normal;
-    }
-}
-
 /* Responsive Design */
-@media (max-width: 992px) {
-    .nav-container {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 70px;
-    }
-    
-    .nav-brand {
-        flex: 1;
-    }
-    
-    .theme-toggle-wrapper {
-        display: flex;
-        align-items: center;
-        margin-right: 1rem;
-        order: 1;
-    }
-    
-    .nav-toggle {
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        order: 2;
-    }
-    
+@media (max-width: 768px) {
     .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
+        display: none;
         flex-direction: column;
-        background-color: var(--nav-background);
         width: 100%;
-        text-align: center;
-        transition: var(--transition-medium);
-        box-shadow: 0 10px 27px var(--shadow-light);
-        padding: 2rem 0;
-        z-index: 999;
-        backdrop-filter: blur(10px);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: var(--nav-background);
+        border-top: 1px solid var(--border-color);
+        padding: 1rem 0;
     }
 
     .nav-menu.active {
-        left: 0;
+        display: flex;
     }
 
-    .nav-toggle.active .bar:nth-child(2) {
-        opacity: 0;
+    .theme-toggle-wrapper {
+        margin-left: auto; /* Push theme toggle (and subsequent nav-toggle) to the right */
     }
 
-    .nav-toggle.active .bar:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
-    }
-
-    .nav-toggle.active .bar:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
-    }
-    
     .nav-link {
-        color: var(--text-primary);
-        padding: 1rem 0;
-        display: block;
-        border-bottom: 1px solid var(--border-color);
+        padding: 0.75rem 1.5rem;
+        text-align: center;
     }
-    
-    .nav-link:last-child {
-        border-bottom: none;
+
+    .nav-link:hover::after {
+        width: 0; /* Disable underline hover effect on mobile menu */
+    }
+
+    .nav-toggle {
+        display: flex;
     }
 
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 2rem;
+    }
+
+    .hero-image {
+        margin-bottom: 2rem;
+    }
+
+    .profile-img {
+        width: 200px;
+        height: 200px;
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
     }
 
     .hero-buttons {
         justify-content: center;
-        flex-wrap: wrap;
+    }
+
+    .expertise-animation {
+        text-align: center; /* Center the "Expertise in:" text */
+    }
+
+    .expertise-animation .animated-text,
+    .expertise-animation .rotating-text {
+        display: block; /* Make "Expertise in:" and rotating text stack */
+        text-align: center;
+    }
+
+    .expertise-animation .rotating-text {
+        margin-top: 0.5rem; /* Add some space above the rotating text */
+        min-width: unset; /* Allow it to take natural width */
+        height: auto; /* Adjust height for multiple lines if text wraps */
+        position: relative; /* Ensure this is set for absolute children, though it should inherit from desktop */
+    }
+
+    .rotating-text span {
+        position: absolute;   /* Revert to absolute for proper animation layering */
+        left: 0;            /* Align to the left of the parent .rotating-text */
+        width: 100%;        /* Make span take full width of .rotating-text */
+        text-align: center; /* Center the text content within the span */
+        white-space: normal; /* Allow text to wrap if very long */
+        top: 0;             /* Align to the top of the parent */
+        opacity: 0; /* Add back initial opacity for animation */
+        animation: rotate-text 24s infinite; /* Add back animation property */
+        /* display: inline-block; is removed as position:absolute handles its layout context */
     }
 
     .section-title {
         font-size: 2rem;
     }
 
+    /* Timeline adjustments for mobile */
     .timeline::before {
-        left: 30px;
+        left: 20px; /* Move the line to the left */
     }
 
     .timeline-item {
-        width: calc(100% - 80px);
-        left: 80px !important;
+        width: calc(100% - 20px); /* Full width minus some padding */
+        left: 0 !important; /* Override inline styles from desktop */
+        padding-left: 40px; /* Space for the marker */
         text-align: left !important;
+        margin-bottom: 2rem;
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0 !important; /* Ensure even items are also on the left */
     }
 
     .timeline-marker {
-        left: 20px !important;
+        left: 10px; /* Position marker on the new timeline axis */
+        right: auto !important; /* Override desktop positioning */
     }
 
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .timeline-item:nth-child(odd) .timeline-marker,
+    .timeline-item:nth-child(even) .timeline-marker {
+        left: 10px; /* Consistent marker position */
+        right: auto;
     }
 
-    .contact-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-    }
-
-    .certifications-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Education Grid Mobile */
+    /* Education Grid adjustments for mobile */
     .education-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Stack tiles vertically */
         gap: 1.5rem;
-        padding: 1.5rem 0;
     }
 
     .education-tile {
-        flex-direction: column;
+        flex-direction: column; /* Stack logo and details vertically */
+        align-items: center; /* Center items in the tile */
+        padding: 1.5rem;
         text-align: center;
-        padding: 2rem 1.5rem;
-        gap: 1.5rem;
     }
 
     .university-logo {
-        align-self: center;
+        margin-bottom: 1rem;
     }
 
     .logo-placeholder {
@@ -1584,12 +1570,26 @@ body {
         height: 70px;
     }
 
-    .education-details h3 {
-        font-size: 1.2rem;
+    .education-details {
+        align-items: center; /* Center text details */
     }
 
-    .education-details h4 {
-        font-size: 0.9rem;
+    .education-details h3, .education-details h4 {
+        text-align: center;
+    }
+
+    .year {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .education-highlights p {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .education-highlights p::before {
+        display: none; /* Hide bullet points if centered text looks odd */
     }
 
     .projects-grid {
@@ -1597,37 +1597,50 @@ body {
     }
 
     .metrics-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
 
     .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2.5rem;
+        grid-template-columns: 1fr; /* Stack footer sections */
+        text-align: center; /* Center align content within footer sections */
     }
-    
-    .footer-section:last-child {
-        text-align: center;
-    }
-    
+
     .footer-section {
-        margin-bottom: 1.5rem;
+      text-align: center; /* Ensure all footer sections are center-aligned */
+      margin-bottom: 1.5rem; /* Add some space between stacked sections */
     }
-    
+
+    .footer-section:last-child {
+        text-align: center; /* Ensure last child is also centered */
+    }
+
     .social-links {
-        justify-content: center;
-        margin: 1.5rem auto 0;
-        max-width: 240px;
+        justify-content: center; /* Center social media icons */
+    }
+
+    /* Certifications Grid adjustments for mobile */
+    .certifications-grid {
+        grid-template-columns: 1fr; /* Stack certification cards vertically */
+        gap: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
+    .hero-title {
+        font-size: 2.2rem;
     }
 
-    .hero-title {
-        font-size: 2rem;
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 
     .section-title {
@@ -1638,69 +1651,34 @@ body {
         padding: 1.5rem;
     }
 
-    .metric-number {
-        font-size: 2rem;
-    }
-
-    .metrics-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .modal-content {
-        margin: 10% auto;
-        padding: 1.5rem;
-        width: 95%;
-    }
-
-    /* Education Grid Extra Small Screens */
-    .education-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 1rem 0;
-    }
-
     .education-tile {
+        padding: 1rem;
+    }
+
+    .project-content {
+        padding: 1rem;
+    }
+
+    .metric-card {
         padding: 1.5rem 1rem;
-        gap: 1rem;
     }
 
-    .logo-placeholder {
-        width: 60px;
-        height: 60px;
+    .metric-number {
+        font-size: 2.5rem;
     }
+}
 
-    .education-details h3 {
-        font-size: 1.1rem;
-    }
-
-    .education-details h4 {
-        font-size: 0.85rem;
-    }
-
-    .education-highlights p {
-        font-size: 0.8rem;
-    }
-    
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .certifications-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .social-links {
-        gap: 0.8rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .social-links a {
-        width: 44px;
-        height: 44px;
-        font-size: 1.1rem;
+/* Print Styles */
+@media print {
+    .sr-only {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
     }
 }
 
@@ -1738,25 +1716,6 @@ textarea:focus,
 button:focus {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
-}
-
-/* Screen Reader Only Content */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-}
-
-/* Smooth Scrolling Enhancement */
-@media (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
-    }
 }
 
 /* High Contrast Mode Support */

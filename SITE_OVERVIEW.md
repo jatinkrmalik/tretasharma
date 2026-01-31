@@ -161,7 +161,7 @@ Type: CNAME, Name: www, Value: USERNAME.github.io
 - **Email**: tretasharma@gmail.com
 - **Phone**: +1 (773) 739-7326
 - **LinkedIn**: linkedin.com/in/tretasharma
-- **Location**: Chicago, IL, USA
+- **Location**: Mountain View, CA, USA
 - **Work Authorization**: Authorized to work in the US (no sponsorship required)
 
 ## 🔄 Maintenance Schedule

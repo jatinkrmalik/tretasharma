@@ -1013,10 +1013,12 @@ body {
     width: 30px;
 }
 
-.contact-details h4 {
+.contact-details h3 {
     color: var(--primary-color);
     margin-bottom: 0.5rem;
     font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .contact-details a {

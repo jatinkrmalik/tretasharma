@@ -183,7 +183,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Email: tretasharma@gmail.com
 - Phone: +1 (773) 739-7326
 - LinkedIn: [tretasharma](https://linkedin.com/in/tretasharma)
-- Location: Chicago, IL, USA
+- Location: Mountain View, CA, USA
 
 *Authorized to work in the US. No sponsorship required.*
 

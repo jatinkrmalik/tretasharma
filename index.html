@@ -7,7 +7,10 @@ layout: default
   <div class="container">
     <div class="hero-content">
       <div class="hero-image">
-        <img src="/assets/images/profile-photo.png" alt="Treta Sharma" class="profile-img">
+        <picture>
+          <source srcset="/assets/images/profile-photo.webp" type="image/webp">
+          <img src="/assets/images/profile-photo.jpg" alt="Treta Sharma" class="profile-img" width="250" height="250" loading="eager" fetchpriority="high">
+        </picture>
       </div>
       <div class="hero-text">
         <h1 class="hero-title">Treta Sharma</h1>
@@ -183,7 +186,10 @@ layout: default
       <!-- Northwestern University - Masters -->
       <div class="education-tile">
         <div class="university-logo">
-          <img src="/assets/images/northwestern-logo.png" alt="Northwestern University" class="logo-placeholder">
+          <picture>
+            <source srcset="/assets/images/northwestern-logo.webp" type="image/webp">
+            <img src="/assets/images/northwestern-logo.png" alt="Northwestern University" class="logo-placeholder" width="90" height="90" loading="lazy">
+          </picture>
         </div>
         <div class="education-details">
           <h3>Master of Science</h3>
@@ -202,7 +208,10 @@ layout: default
       <!-- Masters/Post-Graduate Diploma -->
       <div class="education-tile">
         <div class="university-logo">
-          <img src="/assets/images/indian-university-logo.png" alt="Indian University" class="logo-placeholder">
+          <picture>
+            <source srcset="/assets/images/indian-university-logo.webp" type="image/webp">
+            <img src="/assets/images/indian-university-logo.png" alt="Indian University" class="logo-placeholder" width="90" height="90" loading="lazy">
+          </picture>
         </div>
         <div class="education-details">
           <h3>Bachelor of Education</h3>
@@ -221,7 +230,10 @@ layout: default
       <!-- PG Diploma in Mass Communication -->
       <div class="education-tile">
         <div class="university-logo">
-          <img src="/assets/images/bhartiya-vidya-logo.png" alt="Bhartiya Vidya Bhavan" class="logo-placeholder">
+          <picture>
+            <source srcset="/assets/images/bhartiya-vidya-logo.webp" type="image/webp">
+            <img src="/assets/images/bhartiya-vidya-logo.png" alt="Bhartiya Vidya Bhavan" class="logo-placeholder" width="90" height="90" loading="lazy">
+          </picture>
         </div>
         <div class="education-details">
           <h3>PG Diploma in Mass Communication</h3>
@@ -240,7 +252,10 @@ layout: default
       <!-- Bachelor's Degree -->
       <div class="education-tile">
         <div class="university-logo">
-          <img src="/assets/images/university-placeholder.png" alt="Indian University" class="logo-placeholder">
+          <picture>
+            <source srcset="/assets/images/university-placeholder.webp" type="image/webp">
+            <img src="/assets/images/university-placeholder.png" alt="Indian University" class="logo-placeholder" width="90" height="90" loading="lazy">
+          </picture>
         </div>
         <div class="education-details">
           <h3>Bachelor of Commerce</h3>
@@ -267,7 +282,7 @@ layout: default
     <div class="projects-grid">
       <div class="project-card" onclick="openProjectModal('ai-website')">
         <div class="project-image">
-          <img src="/assets/images/project-ai-website.jpg" alt="AI-Integrated Website" class="project-img">
+          <img src="/assets/images/project-ai-website.jpg" alt="AI-Integrated Website" class="project-img" loading="lazy" decoding="async">
           <span class="project-status ongoing">Ongoing</span>
         </div>
         <div class="project-content">
@@ -279,7 +294,7 @@ layout: default
 
       <div class="project-card" onclick="openProjectModal('innovation')">
         <div class="project-image">
-          <img src="/assets/images/project-innovation.jpg" alt="Innovation Project" class="project-img">
+          <img src="/assets/images/project-innovation.jpg" alt="Innovation Project" class="project-img" loading="lazy" decoding="async">
           <span class="project-status completed">Completed</span>
         </div>
         <div class="project-content">
@@ -290,7 +305,7 @@ layout: default
 
       <div class="project-card" onclick="openProjectModal('socioeconomic')">
         <div class="project-image">
-          <img src="/assets/images/project-socioeconomic.jpg" alt="Socio-Economic Research" class="project-img">
+          <img src="/assets/images/project-socioeconomic.jpg" alt="Socio-Economic Research" class="project-img" loading="lazy" decoding="async">
           <span class="project-status completed">Completed</span>
         </div>
         <div class="project-content">
@@ -302,7 +317,7 @@ layout: default
 
       <div class="project-card" onclick="openProjectModal('design-research')">
         <div class="project-image">
-          <img src="/assets/images/project-design-research.jpg" alt="Design-based Research" class="project-img">
+          <img src="/assets/images/project-design-research.jpg" alt="Design-based Research" class="project-img" loading="lazy" decoding="async">
           <span class="project-status ongoing">Ongoing</span>
         </div>
         <div class="project-content">
@@ -314,7 +329,7 @@ layout: default
 
       <div class="project-card" onclick="openProjectModal('energy-city')">
         <div class="project-image">
-          <img src="/assets/images/project-energy-city.jpg" alt="Energy City Board Game" class="project-img">
+          <img src="/assets/images/project-energy-city.jpg" alt="Energy City Board Game" class="project-img" loading="lazy" decoding="async">
           <span class="project-status completed">Completed</span>
         </div>
         <div class="project-content">
@@ -326,7 +341,7 @@ layout: default
 
       <div class="project-card" onclick="openProjectModal('ai-literacy')">
         <div class="project-image">
-          <img src="/assets/images/project-ai-literacy.jpg" alt="AI Literacy Workshop" class="project-img">
+          <img src="/assets/images/project-ai-literacy.jpg" alt="AI Literacy Workshop" class="project-img" loading="lazy" decoding="async">
           <span class="project-status completed">Completed</span>
         </div>
         <div class="project-content">
@@ -491,7 +506,7 @@ layout: default
         <div class="contact-item">
           <i class="fas fa-envelope"></i>
           <div class="contact-details">
-            <h4>Email</h4>
+            <h3>Email</h3>
             <a href="mailto:tretasharma@gmail.com">tretasharma@gmail.com</a>
           </div>
         </div>
@@ -499,7 +514,7 @@ layout: default
         <div class="contact-item">
           <i class="fas fa-phone"></i>
           <div class="contact-details">
-            <h4>Phone</h4>
+            <h3>Phone</h3>
             <a href="tel:+17737397326">+1 (773) 739-7326</a>
           </div>
         </div>
@@ -507,7 +522,7 @@ layout: default
         <div class="contact-item">
           <i class="fab fa-linkedin"></i>
           <div class="contact-details">
-            <h4>LinkedIn</h4>
+            <h3>LinkedIn</h3>
             <a href="https://linkedin.com/in/tretasharma" target="_blank">tretasharma</a>
           </div>
         </div>
@@ -515,7 +530,7 @@ layout: default
         <div class="contact-item">
           <i class="fas fa-map-marker-alt"></i>
           <div class="contact-details">
-            <h4>Location</h4>
+            <h3>Location</h3>
             <span>Chicago, IL, USA</span>
           </div>
         </div>

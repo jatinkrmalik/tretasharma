@@ -92,7 +92,7 @@ tretasharma/
 │   │   └── main.js          # Interactive JavaScript
 │   ├── images/              # Image assets and placeholders
 │   └── files/
-│       └── treta-sharma-resume.pdf
+│       └── Treta-Sharma-Learning-Design-Resume.pdf
 ├── .github/workflows/
 │   └── jekyll.yml           # GitHub Actions deployment
 ├── index.html               # Main homepage

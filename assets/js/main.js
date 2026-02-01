@@ -13,10 +13,17 @@ const initTheme = () => {
     // Check for saved theme preference or default to light mode
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
-    
+
     // Update toggle button state
     if (themeToggle) {
         updateToggleState(savedTheme);
+    }
+};
+
+// Skip loading screen for performance
+const skipLoadingScreen = () => {
+    if (loadingScreen) {
+        loadingScreen.style.display = 'none';
     }
 };
 
@@ -64,23 +71,16 @@ const updateNavbarBackground = () => {
 
 // Navigation functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Skip loading screen immediately for performance
+    skipLoadingScreen();
+
     // Initialize theme
     initTheme();
-    
+
     // Theme toggle event listener
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleTheme);
     }
-    
-    // Hide loading screen
-    setTimeout(() => {
-        if (loadingScreen) {
-            loadingScreen.style.opacity = '0';
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 500);
-        }
-    }, 1000);
 
     // Mobile navigation toggle
     if (navToggle && navMenu) {

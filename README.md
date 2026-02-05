@@ -181,7 +181,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Treta Sharma**
 - Email: tretasharma@gmail.com
-- Phone: +1 (773) 739-7326
 - LinkedIn: [tretasharma](https://linkedin.com/in/tretasharma)
 - Location: Mountain View, CA, USA
 

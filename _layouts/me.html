@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="keywords" content="learning sciences, educational technology, curriculum design, teacher training, instructional design, Treta Sharma">
+    <meta name="author" content="{{ site.author.name }}">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:image" content="{{ site.url }}/assets/images/og-image.jpg">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.title }}">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="twitter:image" content="{{ site.url }}/assets/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Fonts - Preload for performance with font-display swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Preload LCP image -->
+    <link rel="preload" href="/assets/images/profile-photo.webp" as="image" type="image/webp">
+
+    <!-- Inline critical CSS to reduce CLS and FOUC -->
+    <style>
+        :root{--primary-color:#1e3a8a;--primary-rgb:30,58,138;--text-primary:#1f2937;--nav-background:rgba(255,255,255,.95)}.navbar{position:fixed;top:0;width:100%;background:var(--nav-background);z-index:1000}.nav-container{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;height:70px}.hero-content{display:grid;grid-template-columns:300px 1fr;gap:4rem;align-items:center;min-height:calc(100vh - 70px);padding-top:70px}.profile-img{width:250px;height:250px;border-radius:50%;object-fit:cover}.hero-title{font-family:Georgia,serif;font-size:3.5rem;color:var(--primary-color);margin-bottom:1rem;line-height:1.2}.hero-subtitle{font-size:1.5rem;margin-bottom:1rem;font-weight:300}.hero-buttons{display:flex;gap:1rem;margin-bottom:2rem}.btn{display:inline-flex;align-items:center;gap:.5rem;padding:12px 24px;border:none;border-radius:8px;text-decoration:none;font-weight:600;font-size:1rem;cursor:pointer}.btn-primary{background:var(--primary-color);color:#fff}.section-title{font-family:Georgia,serif;font-size:2.5rem;color:var(--primary-color);text-align:center;margin-bottom:3rem}.container{max-width:1200px;margin:0 auto;padding:0 20px}.section{padding:80px 0}
+        /* Reserve space for rotating text to prevent CLS */
+        .rotating-text{display:inline-block;position:relative;min-width:200px;height:1.2em;vertical-align:top}
+        /* Reserve space for buttons to prevent CLS */
+        .btn{min-width:160px;min-height:48px}
+        /* Prevent layout shift from icon loading */
+        .fas,.fab{display:inline-block;width:1em;text-align:center}
+    </style>
+
+    <!-- Font Awesome - Deferred -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <!-- Stylesheets - Deferred for non-blocking render -->
+    <link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "{{ site.author.name }}",
+      "jobTitle": "Learning Sciences & Educational Technology Specialist",
+      "description": "{{ site.description }}",
+      "url": "{{ site.url }}",
+      "email": "{{ site.author.email }}",
+      "telephone": "{{ site.author.phone }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mountain View",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://linkedin.com/in/{{ site.author.linkedin }}"
+      ],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Northwestern University"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3LFMNSB0GR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3LFMNSB0GR');
+    </script>
+</head>
+<body>
+   
+    <!-- Loading Screen - Disabled for performance -->
+    <!--
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+    -->
+
+    <!-- Minimal Navigation for /me page -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="/">Treta Sharma</a>
+            </div>
+            
+            <!-- Dark Mode Toggle -->
+            <div class="theme-toggle-wrapper">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <div class="toggle-track">
+                        <div class="toggle-thumb">
+                            <i class="fas fa-sun sun-icon"></i>
+                            <i class="fas fa-moon moon-icon"></i>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        {{ content }}
+    </main>
+
+    <!-- JavaScript - Deferred -->
+    <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

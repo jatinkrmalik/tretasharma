@@ -1750,11 +1750,20 @@ button:focus {
     animation: fadeInUp 0.6s ease;
 }
 
+.linktree-main {
+    padding: 0;
+}
+
 .profile-header {
     text-align: center;
     padding: 40px 30px 30px;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
     color: white;
+    display: block;
+}
+
+.profile-info {
+    margin-top: 1rem;
 }
 
 .linktree-avatar {
@@ -1778,6 +1787,15 @@ button:focus {
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.9);
     font-weight: 300;
+}
+
+.desktop-bio {
+    display: none;
+    padding: 20px 30px;
+    text-align: center;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .linktree-links {
@@ -1825,6 +1843,10 @@ button:focus {
     color: var(--text-secondary);
 }
 
+.linktree-sidebar {
+    display: none;
+}
+
 .qr-section {
     text-align: center;
     padding: 20px 30px 40px;
@@ -1849,6 +1871,154 @@ button:focus {
     color: var(--text-secondary);
     font-size: 0.85rem;
     margin: 0;
+}
+
+/* Desktop/Landscape Styles */
+@media (min-width: 992px) {
+    .linktree-card {
+        max-width: 1000px;
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 0;
+    }
+
+    .linktree-main {
+        border-right: 1px solid var(--border-color);
+    }
+
+    .profile-header {
+        text-align: left;
+        padding: 40px 40px 20px;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .profile-info {
+        margin-top: 0;
+        text-align: left;
+    }
+
+    .linktree-avatar {
+        margin-bottom: 0;
+        width: 140px;
+        height: 140px;
+    }
+
+    .linktree-name {
+        font-size: 2.2rem;
+    }
+
+    .linktree-title {
+        font-size: 1.1rem;
+    }
+
+    .desktop-bio {
+        display: block;
+        padding: 0 40px 30px;
+    }
+
+    .linktree-links {
+        padding: 20px 40px 40px;
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+    }
+
+    .linktree-sidebar {
+        display: block;
+        padding: 40px 30px;
+        background: var(--background-gray);
+    }
+
+    .sidebar-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .sidebar-section:last-child {
+        margin-bottom: 0;
+    }
+
+    .sidebar-section h3 {
+        font-family: var(--font-serif);
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        margin-bottom: 0.8rem;
+    }
+
+    .sidebar-section p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    .expertise-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .expertise-list li {
+        padding: 0.6rem 0;
+        color: var(--text-primary);
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    .expertise-list li::before {
+        content: '•';
+        color: var(--primary-color);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+    }
+
+    .impact-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-number {
+        font-family: var(--font-serif);
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+
+    .stat-label {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-top: 0.3rem;
+    }
+
+    .sidebar-section i {
+        color: var(--primary-color);
+        margin-right: 0.5rem;
+    }
+
+    .work-status {
+        font-size: 0.85rem;
+        color: var(--accent-color);
+        font-weight: 500;
+        margin-top: 0.5rem;
+    }
+
+    .qr-section {
+        border: none;
+        padding: 30px 0 0;
+        background: transparent;
+        text-align: center;
+    }
+
+    .qr-text {
+        margin-top: 0.8rem;
+    }
 }
 
 /* Responsive Linktree */
@@ -1886,6 +2056,13 @@ button:focus {
     .linktree-link {
         padding: 0.9rem 1.2rem;
         font-size: 0.95rem;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 481px) and (max-width: 991px) {
+    .linktree-card {
+        max-width: 500px;
     }
 }
 

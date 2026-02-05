@@ -1765,62 +1765,20 @@ button:focus {
     align-items: center;
 }
 
-.avatar-flip-container {
-    perspective: 1200px;
+.linktree-avatar {
     width: 150px;
     height: 150px;
-    cursor: pointer;
-    margin-bottom: 1.5rem;
-}
-
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-style: preserve-3d;
-}
-
-.avatar-flip-container.flipped .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
     border-radius: 50%;
-    overflow: hidden;
+    object-fit: cover;
+    border: 5px solid white;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.flip-card-front {
-    background: transparent;
-}
-
-.flip-card-back {
-    background: #ffffff;
-    transform: rotateY(180deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-}
-
-.qr-embedded {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.qr-embedded img {
-    width: 130px !important;
-    height: 130px !important;
-    border-radius: 0;
+.linktree-avatar:hover {
+    transform: scale(1.05);
 }
 
 .profile-info {
@@ -1934,6 +1892,127 @@ button:focus {
     margin: 0;
 }
 
+/* QR Modal Styles */
+.qr-modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.qr-modal.active {
+    display: flex;
+}
+
+.qr-modal-content {
+    background: var(--card-background);
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    max-width: 90%;
+    width: 400px;
+    animation: scaleIn 0.3s ease;
+}
+
+.qr-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.qr-modal-header h3 {
+    font-family: var(--font-serif);
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.qr-modal-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.qr-modal-close:hover {
+    background: var(--background-gray);
+    color: var(--primary-color);
+}
+
+.qr-modal-body {
+    padding: 30px 25px;
+    text-align: center;
+}
+
+.qr-code-large {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.qr-code-large img {
+    border: none;
+    box-shadow: none;
+    border-radius: 4px;
+}
+
+.qr-modal-text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 10px;
+}
+
+.qr-url {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 /* Desktop/Landscape Styles */
 @media (min-width: 900px) {
     .linktree-card {
@@ -1957,29 +2036,15 @@ button:focus {
         background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
     }
 
-    .avatar-flip-container {
+    .linktree-avatar {
         margin-bottom: 0;
+        width: 160px;
+        height: 160px;
         cursor: default;
     }
 
-    .flip-card-inner {
-        transition: none;
-    }
-
-    .flip-card-back {
-        display: none;
-    }
-
-    .profile-info {
-        margin-top: 0;
-        text-align: left;
-        flex: 1;
-    }
-
-    .linktree-avatar {
-        margin-bottom: 0;
-        width: 140px;
-        height: 140px;
+    .linktree-avatar:hover {
+        transform: none;
     }
 
     .linktree-name {
@@ -2163,8 +2228,9 @@ button:focus {
     }
 
     .linktree-avatar {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
+        border-width: 4px;
     }
 
     .linktree-name {
@@ -2201,4 +2267,17 @@ button:focus {
 
 [data-theme="dark"] .linktree-link:hover {
     background: rgba(30, 58, 138, 0.1);
+}
+
+/* Dark mode modal adjustments */
+[data-theme="dark"] .qr-modal-content {
+    background: var(--card-background);
+}
+
+[data-theme="dark"] .qr-modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .qr-code-large {
+    background: #ffffff;
 }

@@ -9,16 +9,7 @@ permalink: /me/
     <div class="linktree-card">
         <div class="linktree-main">
             <div class="profile-header">
-                <div class="avatar-flip-container" id="avatar-flip">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="/assets/images/profile-photo.webp" alt="Treta Sharma" class="linktree-avatar" width="120" height="120">
-                        </div>
-                        <div class="flip-card-back">
-                            <div class="qr-embedded" id="qrcode-embedded"></div>
-                        </div>
-                    </div>
-                </div>
+                <img src="/assets/images/profile-photo.webp" alt="Treta Sharma" class="linktree-avatar" width="150" height="150" id="profile-avatar">
                 <div class="profile-info">
                     <h1 class="linktree-name">Treta Sharma</h1>
                     <p class="linktree-title">Learning Sciences & Educational Technology Specialist</p>
@@ -123,40 +114,83 @@ permalink: /me/
     </div>
 </div>
 
+<div id="qr-modal" class="qr-modal">
+    <div class="qr-modal-content">
+        <div class="qr-modal-header">
+            <h3>Scan to Connect</h3>
+            <button class="qr-modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="qr-modal-body">
+            <div id="qrcode-modal" class="qr-code-large"></div>
+            <p class="qr-modal-text">Scan this QR code with your phone camera to save my contact information</p>
+            <p class="qr-url">tretasharma.com/me</p>
+        </div>
+    </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         if (typeof QRCode !== 'undefined') {
             const qrContainer = document.getElementById('qrcode');
-            const qrEmbedded = document.getElementById('qrcode-embedded');
+            const qrModalContainer = document.getElementById('qrcode-modal');
 
             if (qrContainer) {
                 new QRCode(qrContainer, {
                     text: 'https://tretasharma.com/me/',
                     width: 150,
                     height: 150,
-                    colorDark: '#1e3a8a',
+                    colorDark: '#000000',
                     colorLight: '#ffffff',
                     correctLevel: QRCode.CorrectLevel.H
                 });
             }
 
-            if (qrEmbedded) {
-                new QRCode(qrEmbedded, {
+            if (qrModalContainer) {
+                new QRCode(qrModalContainer, {
                     text: 'https://tretasharma.com/me/',
-                    width: 130,
-                    height: 130,
-                    colorDark: '#1e3a8a',
+                    width: 250,
+                    height: 250,
+                    colorDark: '#000000',
                     colorLight: '#ffffff',
                     correctLevel: QRCode.CorrectLevel.H
                 });
             }
 
-            const flipContainer = document.getElementById('avatar-flip');
-            if (flipContainer) {
-                flipContainer.addEventListener('click', function() {
-                    this.classList.toggle('flipped');
+            const profileAvatar = document.getElementById('profile-avatar');
+            const qrModal = document.getElementById('qr-modal');
+            const modalCloseBtn = document.querySelector('.qr-modal-close');
+
+            if (profileAvatar && qrModal) {
+                profileAvatar.addEventListener('click', function() {
+                    qrModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
                 });
+            }
+
+            if (qrModal) {
+                qrModal.addEventListener('click', function(e) {
+                    if (e.target === qrModal) {
+                        closeModal();
+                    }
+                });
+            }
+
+            if (modalCloseBtn) {
+                modalCloseBtn.addEventListener('click', closeModal);
+            }
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && qrModal) {
+                    closeModal();
+                }
+            });
+
+            function closeModal() {
+                qrModal.classList.remove('active');
+                document.body.style.overflow = '';
             }
         }
     });

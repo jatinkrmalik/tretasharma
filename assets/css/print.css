@@ -422,7 +422,7 @@
 
     /* Add contact info to print version */
     .hero-section::after {
-        content: "Email: tretasharma@gmail.com | Phone: +1 (773) 739-7326 | LinkedIn: tretasharma | Mountain View, CA, USA";
+        content: "Email: tretasharma@gmail.com | LinkedIn: tretasharma | Mountain View, CA, USA";
         display: block;
         text-align: center;
         font-size: 10pt;

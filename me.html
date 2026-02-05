@@ -1,0 +1,82 @@
+---
+layout: default
+title: Connect with Treta
+description: Get in touch with Treta Sharma - all social links, email, phone, and contact information in one place
+permalink: /me/
+---
+
+<div class="linktree-container">
+    <div class="linktree-card">
+        <div class="profile-header">
+            <img src="/assets/images/profile-photo.webp" alt="Treta Sharma" class="linktree-avatar" width="120" height="120">
+            <h1 class="linktree-name">Treta Sharma</h1>
+            <p class="linktree-title">Learning Sciences & Educational Technology Specialist</p>
+        </div>
+
+        <div class="linktree-links">
+            <a href="https://linkedin.com/in/tretasharma" target="_blank" rel="noopener" class="linktree-link">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+                <i class="fas fa-external-link-alt linktree-icon-right"></i>
+            </a>
+
+            <a href="mailto:tretasharma@gmail.com" class="linktree-link">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+                <i class="fas fa-external-link-alt linktree-icon-right"></i>
+            </a>
+
+            <a href="tel:+17737397326" class="linktree-link">
+                <i class="fas fa-phone"></i>
+                <span>Phone</span>
+                <i class="fas fa-external-link-alt linktree-icon-right"></i>
+            </a>
+
+            <a href="https://medium.com/@tretasharma" target="_blank" rel="noopener" class="linktree-link">
+                <i class="fab fa-medium"></i>
+                <span>Medium Blog</span>
+                <i class="fas fa-external-link-alt linktree-icon-right"></i>
+            </a>
+
+            <a href="https://x.com/sharmatreta" target="_blank" rel="noopener" class="linktree-link">
+                <i class="fab fa-twitter"></i>
+                <span>Twitter / X</span>
+                <i class="fas fa-external-link-alt linktree-icon-right"></i>
+            </a>
+
+            <a href="/assets/files/Treta-Sharma-Learning-Design-Resume.pdf" target="_blank" class="linktree-link">
+                <i class="fas fa-file-pdf"></i>
+                <span>Download Resume</span>
+                <i class="fas fa-download linktree-icon-right"></i>
+            </a>
+
+            <a href="/" class="linktree-link">
+                <i class="fas fa-globe"></i>
+                <span>Full Portfolio Website</span>
+                <i class="fas fa-external-link-alt linktree-icon-right"></i>
+            </a>
+        </div>
+
+        <div class="qr-section">
+            <div id="qrcode" class="qr-code"></div>
+            <p class="qr-text">Scan to save my contact info</p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const qrContainer = document.getElementById('qrcode');
+        if (qrContainer && typeof QRCode !== 'undefined') {
+            new QRCode(qrContainer, {
+                text: 'https://tretasharma.com/me/',
+                width: 150,
+                height: 150,
+                colorDark: '#1e3a8a',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+    });
+</script>

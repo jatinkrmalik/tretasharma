@@ -1,0 +1,191 @@
+---
+layout: default
+title: Connect with Treta
+description: Get in touch with Treta Sharma - all social links, email, phone, and contact information in one place
+permalink: /me/
+---
+
+<div class="linktree-container">
+    <div class="linktree-card">
+        <div class="linktree-main">
+            <div class="profile-header">
+                <img src="/assets/images/profile-photo.webp" alt="Treta Sharma" class="linktree-avatar" width="150" height="150" id="profile-avatar">
+                <div class="profile-info">
+                    <h1 class="linktree-name">Treta Sharma</h1>
+                    <p class="linktree-title">Learning Sciences & Educational Technology Specialist</p>
+                </div>
+            </div>
+
+            <div class="desktop-bio">
+                <p>Learning and instructional specialist with 8 years of experience. Passionate about creating, empowering, and transforming learning environments through technology, training, and curriculum development.</p>
+            </div>
+
+            <div class="linktree-links">
+                <a href="https://linkedin.com/in/tretasharma" target="_blank" rel="noopener" class="linktree-link">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                    <i class="fas fa-external-link-alt linktree-icon-right"></i>
+                </a>
+
+                <a href="mailto:tretasharma@gmail.com" class="linktree-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                    <i class="fas fa-external-link-alt linktree-icon-right"></i>
+                </a>
+
+                <a href="tel:+17737397326" class="linktree-link">
+                    <i class="fas fa-phone"></i>
+                    <span>Phone</span>
+                    <i class="fas fa-external-link-alt linktree-icon-right"></i>
+                </a>
+
+                <a href="https://medium.com/@tretasharma" target="_blank" rel="noopener" class="linktree-link">
+                    <i class="fab fa-medium"></i>
+                    <span>Medium Blog</span>
+                    <i class="fas fa-external-link-alt linktree-icon-right"></i>
+                </a>
+
+                <a href="https://x.com/sharmatreta" target="_blank" rel="noopener" class="linktree-link">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter / X</span>
+                    <i class="fas fa-external-link-alt linktree-icon-right"></i>
+                </a>
+
+                <a href="/assets/files/Treta-Sharma-Learning-Design-Resume.pdf" target="_blank" class="linktree-link">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Download Resume</span>
+                    <i class="fas fa-download linktree-icon-right"></i>
+                </a>
+
+                <a href="/" class="linktree-link">
+                    <i class="fas fa-globe"></i>
+                    <span>Full Portfolio Website</span>
+                    <i class="fas fa-external-link-alt linktree-icon-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="linktree-sidebar">
+            <div class="sidebar-section">
+                <h3>Current Focus</h3>
+                <p>MS in Learning Sciences & Educational Technology at Northwestern University</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Expertise</h3>
+                <ul class="expertise-list">
+                    <li>Educational Technology</li>
+                    <li>Curriculum Design</li>
+                    <li>Learning Analytics</li>
+                    <li>AI in Education</li>
+                    <li>Teacher Training</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Impact</h3>
+                <div class="impact-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">1.2M+</span>
+                        <span class="stat-label">Learners</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">8+</span>
+                        <span class="stat-label">Years Exp</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3K+</span>
+                        <span class="stat-label">Institutions</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Location</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Mountain View, CA, USA</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="qr-modal" class="qr-modal">
+    <div class="qr-modal-content">
+        <div class="qr-modal-header">
+            <h3>Scan to Connect</h3>
+            <button class="qr-modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="qr-modal-body">
+            <div id="qrcode-modal" class="qr-code-large"></div>
+            <p class="qr-modal-text">Scan this QR code with your phone camera to save my contact information</p>
+            <p class="qr-url">tretasharma.com/me</p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof QRCode !== 'undefined') {
+            const qrContainer = document.getElementById('qrcode');
+            const qrModalContainer = document.getElementById('qrcode-modal');
+
+            if (qrContainer) {
+                new QRCode(qrContainer, {
+                    text: 'https://tretasharma.com/me/',
+                    width: 150,
+                    height: 150,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+
+            if (qrModalContainer) {
+                new QRCode(qrModalContainer, {
+                    text: 'https://tretasharma.com/me/',
+                    width: 250,
+                    height: 250,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+
+            const profileAvatar = document.getElementById('profile-avatar');
+            const qrModal = document.getElementById('qr-modal');
+            const modalCloseBtn = document.querySelector('.qr-modal-close');
+
+            if (profileAvatar && qrModal) {
+                profileAvatar.addEventListener('click', function() {
+                    qrModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            if (qrModal) {
+                qrModal.addEventListener('click', function(e) {
+                    if (e.target === qrModal) {
+                        closeModal();
+                    }
+                });
+            }
+
+            if (modalCloseBtn) {
+                modalCloseBtn.addEventListener('click', closeModal);
+            }
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && qrModal) {
+                    closeModal();
+                }
+            });
+
+            function closeModal() {
+                qrModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    });
+</script>

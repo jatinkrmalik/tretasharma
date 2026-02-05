@@ -1728,3 +1728,519 @@ button:focus {
         --border-color: #000000;
     }
 }
+
+/* Linktree Page Styles */
+.linktree-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 40px;
+    background: linear-gradient(135deg, var(--background-light) 0%, var(--background-gray) 100%);
+}
+
+.linktree-card {
+    width: 100%;
+    max-width: 400px;
+    background: var(--card-background);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease;
+    display: block;
+}
+
+.linktree-main {
+    padding: 0;
+}
+
+.profile-header {
+    text-align: center;
+    padding: 50px 30px 40px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.linktree-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.linktree-avatar:hover {
+    transform: scale(1.05);
+}
+
+.profile-info {
+    margin-top: 1rem;
+}
+
+.linktree-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+}
+
+.linktree-name {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.linktree-title {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+}
+
+.desktop-bio {
+    display: none;
+    padding: 20px 30px;
+    text-align: center;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.linktree-links {
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.linktree-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--background-light);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.linktree-link:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 20px var(--shadow-light);
+    background: var(--background-gray);
+}
+
+.linktree-link i:first-child {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    width: 24px;
+    text-align: center;
+}
+
+.linktree-link span {
+    flex: 1;
+}
+
+.linktree-icon-right {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.linktree-sidebar {
+    display: none;
+}
+
+.qr-section {
+    text-align: center;
+    padding: 20px 30px 40px;
+    border-top: 1px solid var(--border-color);
+    background: var(--background-gray);
+}
+
+.qr-code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1rem;
+}
+
+.qr-code img {
+    border-radius: 8px;
+    border: 4px solid white;
+    box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+.qr-text {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* QR Modal Styles */
+.qr-modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.qr-modal.active {
+    display: flex;
+}
+
+.qr-modal-content {
+    background: var(--card-background);
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    max-width: 90%;
+    width: 400px;
+    animation: scaleIn 0.3s ease;
+}
+
+.qr-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.qr-modal-header h3 {
+    font-family: var(--font-serif);
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.qr-modal-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.qr-modal-close:hover {
+    background: var(--background-gray);
+    color: var(--primary-color);
+}
+
+.qr-modal-body {
+    padding: 30px 25px;
+    text-align: center;
+}
+
+.qr-code-large {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.qr-code-large img {
+    border: none;
+    box-shadow: none;
+    border-radius: 4px;
+}
+
+.qr-modal-text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 10px;
+}
+
+.qr-url {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Desktop/Landscape Styles */
+@media (min-width: 900px) {
+    .linktree-card {
+        max-width: 1100px !important;
+        display: grid !important;
+        grid-template-columns: 1.3fr 1fr !important;
+        gap: 0 !important;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    }
+
+    .linktree-main {
+        border-right: 1px solid var(--border-color);
+        padding: 0;
+    }
+
+    .profile-header {
+        text-align: left;
+        padding: 50px 50px 30px;
+        flex-direction: row;
+        gap: 2.5rem;
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    }
+
+    .linktree-avatar {
+        margin-bottom: 0;
+        width: 160px;
+        height: 160px;
+        cursor: default;
+    }
+
+    .linktree-avatar:hover {
+        transform: none;
+    }
+
+    .linktree-name {
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+        letter-spacing: -0.5px;
+    }
+
+    .linktree-title {
+        font-size: 1.15rem;
+        font-weight: 400;
+        opacity: 0.95;
+    }
+
+    .desktop-bio {
+        display: block;
+        padding: 35px 50px 45px;
+        margin-top: 0;
+        line-height: 1.9;
+    }
+
+    .desktop-bio p {
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        font-weight: 400;
+    }
+
+    .linktree-links {
+        padding: 30px 50px 50px;
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        gap: 1.2rem;
+    }
+
+    .linktree-sidebar {
+        display: block;
+        padding: 50px 40px 50px 45px;
+        background: var(--background-gray);
+    }
+
+    .sidebar-section {
+        margin-bottom: 3rem;
+    }
+
+    .sidebar-section:last-child {
+        margin-bottom: 0;
+    }
+
+    .sidebar-section h3 {
+        font-family: var(--font-serif);
+        font-size: 1.35rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-weight: 600;
+        letter-spacing: -0.3px;
+    }
+
+    .sidebar-section p {
+        color: var(--text-secondary);
+        line-height: 1.7;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .expertise-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .expertise-list li {
+        padding: 0.8rem 0;
+        color: var(--text-primary);
+        position: relative;
+        padding-left: 1.8rem;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+
+    .expertise-list li::before {
+        content: '✓';
+        color: var(--accent-color);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+    .impact-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem 0.5rem;
+        background: var(--card-background);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: var(--transition-medium);
+    }
+
+    .stat-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .stat-number {
+        font-family: var(--font-serif);
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+    }
+
+    .sidebar-section i {
+        color: var(--accent-color);
+        margin-right: 0.7rem;
+    }
+}
+
+/* Responsive Linktree */
+@media (max-width: 480px) {
+    .linktree-container {
+        padding: 80px 15px 30px;
+    }
+
+    .linktree-card {
+        max-width: 100%;
+    }
+
+    .profile-header {
+        padding: 30px 20px 20px;
+    }
+
+    .linktree-avatar {
+        width: 120px;
+        height: 120px;
+        border-width: 4px;
+    }
+
+    .linktree-name {
+        font-size: 1.5rem;
+    }
+
+    .linktree-title {
+        font-size: 0.85rem;
+    }
+
+    .linktree-links {
+        padding: 20px 15px;
+        gap: 0.75rem;
+    }
+
+    .linktree-link {
+        padding: 0.9rem 1.2rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 481px) and (max-width: 991px) {
+    .linktree-card {
+        max-width: 500px;
+    }
+}
+
+/* Dark mode linktree adjustments */
+[data-theme="dark"] .linktree-link {
+    background: var(--card-background);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .linktree-link:hover {
+    background: rgba(30, 58, 138, 0.1);
+}
+
+/* Dark mode modal adjustments */
+[data-theme="dark"] .qr-modal-content {
+    background: var(--card-background);
+}
+
+[data-theme="dark"] .qr-modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .qr-code-large {
+    background: #ffffff;
+}

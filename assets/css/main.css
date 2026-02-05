@@ -180,6 +180,29 @@ body {
     width: 100%;
 }
 
+.nav-link-highlight {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+}
+
+.nav-link-highlight:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.nav-link-highlight::after {
+    display: none;
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -242,6 +265,45 @@ body {
     text-align: center;
 }
 
+.profile-link {
+    display: inline-block;
+    transition: var(--transition-fast);
+    border-radius: 50%;
+    position: relative;
+}
+
+.profile-link::after {
+    content: '\f015c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: var(--accent-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all var(--transition-medium);
+}
+
+.profile-link:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.profile-link:hover .profile-img {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+}
+
 .profile-img {
     width: 250px;
     height: 250px;
@@ -250,11 +312,7 @@ body {
     border: 4px solid var(--primary-color);
     box-shadow: 0 10px 30px var(--shadow-medium);
     transition: var(--transition-medium);
-}
-
-.profile-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 40px var(--shadow-medium);
+    display: block;
 }
 
 .hero-title {
@@ -1459,6 +1517,15 @@ body {
         width: 0; /* Disable underline hover effect on mobile menu */
     }
 
+    .nav-link-highlight {
+        background: var(--primary-color);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        margin: 1rem 1.5rem;
+        justify-content: center;
+        border-radius: 12px;
+    }
+
     .nav-toggle {
         display: flex;
     }
@@ -1475,6 +1542,14 @@ body {
     .profile-img {
         width: 200px;
         height: 200px;
+    }
+
+    .profile-link::after {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+        bottom: 3px;
+        right: 3px;
     }
 
     .hero-title {
@@ -2243,4 +2318,17 @@ button:focus {
 
 [data-theme="dark"] .qr-code-large {
     background: #ffffff;
+}
+
+[data-theme="dark"] .nav-link-highlight {
+    background: var(--accent-color);
+    color: white;
+}
+
+[data-theme="dark"] .nav-link-highlight:hover {
+    background: #60a5fa;
+}
+
+[data-theme="dark"] .profile-link::after {
+    background: #60a5fa;
 }

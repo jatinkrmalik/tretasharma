@@ -1760,7 +1760,66 @@ button:focus {
     padding: 40px 30px 30px;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
     color: white;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-flip-container {
+    perspective: 1000px;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.avatar-flip-container.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.flip-card-front {
+    background: transparent;
+}
+
+.flip-card-back {
+    background: #1e3a8a;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.qr-embedded {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-embedded img {
+    width: 110px !important;
+    height: 110px !important;
+    border-radius: 8px;
 }
 
 .profile-info {
@@ -1889,15 +1948,28 @@ button:focus {
 
     .profile-header {
         text-align: left;
-        padding: 40px 40px 20px;
-        display: flex;
-        align-items: center;
+        padding: 40px 40px 25px;
+        flex-direction: row;
         gap: 2rem;
+    }
+
+    .avatar-flip-container {
+        margin-bottom: 0;
+        cursor: default;
+    }
+
+    .flip-card-inner {
+        transition: none;
+    }
+
+    .flip-card-back {
+        display: none;
     }
 
     .profile-info {
         margin-top: 0;
         text-align: left;
+        flex: 1;
     }
 
     .linktree-avatar {
@@ -1908,6 +1980,7 @@ button:focus {
 
     .linktree-name {
         font-size: 2.2rem;
+        margin-bottom: 0.6rem;
     }
 
     .linktree-title {
@@ -1916,7 +1989,15 @@ button:focus {
 
     .desktop-bio {
         display: block;
-        padding: 0 40px 30px;
+        padding: 0 40px 40px;
+        margin-top: 0;
+        line-height: 1.8;
+    }
+
+    .desktop-bio p {
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 1rem;
     }
 
     .linktree-links {

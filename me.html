@@ -9,7 +9,16 @@ permalink: /me/
     <div class="linktree-card">
         <div class="linktree-main">
             <div class="profile-header">
-                <img src="/assets/images/profile-photo.webp" alt="Treta Sharma" class="linktree-avatar" width="120" height="120">
+                <div class="avatar-flip-container" id="avatar-flip">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="/assets/images/profile-photo.webp" alt="Treta Sharma" class="linktree-avatar" width="120" height="120">
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="qr-embedded" id="qrcode-embedded"></div>
+                        </div>
+                    </div>
+                </div>
                 <div class="profile-info">
                     <h1 class="linktree-name">Treta Sharma</h1>
                     <p class="linktree-title">Learning Sciences & Educational Technology Specialist</p>
@@ -117,16 +126,38 @@ permalink: /me/
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const qrContainer = document.getElementById('qrcode');
-        if (qrContainer && typeof QRCode !== 'undefined') {
-            new QRCode(qrContainer, {
-                text: 'https://tretasharma.com/me/',
-                width: 150,
-                height: 150,
-                colorDark: '#1e3a8a',
-                colorLight: '#ffffff',
-                correctLevel: QRCode.CorrectLevel.H
-            });
+        if (typeof QRCode !== 'undefined') {
+            const qrContainer = document.getElementById('qrcode');
+            const qrEmbedded = document.getElementById('qrcode-embedded');
+
+            if (qrContainer) {
+                new QRCode(qrContainer, {
+                    text: 'https://tretasharma.com/me/',
+                    width: 150,
+                    height: 150,
+                    colorDark: '#1e3a8a',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+
+            if (qrEmbedded) {
+                new QRCode(qrEmbedded, {
+                    text: 'https://tretasharma.com/me/',
+                    width: 120,
+                    height: 120,
+                    colorDark: '#ffffff',
+                    colorLight: '#1e3a8a',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+
+            const flipContainer = document.getElementById('avatar-flip');
+            if (flipContainer) {
+                flipContainer.addEventListener('click', function() {
+                    this.classList.toggle('flipped');
+                });
+            }
         }
     });
 </script>

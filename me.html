@@ -130,20 +130,3 @@ permalink: /me/
         }
     });
 </script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const qrContainer = document.getElementById('qrcode');
-        if (qrContainer && typeof QRCode !== 'undefined') {
-            new QRCode(qrContainer, {
-                text: 'https://tretasharma.com/me/',
-                width: 150,
-                height: 150,
-                colorDark: '#1e3a8a',
-                colorLight: '#ffffff',
-                correctLevel: QRCode.CorrectLevel.H
-            });
-        }
-    });
-</script>

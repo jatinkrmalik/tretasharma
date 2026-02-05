@@ -1748,6 +1748,7 @@ button:focus {
     border: 1px solid var(--border-color);
     overflow: hidden;
     animation: fadeInUp 0.6s ease;
+    display: block;
 }
 
 .linktree-main {
@@ -1874,12 +1875,12 @@ button:focus {
 }
 
 /* Desktop/Landscape Styles */
-@media (min-width: 992px) {
+@media (min-width: 900px) {
     .linktree-card {
-        max-width: 1000px;
-        display: grid;
-        grid-template-columns: 1fr 350px;
-        gap: 0;
+        max-width: 1000px !important;
+        display: grid !important;
+        grid-template-columns: 1fr 350px !important;
+        gap: 0 !important;
     }
 
     .linktree-main {

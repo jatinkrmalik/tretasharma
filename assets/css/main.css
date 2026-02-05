@@ -2174,43 +2174,6 @@ button:focus {
         color: var(--accent-color);
         margin-right: 0.7rem;
     }
-
-    .work-status {
-        font-size: 0.95rem;
-        color: var(--accent-color);
-        font-weight: 600;
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--border-color);
-    }
-
-    .qr-section {
-        border: none;
-        padding: 35px 0 0;
-        background: transparent;
-        text-align: center;
-    }
-
-    .qr-section .qr-code {
-        background: var(--card-background);
-        padding: 15px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        display: inline-block;
-    }
-
-    .qr-section .qr-code img {
-        border: none;
-        box-shadow: none;
-        border-radius: 4px;
-    }
-
-    .qr-text {
-        margin-top: 1.2rem;
-        font-size: 0.95rem;
-        font-weight: 500;
-        color: var(--text-secondary);
-    }
 }
 
 /* Responsive Linktree */

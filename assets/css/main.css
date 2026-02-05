@@ -180,29 +180,6 @@ body {
     width: 100%;
 }
 
-.nav-link-highlight {
-    background: var(--primary-color);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.95rem;
-    transition: var(--transition-fast);
-}
-
-.nav-link-highlight:hover {
-    background: var(--accent-color);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-}
-
-.nav-link-highlight::after {
-    display: none;
-}
-
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -273,9 +250,9 @@ body {
 }
 
 .profile-link::after {
-    content: '\f015c';
+    content: '\f2bb';
     font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
+    font-weight: 400;
     position: absolute;
     bottom: 5px;
     right: 5px;
@@ -1517,15 +1494,6 @@ body {
         width: 0; /* Disable underline hover effect on mobile menu */
     }
 
-    .nav-link-highlight {
-        background: var(--primary-color);
-        color: white;
-        padding: 0.75rem 1.5rem;
-        margin: 1rem 1.5rem;
-        justify-content: center;
-        border-radius: 12px;
-    }
-
     .nav-toggle {
         display: flex;
     }
@@ -2318,15 +2286,6 @@ button:focus {
 
 [data-theme="dark"] .qr-code-large {
     background: #ffffff;
-}
-
-[data-theme="dark"] .nav-link-highlight {
-    background: var(--accent-color);
-    color: white;
-}
-
-[data-theme="dark"] .nav-link-highlight:hover {
-    background: #60a5fa;
 }
 
 [data-theme="dark"] .profile-link::after {

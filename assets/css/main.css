@@ -1757,7 +1757,7 @@ button:focus {
 
 .profile-header {
     text-align: center;
-    padding: 40px 30px 30px;
+    padding: 50px 30px 40px;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
     color: white;
     display: flex;
@@ -1766,11 +1766,11 @@ button:focus {
 }
 
 .avatar-flip-container {
-    perspective: 1000px;
-    width: 120px;
-    height: 120px;
+    perspective: 1200px;
+    width: 150px;
+    height: 150px;
     cursor: pointer;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .flip-card-inner {
@@ -1778,7 +1778,7 @@ button:focus {
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.6s;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
 }
 
@@ -1795,6 +1795,7 @@ button:focus {
     backface-visibility: hidden;
     border-radius: 50%;
     overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .flip-card-front {
@@ -1802,12 +1803,12 @@ button:focus {
 }
 
 .flip-card-back {
-    background: #1e3a8a;
+    background: #ffffff;
     transform: rotateY(180deg);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
+    padding: 10px;
 }
 
 .qr-embedded {
@@ -1817,9 +1818,9 @@ button:focus {
 }
 
 .qr-embedded img {
-    width: 110px !important;
-    height: 110px !important;
-    border-radius: 8px;
+    width: 130px !important;
+    height: 130px !important;
+    border-radius: 0;
 }
 
 .profile-info {
@@ -1936,21 +1937,24 @@ button:focus {
 /* Desktop/Landscape Styles */
 @media (min-width: 900px) {
     .linktree-card {
-        max-width: 1000px !important;
+        max-width: 1100px !important;
         display: grid !important;
-        grid-template-columns: 1fr 350px !important;
+        grid-template-columns: 1.3fr 1fr !important;
         gap: 0 !important;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
     }
 
     .linktree-main {
         border-right: 1px solid var(--border-color);
+        padding: 0;
     }
 
     .profile-header {
         text-align: left;
-        padding: 40px 40px 25px;
+        padding: 50px 50px 30px;
         flex-direction: row;
-        gap: 2rem;
+        gap: 2.5rem;
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
     }
 
     .avatar-flip-container {
@@ -1979,41 +1983,46 @@ button:focus {
     }
 
     .linktree-name {
-        font-size: 2.2rem;
-        margin-bottom: 0.6rem;
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+        letter-spacing: -0.5px;
     }
 
     .linktree-title {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
+        font-weight: 400;
+        opacity: 0.95;
     }
 
     .desktop-bio {
         display: block;
-        padding: 0 40px 40px;
+        padding: 35px 50px 45px;
         margin-top: 0;
-        line-height: 1.8;
+        line-height: 1.9;
     }
 
     .desktop-bio p {
         margin: 0;
         color: var(--text-secondary);
-        font-size: 1rem;
+        font-size: 1.05rem;
+        font-weight: 400;
     }
 
     .linktree-links {
-        padding: 20px 40px 40px;
+        padding: 30px 50px 50px;
         grid-template-columns: repeat(2, 1fr);
         display: grid;
+        gap: 1.2rem;
     }
 
     .linktree-sidebar {
         display: block;
-        padding: 40px 30px;
+        padding: 50px 40px 50px 45px;
         background: var(--background-gray);
     }
 
     .sidebar-section {
-        margin-bottom: 2.5rem;
+        margin-bottom: 3rem;
     }
 
     .sidebar-section:last-child {
@@ -2022,15 +2031,18 @@ button:focus {
 
     .sidebar-section h3 {
         font-family: var(--font-serif);
-        font-size: 1.2rem;
+        font-size: 1.35rem;
         color: var(--primary-color);
-        margin-bottom: 0.8rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        letter-spacing: -0.3px;
     }
 
     .sidebar-section p {
         color: var(--text-secondary);
-        line-height: 1.6;
-        font-size: 0.95rem;
+        line-height: 1.7;
+        font-size: 1rem;
+        font-weight: 400;
     }
 
     .expertise-list {
@@ -2039,24 +2051,27 @@ button:focus {
     }
 
     .expertise-list li {
-        padding: 0.6rem 0;
+        padding: 0.8rem 0;
         color: var(--text-primary);
         position: relative;
-        padding-left: 1.5rem;
+        padding-left: 1.8rem;
+        font-weight: 500;
+        font-size: 1rem;
     }
 
     .expertise-list li::before {
-        content: '•';
-        color: var(--primary-color);
+        content: '✓';
+        color: var(--accent-color);
         position: absolute;
         left: 0;
         font-weight: bold;
+        font-size: 0.9rem;
     }
 
     .impact-stats {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
+        gap: 1.5rem;
         text-align: center;
     }
 
@@ -2064,42 +2079,72 @@ button:focus {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 1.5rem 0.5rem;
+        background: var(--card-background);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: var(--transition-medium);
+    }
+
+    .stat-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
     }
 
     .stat-number {
         font-family: var(--font-serif);
-        font-size: 1.8rem;
+        font-size: 2.2rem;
         font-weight: 700;
         color: var(--primary-color);
+        margin-bottom: 0.4rem;
     }
 
     .stat-label {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         color: var(--text-secondary);
-        margin-top: 0.3rem;
+        font-weight: 500;
     }
 
     .sidebar-section i {
-        color: var(--primary-color);
-        margin-right: 0.5rem;
+        color: var(--accent-color);
+        margin-right: 0.7rem;
     }
 
     .work-status {
-        font-size: 0.85rem;
+        font-size: 0.95rem;
         color: var(--accent-color);
-        font-weight: 500;
-        margin-top: 0.5rem;
+        font-weight: 600;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
     }
 
     .qr-section {
         border: none;
-        padding: 30px 0 0;
+        padding: 35px 0 0;
         background: transparent;
         text-align: center;
     }
 
+    .qr-section .qr-code {
+        background: var(--card-background);
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        display: inline-block;
+    }
+
+    .qr-section .qr-code img {
+        border: none;
+        box-shadow: none;
+        border-radius: 4px;
+    }
+
     .qr-text {
-        margin-top: 0.8rem;
+        margin-top: 1.2rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text-secondary);
     }
 }
 

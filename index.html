@@ -1,275 +1,186 @@
 ---
 layout: default
+title: Home
 ---
 
 <!-- Hero Section -->
-<section id="hero" class="hero-section">
+<section id="home" class="hero">
   <div class="container">
     <div class="hero-content">
       <div class="hero-image">
-        <a href="/me/" class="profile-link" aria-label="View digital contact card">
-          <picture>
-            <source srcset="/assets/images/profile-photo.webp" type="image/webp">
-            <img src="/assets/images/profile-photo.jpg" alt="Treta Sharma" class="profile-img" width="250" height="250" loading="eager" fetchpriority="high">
-          </picture>
-        </a>
+        <img src="{{ '/assets/images/treta-professional.jpg' | relative_url }}" alt="Treta Sharma - Professional Headshot" class="profile-image">
       </div>
       <div class="hero-text">
-        <h1 class="hero-title">Treta Sharma</h1>
-        <h2 class="hero-subtitle">Learning Sciences & Educational Technology Specialist</h2>
-        <p class="hero-description">8+ Years Experience in Transforming Learning Environments</p>
+        <h1 class="hero-title">
+          <span class="name">Treta Sharma</span>
+          <span class="title-subtitle">Learning Sciences & Educational Technology Specialist</span>
+        </h1>
+        <p class="hero-subtitle">8+ Years Experience in Transforming Learning Environments</p>
+        <div class="expertise-tags">
+          <span class="tag">Curriculum Design</span>
+          <span class="tag">Educational Technology</span>
+          <span class="tag">Teacher Training</span>
+          <span class="tag">Data Analysis</span>
+        </div>
         <div class="hero-buttons">
-          <a href="/assets/files/Treta-Sharma-Learning-Design-Resume.pdf" class="btn btn-primary" target="_blank">
+          <a href="{{ '/assets/files/Treta_Sharma_Resume.pdf' | relative_url }}" class="btn btn-primary" target="_blank">
             <i class="fas fa-download"></i> Download Resume
           </a>
           <a href="#research" class="btn btn-secondary">
             <i class="fas fa-microscope"></i> View Research
           </a>
         </div>
-        <div class="expertise-animation">
-          <span class="animated-text">Expertise in: </span>
-          <span class="rotating-text">
-            <span>Educational Technology</span>
-            <span>Curriculum Design</span>
-            <span>Teacher Training</span>
-            <span>Learning Analytics</span>
-            <span>Instructional Design</span>
-            <span>AI in Education</span>
-            <span>Data Analysis</span>
-            <span>Learning Sciences</span>
-            <span>Assessment Design</span>
-            <span>EdTech Implementation</span>
-            <span>Stakeholder Management</span>
-            <span>Policy Implementation in Classrooms</span>
-          </span>
-        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Professional Summary -->
-<section id="about" class="section summary-section">
+<!-- Professional Summary Section -->
+<section id="about" class="about">
   <div class="container">
-    <h2 class="section-title">Professional Summary</h2>
-    <div class="summary-content">
-      <p class="summary-text">
-        Learning and instructional specialist with 8 years of experience and a passion for creating,
-        empowering, consulting and transforming learning environments through technology, training,
-        instructional design, and curriculum development. Committed to fostering diversity, equity,
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <p class="about-text">
+        Learning and instructional specialist with 8 years of experience and a passion for creating, 
+        empowering, consulting and transforming learning environments through technology, training, 
+        instructional design, and curriculum development. Committed to fostering diversity, equity, 
         and inclusion one lesson at a time!
       </p>
-    </div>
-  </div>
-</section>
-
-<!-- Impact Metrics -->
-<section id="impact" class="section impact-section">
-  <div class="container">
-    <h2 class="section-title">Impact & Achievements</h2>
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <div class="metric-number" data-target="1200000">0</div>
-        <div class="metric-label">Learners Impacted</div>
-        <div class="metric-description">Through data analysis and insights</div>
-      </div>
-
-      <div class="metric-card">
-        <div class="metric-number" data-target="450">0</div>
-        <div class="metric-label">STEM Learners</div>
-        <div class="metric-description">Engaged through art integration</div>
-      </div>
-
-      <div class="metric-card">
-        <div class="metric-number" data-target="100">0</div>
-        <div class="metric-label">Adult Fellows</div>
-        <div class="metric-description">Trained in residential programs</div>
-      </div>
-
-      <div class="metric-card">
-        <div class="metric-number" data-target="20">0</div>
-        <div class="metric-label">Performance Increase</div>
-        <div class="metric-description">Student performance improvement (%)</div>
-      </div>
-
-      <div class="metric-card">
-        <div class="metric-number" data-target="150">0</div>
-        <div class="metric-label">First-Generation</div>
-        <div class="metric-description">Learners directly taught</div>
-      </div>
-
-      <div class="metric-card">
-        <div class="metric-number" data-target="3000">0</div>
-        <div class="metric-label">Institutions</div>
-        <div class="metric-description">Analyzed and supported</div>
+      <div class="impact-metrics">
+        <div class="metric">
+          <span class="metric-number" data-target="1200000">0</span>
+          <span class="metric-label">Learners Impacted</span>
+        </div>
+        <div class="metric">
+          <span class="metric-number" data-target="450">0</span>
+          <span class="metric-label">STEM Learners</span>
+        </div>
+        <div class="metric">
+          <span class="metric-number" data-target="100">0</span>
+          <span class="metric-label">Fellows Trained</span>
+        </div>
+        <div class="metric">
+          <span class="metric-number" data-target="20">0</span>
+          <span class="metric-label">% Performance Increase</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Experience Section -->
-<section id="experience" class="section experience-section">
+<section id="experience" class="experience">
   <div class="container">
     <h2 class="section-title">Professional Experience</h2>
     <div class="timeline">
+      
       <div class="timeline-item">
-        <div class="timeline-marker"></div>
+        <div class="timeline-date">2024-2025</div>
         <div class="timeline-content">
-          <div class="timeline-period">2024-2025</div>
           <h3>Northwestern University</h3>
-          <h4>Master of Science in Education and Social Policy - Learning Sciences and Educational Technology</h4>
-          <p>Currently pursuing advanced studies in learning sciences and educational technology.</p>
+          <h4>Master of Science Student</h4>
+          <p>Education and Social Policy - Learning Sciences and Educational Technology</p>
+          <ul>
+            <li>Advanced coursework in learning sciences and educational technology</li>
+            <li>Research focus on AI-integrated learning environments</li>
+            <li>Design-based research methodology</li>
+          </ul>
         </div>
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-marker"></div>
+        <div class="timeline-date">2022-2023</div>
         <div class="timeline-content">
-          <div class="timeline-period">2022-2023</div>
           <h3>LEAD EdTech - Leadership Boulevard</h3>
           <h4>Curriculum Analyst</h4>
+          <p>Leading educational technology implementation and performance analysis</p>
           <ul>
             <li>Trained administrators and mentors for EdTech implementation</li>
             <li>Analyzed performance data of 1.2M+ learners across 3000+ institutions</li>
             <li>Increased student performance by 20% through training and consultation</li>
+            <li>Developed comprehensive training programs for educational technology adoption</li>
           </ul>
         </div>
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-marker"></div>
+        <div class="timeline-date">2019-2021</div>
         <div class="timeline-content">
-          <div class="timeline-period">2019-2021</div>
-          <h3>Shiv Nadar Foundation - HCL Technologies</h3>
+          <h3>HCL Technologies' Shiv Nadar Foundation</h3>
           <h4>Faculty and Trainer</h4>
+          <p>STEM education and art integration specialist</p>
           <ul>
             <li>Led art integration initiatives for 450+ STEM learners</li>
             <li>Achieved 100% benchmark completion through EdTech tools</li>
-            <li>Created inclusive learning environments</li>
+            <li>Created inclusive learning environments promoting diversity and equity</li>
+            <li>Developed innovative curriculum combining arts and STEM subjects</li>
           </ul>
         </div>
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-marker"></div>
+        <div class="timeline-date">2018-2019</div>
         <div class="timeline-content">
-          <div class="timeline-period">2018-2019</div>
           <h3>Teach for India</h3>
           <h4>Fellow Advisor</h4>
+          <p>Adult education and leadership development specialist</p>
           <ul>
             <li>Trained 100+ adult fellows in residential programs</li>
-            <li>Coordinated blended learning for 50+ adult learners</li>
+            <li>Coordinated blended learning for 53 adult learners</li>
+            <li>Mentored fellows in educational leadership and classroom management</li>
+            <li>Designed and implemented professional development workshops</li>
           </ul>
         </div>
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-marker"></div>
+        <div class="timeline-date">2017-2019</div>
         <div class="timeline-content">
-          <div class="timeline-period">2017-2019</div>
           <h3>Teach for India Fellow</h3>
-          <h4>Social Impact</h4>
+          <h4>Social Impact Educator</h4>
+          <p>Direct classroom teaching and community development</p>
           <ul>
-            <li>Taught 150+ first-generation learners</li>
+            <li>Taught 60 first-generation learners</li>
             <li>Facilitated community development programs</li>
+            <li>Implemented innovative teaching methodologies</li>
+            <li>Built strong relationships with students, families, and community</li>
           </ul>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- Education Section -->
-<section id="education" class="section education-section">
+<section id="education" class="education">
   <div class="container">
     <h2 class="section-title">Education</h2>
     <div class="education-grid">
-
-      <!-- Northwestern University - Masters -->
-      <div class="education-tile">
-        <div class="university-logo">
-          <picture>
-            <source srcset="/assets/images/northwestern-logo.webp" type="image/webp">
-            <img src="/assets/images/northwestern-logo.png" alt="Northwestern University" class="logo-placeholder" width="90" height="90" loading="lazy">
-          </picture>
+      
+      <div class="education-item">
+        <div class="education-logo">
+          <img src="{{ '/assets/images/northwestern-logo.png' | relative_url }}" alt="Northwestern University">
         </div>
-        <div class="education-details">
-          <h3>Master of Science</h3>
-          <h4>Education & Social Policy</h4>
-          <p class="university">Northwestern University</p>
-          <p class="location">Evanston, Illinois, USA</p>
-          <p class="year">2024-2025</p>
-          <div class="education-highlights">
-            <p>Focus on EdTech & Learning Analytics</p>
-            <p>Research in AI-integrated learning platforms</p>
-            <p>Curriculum & Learning Environment Design</p>
-          </div>
+        <div class="education-content">
+          <h3>Northwestern University</h3>
+          <h4>Master of Science in Education and Social Policy</h4>
+          <p class="specialization">Learning Sciences and Educational Technology</p>
+          <p class="duration">2024-2025</p>
+          <p class="location">Evanston, IL</p>
         </div>
       </div>
 
-      <!-- Masters/Post-Graduate Diploma -->
-      <div class="education-tile">
-        <div class="university-logo">
-          <picture>
-            <source srcset="/assets/images/indian-university-logo.webp" type="image/webp">
-            <img src="/assets/images/indian-university-logo.png" alt="Indian University" class="logo-placeholder" width="90" height="90" loading="lazy">
-          </picture>
+      <div class="education-item">
+        <div class="education-logo">
+          <img src="{{ '/assets/images/india-education-logo.png' | relative_url }}" alt="Indian Universities">
         </div>
-        <div class="education-details">
-          <h3>Bachelor of Education</h3>
-          <h4>Education Management & Learning</h4>
-          <p class="university">GGSIPU University</p>
-          <p class="location">New Delhi, India</p>
-          <p class="year">2015-2017</p>
-          <div class="education-highlights">
-            <p>Specialized in Educational Policy and Practice</p>
-            <p>School & Administration Management</p>
-            <p>Community-centered educational approaches</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- PG Diploma in Mass Communication -->
-      <div class="education-tile">
-        <div class="university-logo">
-          <picture>
-            <source srcset="/assets/images/bhartiya-vidya-logo.webp" type="image/webp">
-            <img src="/assets/images/bhartiya-vidya-logo.png" alt="Bhartiya Vidya Bhavan" class="logo-placeholder" width="90" height="90" loading="lazy">
-          </picture>
-        </div>
-        <div class="education-details">
-          <h3>PG Diploma in Mass Communication</h3>
-          <h4>Journalism & Media Studies</h4>
-          <p class="university">Bhartiya Vidya Bhavan</p>
-          <p class="location">New Delhi, India</p>
-          <p class="year">2013-2014</p>
-          <div class="education-highlights">
-            <p>Print & Electronic Media</p>
-            <p>Advertising & Corporate Communication</p>
-            <p>Public Relations & Media Ethics</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bachelor's Degree -->
-      <div class="education-tile">
-        <div class="university-logo">
-          <picture>
-            <source srcset="/assets/images/university-placeholder.webp" type="image/webp">
-            <img src="/assets/images/university-placeholder.png" alt="Indian University" class="logo-placeholder" width="90" height="90" loading="lazy">
-          </picture>
-        </div>
-        <div class="education-details">
-          <h3>Bachelor of Commerce</h3>
-          <h4>Business Management & Administration</h4>
-          <p class="university">Delhi University</p>
-          <p class="location">New Delhi, India</p>
-          <p class="year">2010-2013</p>
-          <div class="education-highlights">
-            <p>Business Organization</p>
-            <p>Economic Development & Policy</p>
-            <p>Business & Industrial Laws</p>
-          </div>
+        <div class="education-content">
+          <h3>Bachelor's Degree</h3>
+          <h4>Multiple Institutions</h4>
+          <p class="specialization">Foundation in Education and Liberal Arts</p>
+          <p class="duration">2010-2017</p>
+          <p class="location">India</p>
         </div>
       </div>
 
@@ -278,119 +189,124 @@ layout: default
 </section>
 
 <!-- Research & Projects Section -->
-<section id="research" class="section research-section">
+<section id="research" class="research">
   <div class="container">
     <h2 class="section-title">Research & Projects</h2>
     <div class="projects-grid">
-      <div class="project-card" onclick="openProjectModal('ai-website')">
-        <div class="project-image">
-          <img src="/assets/images/project-ai-website.jpg" alt="AI-Integrated Website" class="project-img" loading="lazy" decoding="async">
-          <span class="project-status ongoing">Ongoing</span>
+
+      <div class="project-card">
+        <div class="project-status ongoing">Ongoing</div>
+        <h3>Designing AI-Integrated Website for Self-Directed Learners</h3>
+        <p>Research and development of AI-powered learning platforms that adapt to individual learner needs and preferences.</p>
+        <div class="project-tags">
+          <span class="tag">AI/ML</span>
+          <span class="tag">Self-Directed Learning</span>
+          <span class="tag">UX Design</span>
         </div>
-        <div class="project-content">
-          <h3>Designing AI-Integrated Website for Self-Directed Learners</h3>
-          <p>Ongoing research project focusing on integrating artificial intelligence into learning platforms to enhance
-            self-directed learning experiences.</p>
-        </div>
+        <button class="btn btn-outline project-btn" data-project="ai-website">Learn More</button>
       </div>
 
-      <div class="project-card" onclick="openProjectModal('innovation')">
-        <div class="project-image">
-          <img src="/assets/images/project-innovation.jpg" alt="Innovation Project" class="project-img" loading="lazy" decoding="async">
-          <span class="project-status completed">Completed</span>
+      <div class="project-card">
+        <div class="project-status ongoing">Ongoing</div>
+        <h3>Personal Innovation Project - Leadership in Community Centred Tech Innovation</h3>
+        <p>Exploring community-centered approaches to technology innovation in educational contexts.</p>
+        <div class="project-tags">
+          <span class="tag">Leadership</span>
+          <span class="tag">Community Engagement</span>
+          <span class="tag">Innovation</span>
         </div>
-        <div class="project-content">
-          <h3>Personal Innovation Project - Leadership in Community Centred Tech Innovation</h3>
-          <p>Research initiative exploring technology innovation within community-centered leadership frameworks.</p>
-        </div>
+        <button class="btn btn-outline project-btn" data-project="community-tech">Learn More</button>
       </div>
 
-      <div class="project-card" onclick="openProjectModal('socioeconomic')">
-        <div class="project-image">
-          <img src="/assets/images/project-socioeconomic.jpg" alt="Socio-Economic Research" class="project-img" loading="lazy" decoding="async">
-          <span class="project-status completed">Completed</span>
+      <div class="project-card">
+        <div class="project-status completed">Completed</div>
+        <h3>Socio-Economic Research in Delhi Urban Villages</h3>
+        <p>Comprehensive study of socio-economic factors affecting education access in urban villages of Delhi.</p>
+        <div class="project-tags">
+          <span class="tag">Socio-Economic Research</span>
+          <span class="tag">Urban Studies</span>
+          <span class="tag">Education Access</span>
         </div>
-        <div class="project-content">
-          <h3>Socio-Economic Research in Delhi Urban Villages</h3>
-          <p>Comprehensive study examining socio-economic factors affecting education in urban village communities in
-            Delhi.</p>
-        </div>
+        <button class="btn btn-outline project-btn" data-project="delhi-research">Learn More</button>
       </div>
 
-      <div class="project-card" onclick="openProjectModal('design-research')">
-        <div class="project-image">
-          <img src="/assets/images/project-design-research.jpg" alt="Design-based Research" class="project-img" loading="lazy" decoding="async">
-          <span class="project-status ongoing">Ongoing</span>
+      <div class="project-card">
+        <div class="project-status ongoing">Research</div>
+        <h3>Design-based Research for Self-Directed Learning Intervention</h3>
+        <p>Systematic investigation of design principles for effective self-directed learning interventions.</p>
+        <div class="project-tags">
+          <span class="tag">Design-Based Research</span>
+          <span class="tag">Learning Intervention</span>
+          <span class="tag">Methodology</span>
         </div>
-        <div class="project-content">
-          <h3>Design-based Research for Self-Directed Learning Intervention</h3>
-          <p>Research methodology focused on developing and testing interventions for self-directed learning
-            environments.</p>
-        </div>
+        <button class="btn btn-outline project-btn" data-project="dbr-learning">Learn More</button>
       </div>
 
-      <div class="project-card" onclick="openProjectModal('energy-city')">
-        <div class="project-image">
-          <img src="/assets/images/project-energy-city.jpg" alt="Energy City Board Game" class="project-img" loading="lazy" decoding="async">
-          <span class="project-status completed">Completed</span>
+      <div class="project-card">
+        <div class="project-status completed">Published</div>
+        <h3>The Energy City Board Game - NGSS Engineering Design</h3>
+        <p>Educational board game design aligned with Next Generation Science Standards for engineering education.</p>
+        <div class="project-tags">
+          <span class="tag">Game Design</span>
+          <span class="tag">NGSS</span>
+          <span class="tag">Engineering Education</span>
         </div>
-        <div class="project-content">
-          <h3>The Energy City Board Game - NGSS Engineering Design</h3>
-          <p>Educational board game designed to teach engineering design principles aligned with Next Generation Science
-            Standards.</p>
-        </div>
+        <button class="btn btn-outline project-btn" data-project="energy-city">Learn More</button>
       </div>
 
-      <div class="project-card" onclick="openProjectModal('ai-literacy')">
-        <div class="project-image">
-          <img src="/assets/images/project-ai-literacy.jpg" alt="AI Literacy Workshop" class="project-img" loading="lazy" decoding="async">
-          <span class="project-status completed">Completed</span>
+      <div class="project-card">
+        <div class="project-status completed">Curriculum</div>
+        <h3>AI Literacy Workshop Curriculum</h3>
+        <p>Comprehensive curriculum development for AI literacy workshops targeting educators and learners.</p>
+        <div class="project-tags">
+          <span class="tag">AI Literacy</span>
+          <span class="tag">Curriculum Design</span>
+          <span class="tag">Professional Development</span>
         </div>
-        <div class="project-content">
-          <h3>AI Literacy Workshop Curriculum</h3>
-          <p>Comprehensive curriculum development for AI literacy workshops targeting educators and administrators.</p>
-        </div>
+        <button class="btn btn-outline project-btn" data-project="ai-literacy">Learn More</button>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- Skills Section -->
-<section id="skills" class="section skills-section">
+<section id="skills" class="skills">
   <div class="container">
-    <h2 class="section-title">Skills & Competencies</h2>
+    <h2 class="section-title">Skills & Expertise</h2>
     <div class="skills-grid">
+      
       <div class="skill-category">
         <h3>Core Competencies</h3>
-        <div class="skills-list">
+        <div class="skill-list">
           <div class="skill-item">
             <span class="skill-name">Education Management</span>
             <div class="skill-bar">
-              <div class="skill-progress" data-width="95%"></div>
+              <div class="skill-progress" data-width="95"></div>
             </div>
           </div>
           <div class="skill-item">
             <span class="skill-name">Stakeholder Management</span>
             <div class="skill-bar">
-              <div class="skill-progress" data-width="90%"></div>
+              <div class="skill-progress" data-width="90"></div>
             </div>
           </div>
           <div class="skill-item">
             <span class="skill-name">Training and Mentorship</span>
             <div class="skill-bar">
-              <div class="skill-progress" data-width="95%"></div>
+              <div class="skill-progress" data-width="95"></div>
             </div>
           </div>
           <div class="skill-item">
             <span class="skill-name">Learning and Curriculum Design</span>
             <div class="skill-bar">
-              <div class="skill-progress" data-width="90%"></div>
+              <div class="skill-progress" data-width="92"></div>
             </div>
           </div>
           <div class="skill-item">
             <span class="skill-name">Assessment Design</span>
             <div class="skill-bar">
-              <div class="skill-progress" data-width="85%"></div>
+              <div class="skill-progress" data-width="88"></div>
             </div>
           </div>
         </div>
@@ -398,35 +314,35 @@ layout: default
 
       <div class="skill-category">
         <h3>Technical Skills</h3>
-        <div class="skills-list">
+        <div class="skill-list">
           <div class="skill-item">
             <span class="skill-name">Generative AI Implementation</span>
             <div class="skill-bar">
-              <div class="skill-progress" data-width="85%"></div>
+              <div class="skill-progress" data-width="85"></div>
             </div>
           </div>
           <div class="skill-item">
             <span class="skill-name">Data Analysis (Stata, Qualtrics, Nvivo)</span>
             <div class="skill-bar">
-              <div class="skill-progress" data-width="80%"></div>
+              <div class="skill-progress" data-width="88"></div>
             </div>
           </div>
           <div class="skill-item">
             <span class="skill-name">Microsoft Office Suite</span>
             <div class="skill-bar">
-              <div class="skill-progress" data-width="95%"></div>
+              <div class="skill-progress" data-width="95"></div>
             </div>
           </div>
           <div class="skill-item">
             <span class="skill-name">Google Workspace</span>
             <div class="skill-bar">
-              <div class="skill-progress" data-width="90%"></div>
+              <div class="skill-progress" data-width="92"></div>
             </div>
           </div>
           <div class="skill-item">
             <span class="skill-name">Design and Multimedia Tools</span>
             <div class="skill-bar">
-              <div class="skill-progress" data-width="75%"></div>
+              <div class="skill-progress" data-width="80"></div>
             </div>
           </div>
         </div>
@@ -434,120 +350,117 @@ layout: default
 
       <div class="skill-category">
         <h3>Languages</h3>
-        <div class="skills-list">
-          <div class="skill-item">
-            <span class="skill-name">English</span>
-            <div class="skill-bar">
-              <div class="skill-progress" data-width="100%"></div>
-            </div>
+        <div class="language-list">
+          <div class="language-item">
+            <span class="language-name">English</span>
+            <span class="language-level">Fluent</span>
           </div>
-          <div class="skill-item">
-            <span class="skill-name">Hindi</span>
-            <div class="skill-bar">
-              <div class="skill-progress" data-width="100%"></div>
-            </div>
+          <div class="language-item">
+            <span class="language-name">Hindi</span>
+            <span class="language-level">Fluent</span>
           </div>
-          <div class="skill-item">
-            <span class="skill-name">Spanish</span>
-            <div class="skill-bar">
-              <div class="skill-progress" data-width="30%"></div>
-            </div>
+          <div class="language-item">
+            <span class="language-name">Spanish</span>
+            <span class="language-level">Basic</span>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- Certifications Section -->
-<section id="certifications" class="section certifications-section">
-  <div class="container">
-    <h2 class="section-title">Certifications</h2>
-    <div class="certifications-grid">
-      <div class="certification-card">
-        <div class="cert-icon">
+    </div>
+
+    <!-- Certifications -->
+    <div class="certifications">
+      <h3>Certifications</h3>
+      <div class="cert-grid">
+        <div class="cert-item">
           <i class="fas fa-certificate"></i>
+          <span>ISTE Academic Integrity in AI World</span>
         </div>
-        <h3>ISTE Academic Integrity in AI World</h3>
-        <p>International Society for Technology in Education</p>
-      </div>
-
-      <div class="certification-card">
-        <div class="cert-icon">
-          <i class="fas fa-chalkboard-teacher"></i>
+        <div class="cert-item">
+          <i class="fas fa-certificate"></i>
+          <span>Central Teacher Eligibility Test (CTET)</span>
         </div>
-        <h3>Central Teacher Eligibility Test (CTET)</h3>
-        <p>Government of India Certification</p>
-      </div>
-
-      <div class="certification-card">
-        <div class="cert-icon">
-          <i class="fab fa-linkedin"></i>
+        <div class="cert-item">
+          <i class="fas fa-certificate"></i>
+          <span>LinkedIn Learning Instructional Design</span>
         </div>
-        <h3>LinkedIn Learning Instructional Design</h3>
-        <p>Professional Development Certification</p>
-      </div>
-
-      <div class="certification-card">
-        <div class="cert-icon">
-          <i class="fas fa-award"></i>
+        <div class="cert-item">
+          <i class="fas fa-certificate"></i>
+          <span>Centre for Teacher Accreditation (Rank 48, Northern India)</span>
         </div>
-        <h3>Centre for Teacher Accreditation</h3>
-        <p>Rank 48, Northern India</p>
       </div>
     </div>
+
   </div>
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="section contact-section">
+<section id="contact" class="contact">
   <div class="container">
     <h2 class="section-title">Get In Touch</h2>
     <div class="contact-content">
-      <div class="contact-grid">
+      
+      <div class="contact-info">
+        <h3>Contact Information</h3>
         <div class="contact-item">
           <i class="fas fa-envelope"></i>
-          <div class="contact-details">
-            <h3>Email</h3>
-            <a href="mailto:tretasharma@gmail.com">tretasharma@gmail.com</a>
-          </div>
+          <a href="mailto:tretasharma@gmail.com">tretasharma@gmail.com</a>
         </div>
-
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <a href="tel:+17737397326">+1 (773) 739-7326</a>
+        </div>
         <div class="contact-item">
           <i class="fab fa-linkedin"></i>
-          <div class="contact-details">
-            <h3>LinkedIn</h3>
-            <a href="https://linkedin.com/in/tretasharma" target="_blank">tretasharma</a>
-          </div>
+          <a href="https://www.linkedin.com/in/tretasharma" target="_blank">tretasharma</a>
         </div>
-
         <div class="contact-item">
           <i class="fas fa-map-marker-alt"></i>
-          <div class="contact-details">
-            <h3>Location</h3>
-            <span>Mountain View, CA, USA</span>
-          </div>
+          <span>Chicago, IL, USA</span>
+        </div>
+        <div class="work-authorization">
+          <p><strong>Work Authorization:</strong> Authorized to work in the US. No sponsorship required.</p>
         </div>
       </div>
 
-      <div class="work-authorization">
-        <p><strong>Note:</strong> Authorized to work in the US. No sponsorship required.</p>
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+        <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+        <form id="contact-form" netlify novalidate>
+          <div class="form-group">
+            <label for="name">Your Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required aria-required="true" autocomplete="name">
+            <span id="name-error" class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required aria-required="true" autocomplete="email">
+            <span id="email-error" class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject <span aria-hidden="true">*</span></label>
+            <input type="text" id="subject" name="subject" placeholder="Enter subject" required aria-required="true">
+            <span id="subject-error" class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message <span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" placeholder="Enter your message" rows="5" required aria-required="true"></textarea>
+            <span id="message-error" class="form-error"></span>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- Back to Top Button -->
-<button id="back-to-top" class="back-to-top" aria-label="Back to top">
-  <i class="fas fa-chevron-up"></i>
-</button>
-
 <!-- Project Modals -->
-<div id="project-modal" class="modal">
+<div class="modal" id="project-modal">
   <div class="modal-content">
-    <span class="close">&times;</span>
+    <span class="close" id="modal-close">&times;</span>
     <div id="modal-body">
       <!-- Project details will be loaded here -->
     </div>
   </div>
-</div>
+</div> 

@@ -1,46 +1,57 @@
 # Site settings
 title: "Treta Sharma - Learning Sciences & Educational Technology Specialist"
-description: "Portfolio of Treta Sharma, MS in Learning Sciences from Northwestern University. 8+ years experience in educational technology, curriculum design, and teacher training."
-url: "https://tretasharma.com"
+email: tretasharma@gmail.com
+description: >-
+  Portfolio of Treta Sharma, MS in Learning Sciences from Northwestern University.
+  8+ years experience in educational technology, curriculum design, and teacher training.
 baseurl: ""
-
-# Personal information
-author:
-  name: "Treta Sharma"
-  email: "tretasharma@gmail.com"
-
-  location: "Mountain View, CA, USA"
-  linkedin: "tretasharma"
+url: "https://tretasharma.com"
+twitter_username: tretasharma
+github_username: tretasharma
+linkedin_username: tretasharma
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
-# Removed minima theme to avoid SCSS deprecation warnings
-# theme: minima
+theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-minifier
 
-# Sass configuration to suppress warnings
+# Jekyll Minifier Settings
+jekyll-minifier:
+  remove_spaces_inside_tags: true
+  remove_multi_spaces: true
+  remove_comments: true
+  remove_intertag_spaces: false
+  remove_quotes: false
+  compress_css: true
+  compress_javascript: true
+  uglifier_args:
+    harmony: true
+
+# SASS Settings
 sass:
   style: compressed
-  quiet_deps: true
-  verbose: false
+  sourcemap: never
 
-# Development server settings
-webrick:
-  headers:
-    'Access-Control-Allow-Origin': '*'
-    'Cache-Control': 'no-cache'
-
-# Exclude from processing
-exclude:
-  - README.md
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor
+# SEO settings
+author: Treta Sharma
+twitter:
+  username: tretasharma
+  card: summary_large_image
+facebook:
+  app_id:
+  publisher:
+  admins:
+logo: /assets/images/logo.png
+social:
+  name: Treta Sharma
+  links:
+    - https://www.linkedin.com/in/tretasharma
+    - https://github.com/tretasharma
 
 # Collections
 collections:
@@ -48,13 +59,34 @@ collections:
     output: true
     permalink: /:collection/:name/
 
-# SEO
-seo:
-  type: "Person"
-  name: "Treta Sharma"
-  links:
-    - "https://www.linkedin.com/in/tretasharma"
-    - "https://tretasharma.com"
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      image:
+        path: /assets/images/og-image.png
+        height: 1200
+        width: 630
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Treta Sharma"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
 
-# Google Analytics (add your tracking ID)
-# google_analytics: UA-XXXXXXXX-X
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md

@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treta Sharma · Learning Scientist</title>
+<meta name="description" content="Treta Sharma is a learning scientist who designs learning that makes learners and educators genuinely excited to show up.">
+<link rel="icon" href="../shared/favicon.png">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#cfe7ff; --sky-2:#e8f3ff; --sun:#ffd84d; --sun-2:#fff4c7; --tomato:#ff6150; --mint:#9be3c4; --mint-2:#e3f7ee;
+  --ink:#16213e; --ink-soft:#44506e; --white:#fff;
+  --r:16px; --b:2px solid var(--ink); --sh:4px 4px 0 var(--ink);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--white);color:var(--ink);font:400 18px/1.6 'Lexend',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:'Lexend',sans-serif;line-height:1.12;margin:0;letter-spacing:-.02em}
+p{margin:0 0 1em}
+.small,.meta{font-family:'Atkinson Hyperlegible','Lexend',sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--tomato);outline-offset:3px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* progress + nav */
+.progress{position:fixed;top:0;left:0;right:0;height:6px;background:rgba(22,33,62,.08);z-index:60}
+.progress i{display:block;height:100%;background:var(--tomato);transform-origin:0 50%;transform:scaleX(0);border-right:2px solid var(--ink)}
+header.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:var(--b);padding-top:6px}
+.top .wrap{display:flex;align-items:center;gap:20px;height:68px}
+.brand{font-weight:800;font-size:19px;text-decoration:none;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.brand b{display:grid;place-items:center;width:34px;height:34px;border:var(--b);border-radius:10px;background:var(--sun);box-shadow:2px 2px 0 var(--ink);font-size:15px}
+nav.lessons{margin-left:auto;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:6px 4px 8px}
+nav.lessons::-webkit-scrollbar{display:none}
+nav.lessons a{flex:none;text-decoration:none;font-size:14px;font-weight:500;padding:7px 13px;border:var(--b);border-radius:999px;background:var(--white);display:flex;align-items:center;gap:6px;transition:background .2s}
+nav.lessons a span{font-weight:700;color:var(--ink-soft)}
+nav.lessons a:hover{background:var(--sky-2)}
+nav.lessons a.done{background:var(--mint)}
+nav.lessons a.done::before{content:"✓";font-weight:800}
+nav.lessons a.done span{display:none}
+
+/* shared bits */
+.chip{display:inline-block;font:700 13px/1 'Lexend';letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--sun);padding:8px 12px;border-radius:999px}
+.card{background:var(--white);border:var(--b);border-radius:var(--r);box-shadow:var(--sh)}
+.btn{font:600 18px/1 'Lexend';color:var(--ink);background:var(--white);border:var(--b);border-radius:14px;box-shadow:var(--sh);padding:16px 22px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:transform .08s,box-shadow .08s,background .2s}
+.btn:hover{background:var(--sun-2)}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.btn[disabled]{cursor:default}
+section{padding:96px 0}
+.sec-head{max-width:720px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(34px,4.6vw,54px);font-weight:700;margin:16px 0 14px}
+.objective{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:var(--ink-soft);margin:0}
+.objective svg{flex:none;margin-top:2px}
+.objective b{color:var(--ink)}
+
+/* hero */
+.hero{background:var(--sky);padding:72px 0 96px;position:relative;overflow:hidden;border-bottom:var(--b)}
+.hero .wrap{position:relative;z-index:1}
+.hero .chip{background:var(--white);color:var(--ink);border:var(--b)}
+.hero h1{font-size:clamp(40px,6.4vw,78px);font-weight:800;margin:20px 0 28px;max-width:13ch}
+.quiz-card{max-width:780px;padding:36px;position:relative}
+.quiz-card .q-label{font-size:15px;font-weight:600;color:var(--ink-soft);margin-bottom:8px}
+.quiz-card .stmt{font-size:clamp(26px,3.4vw,38px);font-weight:600;line-height:1.2;margin:0 0 28px}
+.tf{display:flex;gap:16px;flex-wrap:wrap}
+.tf .btn{min-width:150px;justify-content:center;font-size:22px;padding:18px 26px}
+.tf .btn.t{background:var(--mint)}
+.tf .btn.f{background:var(--sun)}
+.tf .btn[aria-pressed=true]{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink);outline:3px solid var(--ink);outline-offset:3px}
+.tf .btn[disabled]:not([aria-pressed=true]){opacity:.45}
+.reveal{margin-top:30px;border-top:2px dashed var(--ink);padding-top:26px}
+.js .reveal[hidden]{display:none}
+.verdict{display:flex;align-items:center;gap:14px;font-size:24px;font-weight:700;margin-bottom:14px}
+.verdict .badge{flex:none;display:grid;place-items:center;width:46px;height:46px;border:var(--b);border-radius:50%;background:var(--mint);font-size:24px}
+.verdict.wrong .badge{background:var(--tomato);color:#fff}
+.reveal p{max-width:62ch}
+.story{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;background:var(--sun-2);border:var(--b);border-radius:14px;padding:20px 22px;margin:20px 0}
+.story p{margin:0}
+.story .title{display:inline-block;background:var(--sun);border:var(--b);border-radius:8px;padding:0 8px;font-weight:700;margin-top:4px}
+.kiss{font-weight:600}
+.scroll-hint{display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;margin-top:6px}
+.scroll-hint svg{animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(4px)}}
+.deco{position:absolute;z-index:0;pointer-events:none}
+.deco.d1{right:6%;top:70px;width:140px;animation:float 7s ease-in-out infinite}
+.deco.d2{right:20%;bottom:44px;width:84px;animation:float 9s ease-in-out infinite reverse}
+.deco.d3{right:3%;bottom:150px;width:110px;animation:spin 30s linear infinite}
+@keyframes float{50%{transform:translateY(-14px) rotate(4deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* intro */
+.intro{padding:96px 0}
+.intro .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:center}
+.portrait{position:relative;max-width:440px}
+.portrait .frame{position:relative;aspect-ratio:671/770;border:3px solid var(--ink);border-radius:28px;box-shadow:10px 10px 0 var(--tomato),10px 10px 0 2px var(--ink);background:var(--sun);overflow:hidden;display:flex;align-items:flex-end}
+.portrait .frame::before{content:"";position:absolute;left:50%;top:14%;width:78%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:var(--white);opacity:.55}
+.portrait .frame img{position:relative;width:100%}
+.sticker{position:absolute;display:grid;place-items:center;text-align:center;border:var(--b);border-radius:50%;font-weight:700;line-height:1.05;box-shadow:3px 3px 0 var(--ink)}
+.sticker.s1{width:118px;height:118px;right:-22px;top:-26px;background:var(--sun);transform:rotate(10deg);font-size:15px}
+.sticker.s1 b{display:block;font-size:34px;font-weight:800}
+.sticker.s2{left:-18px;bottom:28px;border-radius:12px;width:auto;height:auto;padding:10px 14px;background:var(--white);font-size:14px;transform:rotate(-4deg);display:flex;gap:8px;align-items:center}
+.intro h2{font-size:clamp(40px,5.4vw,66px);font-weight:800;margin:18px 0 20px}
+.intro h2 em{font-style:normal;background:linear-gradient(transparent 58%,var(--mint) 58%,var(--mint) 92%,transparent 92%)}
+.intro .lede{font-size:21px;line-height:1.55}
+.intro .facts{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 30px;padding:0;list-style:none}
+.intro .facts li{border:var(--b);border-radius:999px;padding:7px 14px;font-size:15px;font-weight:500;background:var(--sky-2);display:flex;align-items:center;gap:8px}
+.intro .facts .dot{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--ink);flex:none}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn.primary{background:var(--tomato);color:#fff}
+.btn.primary:hover{background:#ff7a6b}
+
+/* lesson 1: flip cards */
+#who{background:var(--sun-2);border-top:var(--b);border-bottom:var(--b)}
+.flips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.flip{display:block;width:100%;padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;border-radius:var(--r)}
+.face{border:var(--b);border-radius:var(--r);box-shadow:var(--sh);padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:12px;min-height:220px}
+.face.front{background:var(--white)}
+.face.back{background:var(--ink);color:#fff}
+.face .n{font:700 14px/1 'Lexend';color:var(--ink-soft)}
+.face .q{font-size:21px;font-weight:600;line-height:1.3}
+.face .tap{font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px;color:var(--ink-soft)}
+.face .big{font-size:52px;font-weight:800;line-height:1;color:var(--sun);letter-spacing:-.03em}
+.face .big.word{font-size:34px}
+.face .a{font-size:17px;line-height:1.45;color:#e7ecf7}
+.face .a b{color:#fff}
+.flip:nth-child(3n+2) .face.front{background:var(--sky)}
+.flip:nth-child(3n+3) .face.front{background:var(--mint)}
+.no-js-note{display:none}
+.js .flip{perspective:1100px}
+.js .flip .inner{display:grid;transition:transform .55s cubic-bezier(.3,1.4,.5,1);transform-style:preserve-3d;border-radius:var(--r)}
+.js .flip .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.js .flip .back{transform:rotateY(180deg)}
+.js .flip[aria-expanded=true] .inner{transform:rotateY(180deg)}
+.js .flip:hover .face.front{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.face.front{transition:transform .15s,box-shadow .15s}
+.html-nojs .face.back{margin-top:12px}
+.flip-tools{margin-top:30px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:15px;color:var(--ink-soft)}
+.flip-tools .btn{font-size:15px;padding:10px 16px}
+
+/* lesson 2: timeline */
+.levels{display:flex;gap:0;position:relative;margin:0 0 30px;padding:0;list-style:none}
+.levels::before{content:"";position:absolute;left:24px;right:24px;top:50%;height:4px;background:var(--ink);border-radius:2px;transform:translateY(-50%)}
+.levels li{flex:1;display:flex;justify-content:center;position:relative}
+.levels li:first-child{justify-content:flex-start}
+.levels li:last-child{justify-content:flex-end}
+.lvl{position:relative;font:600 15px/1.2 'Lexend';background:var(--white);color:var(--ink);border:var(--b);border-radius:14px;box-shadow:var(--sh);padding:12px 16px;cursor:pointer;text-align:left;transition:transform .08s,box-shadow .08s,background .2s}
+.lvl small{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:3px}
+.lvl:hover{background:var(--sky-2)}
+.lvl[aria-selected=true]{background:var(--sun);transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.lvl[aria-selected=true] small{color:var(--ink)}
+.panel{padding:36px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:40px}
+.js .panel[hidden]{display:none}
+.panel + .panel{margin-top:24px}
+.js .panel + .panel{margin-top:0}
+.panel .where .years{font-weight:700;font-size:15px;color:var(--ink-soft)}
+.panel h3{font-size:30px;font-weight:700;margin:6px 0 8px}
+.panel .org{font-size:18px;font-weight:500;margin:0 0 18px}
+.panel .xp{display:inline-flex;gap:8px;align-items:center;font-size:14px;font-weight:600;background:var(--mint-2);border:var(--b);border-radius:10px;padding:8px 12px}
+.panel ul{margin:0;padding:0;list-style:none;display:grid;gap:14px}
+.panel li{display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:17px;line-height:1.5}
+.panel li::before{content:"";width:18px;height:18px;margin-top:4px;border:var(--b);border-radius:6px;background:var(--mint)}
+.panel li b{font-weight:700}
+.panel .before{margin-top:22px;padding-top:18px;border-top:2px dashed rgba(22,33,62,.35);font-size:16px;color:var(--ink-soft)}
+.panel.edu li::before{background:var(--sky)}
+
+/* lesson 3: projects */
+#projects{background:var(--mint-2);border-top:var(--b);border-bottom:var(--b)}
+.projects{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:24px}
+.proj{grid-column:span 2;padding:28px;display:flex;flex-direction:column;gap:14px}
+.proj:nth-child(1),.proj:nth-child(2){grid-column:span 3}
+.proj .icon{width:72px;height:72px;border:var(--b);border-radius:18px;display:grid;place-items:center;box-shadow:3px 3px 0 var(--ink)}
+.proj h3{font-size:23px;font-weight:700;line-height:1.2}
+.proj p{margin:0;font-size:17px;color:var(--ink-soft)}
+.proj .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.proj .tags span{font:700 12px/1 'Atkinson Hyperlegible';letter-spacing:.04em;text-transform:uppercase;border:1.5px solid var(--ink);border-radius:999px;padding:6px 10px;background:var(--white)}
+.proj .tags span.yr{background:var(--ink);color:#fff}
+
+/* lesson 4: writing */
+.essays{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.essay{display:flex;flex-direction:column;gap:12px;padding:28px;text-decoration:none;transition:transform .12s,box-shadow .12s,background .2s}
+.essay:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink)}
+.essay:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.essay .meta{font-size:14px;font-weight:700;color:var(--ink-soft);display:flex;align-items:center;gap:10px}
+.essay .meta i{font-style:normal;background:var(--sky);border:1.5px solid var(--ink);border-radius:999px;padding:3px 9px;color:var(--ink)}
+.essay h3{font-size:26px;font-weight:700;line-height:1.2}
+.essay p{margin:0;color:var(--ink-soft);font-size:17px}
+.essay .go{margin-top:auto;padding-top:8px;font-weight:600;display:flex;align-items:center;gap:8px}
+.essay:nth-child(1){background:var(--sun-2)}
+.essay:nth-child(4){background:var(--sky-2)}
+.more{margin-top:28px}
+
+/* final quiz */
+#quiz{background:var(--sky);border-top:var(--b)}
+.qs{display:grid;gap:24px;max-width:860px}
+fieldset.qq{margin:0;padding:28px;min-width:0}
+.qq legend{float:left;width:100%;padding:0;font-size:22px;font-weight:600;line-height:1.3;margin-bottom:18px}
+.qq legend span{display:inline-grid;place-items:center;width:34px;height:34px;border:var(--b);border-radius:10px;background:var(--sun);font-size:16px;font-weight:800;margin-right:10px;vertical-align:2px}
+.opts{clear:both;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.opt{font:500 17px/1.3 'Lexend';text-align:left;color:var(--ink);background:var(--white);border:var(--b);border-radius:12px;box-shadow:3px 3px 0 var(--ink);padding:14px 16px;cursor:pointer;transition:transform .08s,box-shadow .08s,background .2s}
+.opt:hover{background:var(--sun-2)}
+.opt:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+.opt.right{background:var(--mint)}
+.opt.wrong{background:var(--tomato);color:#fff}
+.opt[disabled]{cursor:default}
+.opt[disabled]:not(.right):not(.wrong){opacity:.5}
+.qq .fb{margin:16px 0 0;font-weight:600;min-height:1.6em}
+.score{margin-top:30px;padding:28px 32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;max-width:860px}
+.score .num{font-size:56px;font-weight:800;line-height:1;letter-spacing:-.03em}
+.score .msg{flex:1;min-width:220px;font-size:19px;font-weight:500;margin:0}
+.score .btn{font-size:15px;padding:12px 16px}
+
+/* contact */
+.contact{background:var(--ink);color:#fff;padding:96px 0 40px}
+.contact .chip{background:var(--sun);color:var(--ink)}
+.contact h2{font-size:clamp(42px,6vw,80px);font-weight:800;margin:18px 0 18px;max-width:14ch}
+.contact h2 span{color:var(--sun)}
+.contact .lede{font-size:20px;color:#cdd5e8;max-width:56ch}
+.mail{display:inline-flex;align-items:center;gap:14px;margin:18px 0 40px;font-size:clamp(20px,3vw,30px);font-weight:700;color:var(--ink);background:var(--sun);border:2px solid #fff;box-shadow:5px 5px 0 var(--tomato);border-radius:16px;padding:18px 26px;text-decoration:none;word-break:break-all;transition:transform .08s,box-shadow .08s}
+.mail:active{transform:translate(5px,5px);box-shadow:0 0 0 var(--tomato)}
+.links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:900px}
+.links a{display:flex;align-items:center;justify-content:space-between;gap:10px;text-decoration:none;font-weight:600;border:2px solid #fff;border-radius:14px;padding:16px 18px;transition:background .2s,color .2s}
+.links a:hover{background:#fff;color:var(--ink)}
+.links a small{display:block;font-weight:400;font-size:13px;opacity:.75}
+.fine{margin-top:80px;padding-top:24px;border-top:1px solid rgba(255,255,255,.2);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:#aab4cc}
+.fine a{color:#fff}
+
+/* responsive */
+@media (max-width:980px){
+  .flips{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .intro .wrap{grid-template-columns:1fr;gap:56px}
+  .portrait{max-width:380px;margin:0 auto 0 12px}
+  .projects{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .proj,.proj:nth-child(1),.proj:nth-child(2){grid-column:span 1}
+  .proj:nth-child(5){grid-column:span 2}
+  .panel{grid-template-columns:1fr;gap:22px}
+  .links{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .opts{grid-template-columns:1fr}
+  .deco.d1{width:96px;top:24px;right:3%}
+  .deco.d2,.deco.d3{display:none}
+}
+@media (max-width:760px){
+  .brand span{display:none}
+  .top .wrap{gap:12px}
+  nav.lessons a{font-size:13px;padding:6px 11px}
+  .levels{flex-wrap:wrap;gap:12px}
+  .levels::before{display:none}
+  .levels li,.levels li:first-child,.levels li:last-child{flex:1 1 calc(50% - 6px);justify-content:stretch}
+  .lvl{width:100%}
+}
+@media (max-width:600px){
+  body{font-size:17px}
+  .wrap{padding:0 16px}
+  section,.intro{padding:68px 0}
+  .hero{padding:44px 0 64px}
+  .hero h1{margin:16px 0 22px}
+  .quiz-card{padding:24px 20px}
+  .tf .btn{min-width:0;flex:1}
+  .story{grid-template-columns:1fr;gap:10px;padding:16px}
+  .flips{grid-template-columns:1fr}
+  .face{min-height:180px}
+  .projects,.essays{grid-template-columns:1fr}
+  .proj:nth-child(5){grid-column:span 1}
+  .panel{padding:24px 20px}
+  .panel h3{font-size:25px}
+  .links{grid-template-columns:1fr}
+  .sticker.s1{width:96px;height:96px;right:-6px;top:-22px;font-size:13px}
+  .sticker.s1 b{font-size:27px}
+  .sticker.s2{left:-6px}
+  .portrait{margin:0 auto}
+  fieldset.qq{padding:22px 18px}
+  .qq legend{font-size:19px}
+  .verdict{font-size:20px;align-items:flex-start}
+  .verdict .badge{width:38px;height:38px;font-size:20px}
+  .score{padding:22px}
+  .mail{padding:14px 18px}
+  .deco.d1{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i id="bar"></i></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><b aria-hidden="true">TS</b><span>Treta Sharma</span></a>
+    <nav class="lessons" aria-label="Lessons">
+      <a href="#who" data-sec="who"><span>1</span> Who</a>
+      <a href="#work" data-sec="work"><span>2</span> Work</a>
+      <a href="#projects" data-sec="projects"><span>3</span> Projects</a>
+      <a href="#writing" data-sec="writing"><span>4</span> Writing</a>
+      <a href="#quiz" data-sec="quiz"><span>?</span> Quiz</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO: warm-up quiz -->
+<section class="hero" aria-labelledby="warmup">
+  <svg class="deco d1" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="#ffd84d" stroke="#16213e" stroke-width="3"/><circle cx="36" cy="44" r="5" fill="#16213e"/><circle cx="64" cy="44" r="5" fill="#16213e"/><path d="M34 62q16 14 32 0" fill="none" stroke="#16213e" stroke-width="4" stroke-linecap="round"/></svg>
+  <svg class="deco d2" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 6l12 30 32 2-25 20 9 32-28-18-28 18 9-32L6 38l32-2z" fill="#ff6150" stroke="#16213e" stroke-width="3" stroke-linejoin="round"/></svg>
+  <svg class="deco d3" viewBox="0 0 100 100" aria-hidden="true"><rect x="18" y="18" width="64" height="64" rx="14" fill="#9be3c4" stroke="#16213e" stroke-width="3"/><path d="M38 50h24M50 38v24" stroke="#16213e" stroke-width="5" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <span class="chip">Lesson 0 · Warm-up</span>
+    <h1 id="warmup">Pop quiz before we start!</h1>
+    <div class="card quiz-card">
+      <p class="q-label">True or false?</p>
+      <p class="stmt">“We only use 10% of our brains.”</p>
+      <div class="tf" role="group" aria-label="Your answer">
+        <button class="btn t" type="button" data-ans="true" aria-pressed="false">True</button>
+        <button class="btn f" type="button" data-ans="false" aria-pressed="false">False</button>
+      </div>
+      <div class="reveal" id="reveal" aria-live="polite">
+        <div class="verdict" id="verdict"><span class="badge" aria-hidden="true">✓</span><span id="verdict-text">It’s false. The 10% idea is a myth.</span></div>
+        <p>Brain imaging shows activity right across the brain. There’s no idle 90% waiting to be unlocked.</p>
+        <div class="story">
+          <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><rect x="2" y="2" width="40" height="40" rx="10" fill="#ffd84d" stroke="#16213e" stroke-width="2"/><path d="M13 30V14h18v16M17 19h10M17 24h7" stroke="#16213e" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>
+          <p>Treta once heard this from a 12-year-old in her class, who added that only Einstein ever used all of his. The next day she brought in a neuroscientist’s article on it, retitled <span class="title">“You Can Be Smarter Than Albert Einstein.”</span></p>
+        </div>
+        <p class="kiss">Her take: our brains are amazing (blow a kiss to yours!).</p>
+        <a class="scroll-hint" href="#hello">Now meet the teacher
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 3v12M4 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro" id="hello" aria-labelledby="hi">
+  <div class="wrap">
+    <div class="portrait">
+      <div class="frame"><img src="../shared/treta-cutout.webp" width="671" height="721" alt="Portrait of Treta Sharma smiling, with curly dark hair and a light-blue top"></div>
+      <div class="sticker s1" aria-hidden="true"><div><b>8+</b>years in<br>learning</div></div>
+      <div class="sticker s2"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 15s5-4.6 5-8.5A5 5 0 0 0 3 6.5C3 10.4 8 15 8 15z" fill="#ff6150" stroke="#16213e" stroke-width="1.5"/><circle cx="8" cy="6.5" r="1.8" fill="#fff" stroke="#16213e" stroke-width="1.2"/></svg>Mountain View, CA</div>
+    </div>
+    <div>
+      <span class="chip">Your teacher today</span>
+      <h2 id="hi">Hi, I’m Treta, a <em>learning scientist.</em></h2>
+      <p class="lede">I’ve spent 8+ years designing how people learn: first in classrooms, then in EdTech products that reached more than a million learners. I build learning experiences that make both learners and educators <b>genuinely excited to show up.</b></p>
+      <p>These days I work on AI learning solutions, learning experience design and data-driven instruction, with a fresh MS in Learning Sciences from Northwestern.</p>
+      <ul class="facts">
+        <li><i class="dot" style="background:var(--sun)"></i>MS Learning Sciences, Northwestern</li>
+        <li><i class="dot" style="background:var(--mint)"></i>AI learning solutions</li>
+        <li><i class="dot" style="background:var(--tomato)"></i>English · Hindi · Spanish</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn primary" href="#who">Start lesson 1
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn" href="../shared/Treta-Sharma-Resume.pdf" download>Résumé (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSON 1 -->
+<section id="who" aria-labelledby="who-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="chip">Lesson 1</span>
+      <h2 id="who-h">Treta, in six numbers</h2>
+      <p class="objective"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="#fff" stroke="#16213e" stroke-width="2"/><circle cx="11" cy="11" r="4.5" fill="#ff6150" stroke="#16213e" stroke-width="2"/></svg><span><b>Learning objective:</b> guess first, then tap each card to check. (Retrieval practice works. Just ask a learning scientist.)</span></p>
+    </div>
+    <div class="flips">
+      <button class="flip" type="button" aria-expanded="false">
+        <span class="inner">
+          <span class="face front"><span class="n">01</span><span class="q">How many learners did her curriculum work at LEAD reach?</span><span class="tap">Tap to reveal ↻</span></span>
+          <span class="face back"><span class="big">1.2M+</span><span class="a">learners, through digital learning experiences <b>driven by learning analytics.</b></span></span>
+        </span>
+      </button>
+      <button class="flip" type="button" aria-expanded="false">
+        <span class="inner">
+          <span class="face front"><span class="n">02</span><span class="q">Across how many schools?</span><span class="tap">Tap to reveal ↻</span></span>
+          <span class="face back"><span class="big">3,000+</span><span class="a">schools, with the requirements of <b>5 education boards</b> unified into one platform.</span></span>
+        </span>
+      </button>
+      <button class="flip" type="button" aria-expanded="false">
+        <span class="inner">
+          <span class="face front"><span class="n">03</span><span class="q">Who were her first students?</span><span class="tap">Tap to reveal ↻</span></span>
+          <span class="face back"><span class="big">120+</span><span class="a"><b>first-generation learners</b> in low-income schools, as a Teach For India Fellow.</span></span>
+        </span>
+      </button>
+      <button class="flip" type="button" aria-expanded="false">
+        <span class="inner">
+          <span class="face front"><span class="n">04</span><span class="q">How many teachers has she trained?</span><span class="tap">Tap to reveal ↻</span></span>
+          <span class="face back"><span class="big">100+</span><span class="a">fellows trained at Teach For India’s residential institute, and <b>53 coached</b> one by one.</span></span>
+        </span>
+      </button>
+      <button class="flip" type="button" aria-expanded="false">
+        <span class="inner">
+          <span class="face front"><span class="n">05</span><span class="q">How many languages can you say hello to her in?</span><span class="tap">Tap to reveal ↻</span></span>
+          <span class="face back"><span class="big">3</span><span class="a"><b>English, Hindi and Spanish.</b> Hola, namaste, hello.</span></span>
+        </span>
+      </button>
+      <button class="flip" type="button" aria-expanded="false">
+        <span class="inner">
+          <span class="face front"><span class="n">06</span><span class="q">At what age did she go back to school?</span><span class="tap">Tap to reveal ↻</span></span>
+          <span class="face back"><span class="big word">“The brain age of 32!”</span><span class="a">Her words, for starting an <b>MS in Learning Sciences</b> at Northwestern.</span></span>
+        </span>
+      </button>
+    </div>
+    <div class="flip-tools"><button class="btn" type="button" id="flip-all">Reveal all</button><span id="flip-count" aria-live="polite">0 of 6 revealed</span></div>
+  </div>
+</section>
+
+<!-- LESSON 2 -->
+<section id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="chip">Lesson 2</span>
+      <h2 id="work-h">From classroom to learning scientist</h2>
+      <p class="objective"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="#fff" stroke="#16213e" stroke-width="2"/><circle cx="11" cy="11" r="4.5" fill="#ff6150" stroke="#16213e" stroke-width="2"/></svg><span><b>Learning objective:</b> pick a level to see what she did there.</span></p>
+    </div>
+    <ul class="levels" role="tablist" aria-label="Career levels">
+      <li role="presentation"><button class="lvl" role="tab" id="t1" aria-controls="p1" aria-selected="true"><small>Level 1 · 2017–19</small>Teach For India</button></li>
+      <li role="presentation"><button class="lvl" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1"><small>Level 2 · 2019–22</small>Shiv Nadar Foundation</button></li>
+      <li role="presentation"><button class="lvl" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1"><small>Level 3 · 2022–23</small>LEAD Schools</button></li>
+      <li role="presentation"><button class="lvl" role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1"><small>Level 4 · 2024–25</small>Northwestern</button></li>
+    </ul>
+
+    <div class="card panel" role="tabpanel" id="p1" aria-labelledby="t1" tabindex="0">
+      <div class="where"><span class="years">2017 – 2019</span><h3>Fellow, then Fellow Advisor</h3><p class="org">Teach For India</p><span class="xp">★ Where it all started</span></div>
+      <ul>
+        <li><span>Taught <b>120+ first-generation learners</b> in low-income schools.</span></li>
+        <li><span>Trained <b>100+ adult fellows</b> during the residential institute and coached 53 of them, using ADDIE, Kirkpatrick and SAM.</span></li>
+        <li><span>Instructional coach: classroom observations and one-to-one debriefs.</span></li>
+        <li><span>Sat on a School Management Committee, working with local MLAs to bring resources to the school.</span></li>
+        <li><span>Did socio-economic field research in Delhi’s urban villages to shape her teaching.</span></li>
+      </ul>
+    </div>
+    <div class="card panel" role="tabpanel" id="p2" aria-labelledby="t2" tabindex="0" hidden>
+      <div class="where"><span class="years">May 2019 – Jan 2022</span><h3>Learning Experience Designer &amp; Faculty</h3><p class="org">Shiv Nadar Foundation (HCL Technologies)</p><span class="xp">★ Art meets STEM</span></div>
+      <ul>
+        <li><span>Designed <b>art-integrated STEM programs</b> for 450+ learners.</span></li>
+        <li><span>Built gamified assessments using Bloom’s taxonomy and Depth of Knowledge.</span></li>
+        <li><span>Ran design-thinking workshops where students studied community problems and prototyped fixes.</span></li>
+        <li><span>Trained faculty on technology-enhanced teaching and applied India’s National Education Policy to the curriculum.</span></li>
+      </ul>
+    </div>
+    <div class="card panel" role="tabpanel" id="p3" aria-labelledby="t3" tabindex="0" hidden>
+      <div class="where"><span class="years">Feb 2022 – Apr 2023</span><h3>Curriculum Excellence Analyst</h3><p class="org">LEAD Schools (EdTech unicorn)</p><span class="xp">★ Learning at scale</span></div>
+      <ul>
+        <li><span>Shaped digital learning experiences for <b>1.2M+ learners across 3,000+ schools</b>, driven by learning analytics.</span></li>
+        <li><span>Ran <b>50+ user-research sessions</b> and applied TPACK to tech integration and interface design.</span></li>
+        <li><span>Unified the requirements of 5 education boards into a single learning management platform.</span></li>
+        <li><span>Teacher training through systematic debriefs led to a <b>20% improvement</b> in student performance at partner schools.</span></li>
+        <li><span>Worked with product and engineering on scalable curriculum frameworks, and on a Rapid Response Team that cut client turnaround time.</span></li>
+      </ul>
+    </div>
+    <div class="card panel edu" role="tabpanel" id="p4" aria-labelledby="t4" tabindex="0" hidden>
+      <div class="where"><span class="years">2024 – 2025</span><h3>MS, Learning Sciences</h3><p class="org">Northwestern University, School of Education &amp; Social Policy</p><span class="xp">★ Back to school</span></div>
+      <div>
+        <ul>
+          <li><span>Coursework: <b>Educational Product Design</b>, Design of Learning Environments, Learning Analytics, Ed Tech Design.</span></li>
+          <li><span>Also: Instructional Coaching, Learning Evaluation, Global Education Policy.</span></li>
+          <li><span>Built an AI Literacy workshop curriculum for educators and learners.</span></li>
+        </ul>
+        <p class="before">Earlier levels: B.Ed, GGS Indraprastha University (2015–17) · PG Diploma in Mass Communication &amp; Journalism, Bhartiya Vidya Bhavan (2013–14) · B.Com, University of Delhi (2010–13).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSON 3 -->
+<section id="projects" aria-labelledby="proj-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="chip">Lesson 3</span>
+      <h2 id="proj-h">Things she’s built</h2>
+      <p class="objective"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="#fff" stroke="#16213e" stroke-width="2"/><circle cx="11" cy="11" r="4.5" fill="#ff6150" stroke="#16213e" stroke-width="2"/></svg><span><b>Learning objective:</b> name one thing here you’d want to play with.</span></p>
+    </div>
+    <div class="projects">
+      <article class="card proj">
+        <div class="icon" style="background:var(--sky)"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><rect x="6" y="9" width="32" height="22" rx="4" fill="#fff" stroke="#16213e" stroke-width="2.4"/><path d="M16 37h12M22 31v6" stroke="#16213e" stroke-width="2.4" stroke-linecap="round"/><path d="M22 14l1.8 4.2L28 20l-4.2 1.8L22 26l-1.8-4.2L16 20l4.2-1.8z" fill="#ffd84d" stroke="#16213e" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <h3>An AI-integrated platform for self-directed learners</h3>
+        <p>A web platform that pairs AI with learner autonomy, so people can build their own learning pathways.</p>
+        <div class="tags"><span class="yr">2024 – now</span><span>Independent</span><span>AI</span></div>
+      </article>
+      <article class="card proj">
+        <div class="icon" style="background:var(--sun)"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M6 10h22a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H14l-6 5v-5H6z" fill="#fff" stroke="#16213e" stroke-width="2.4" stroke-linejoin="round"/><path d="M38 18v10a4 4 0 0 1-4 4h-2v4l-5-4h-6" fill="none" stroke="#16213e" stroke-width="2.4" stroke-linejoin="round"/><text x="11" y="22" font-family="Lexend,sans-serif" font-weight="800" font-size="9" fill="#16213e">AI?</text></svg></div>
+        <h3>AI Literacy workshop curriculum</h3>
+        <p>A workshop series that introduces AI to educators and learners, built at Northwestern.</p>
+        <div class="tags"><span class="yr">2025</span><span>Northwestern</span><span>Workshops</span></div>
+      </article>
+      <article class="card proj">
+        <div class="icon" style="background:var(--mint)"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M6 38V24h8v14M14 38V16h10v22M24 38V26h8v12" fill="#fff" stroke="#16213e" stroke-width="2.2" stroke-linejoin="round"/><path d="M4 38h36" stroke="#16213e" stroke-width="2.4" stroke-linecap="round"/><circle cx="35" cy="11" r="6" fill="#ffd84d" stroke="#16213e" stroke-width="2.2"/><path d="M33 17v3h4v-3" fill="none" stroke="#16213e" stroke-width="2"/><path d="M18 21h2M18 26h2M18 31h2" stroke="#16213e" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>“The Energy City” board game</h3>
+        <p>A game that teaches energy concepts through engineering design, aligned to NGSS 3-5-ETS1-3.</p>
+        <div class="tags"><span class="yr">2024</span><span>Game design</span><span>NGSS</span></div>
+      </article>
+      <article class="card proj">
+        <div class="icon" style="background:#ffd2cc"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="14" cy="14" r="5" fill="#fff" stroke="#16213e" stroke-width="2.2"/><circle cx="30" cy="14" r="5" fill="#fff" stroke="#16213e" stroke-width="2.2"/><path d="M5 34c0-6 4-10 9-10s9 4 9 10M21 34c0-6 4-10 9-10s9 4 9 10" fill="#fff" stroke="#16213e" stroke-width="2.2" stroke-linejoin="round"/><path d="M22 6l1.2 2.6L26 9l-2 2 .5 2.8L22 12.4l-2.5 1.4.5-2.8-2-2 2.8-.4z" fill="#ff6150" stroke="#16213e" stroke-width="1.2"/></svg></div>
+        <h3>Community-centred tech innovation program</h3>
+        <p>Mentored young people doing community research to build tech and non-tech solutions.</p>
+        <div class="tags"><span class="yr">2021 – 22</span><span>Mentoring</span><span>Leadership</span></div>
+      </article>
+      <article class="card proj">
+        <div class="icon" style="background:var(--sky)"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M6 36V22l7-6 7 6v14zM20 36V18l9-7 9 7v18z" fill="#fff" stroke="#16213e" stroke-width="2.2" stroke-linejoin="round"/><path d="M4 36h36" stroke="#16213e" stroke-width="2.4" stroke-linecap="round"/><path d="M11 36v-6h4v6M27 24h4M27 29h4" stroke="#16213e" stroke-width="2"/><circle cx="34" cy="8" r="3" fill="#ff6150" stroke="#16213e" stroke-width="1.6"/></svg></div>
+        <h3>Research in Delhi’s urban villages</h3>
+        <p>Socio-economic field research with Teach For India that informed how she taught.</p>
+        <div class="tags"><span class="yr">2018 – 19</span><span>Field research</span><span>Delhi</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- LESSON 4 -->
+<section id="writing" aria-labelledby="writing-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="chip">Lesson 4</span>
+      <h2 id="writing-h">Further reading</h2>
+      <p class="objective"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="#fff" stroke="#16213e" stroke-width="2"/><circle cx="11" cy="11" r="4.5" fill="#ff6150" stroke="#16213e" stroke-width="2"/></svg><span><b>Learning objective:</b> pick one essay to read with your tea.</span></p>
+    </div>
+    <div class="essays">
+      <a class="card essay" href="https://medium.com/@tretasharma/back-to-school-before-40-bfb900603d34" target="_blank" rel="noopener">
+        <span class="meta"><i>Feb 2025</i> On Medium</span>
+        <h3>Back to School before 40!</h3>
+        <p>Why she went back to study in her 30s, and why the 30s might be a cognitive sweet spot.</p>
+        <span class="go">Read the essay <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="card essay" href="https://medium.com/@tretasharma/do-your-parents-know-about-chatgpt-mine-do-1ef3c666ad8a" target="_blank" rel="noopener">
+        <span class="meta"><i>Sep 2024</i> On Medium</span>
+        <h3>Do Your Parents Know About ChatGPT? Mine do!</h3>
+        <p>The six steps she used to get her parents and in-laws using AI. The hook: birthday wishes.</p>
+        <span class="go">Read the essay <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="card essay" href="https://medium.com/@tretasharma/perspective-multiplier-0cd557a1641d" target="_blank" rel="noopener">
+        <span class="meta"><i>Jul 2024</i> On Medium</span>
+        <h3>Perspective Multiplier</h3>
+        <p>The science of why diverse perspectives make for better thinking, from Galton’s ox to cognitive flexibility.</p>
+        <span class="go">Read the essay <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="card essay" href="https://medium.com/@tretasharma/debunk-myths-for-better-learning-7778f8a190c1" target="_blank" rel="noopener">
+        <span class="meta"><i>Jun 2024</i> On Medium</span>
+        <h3>Debunk Myths for Better Learning</h3>
+        <p>Left brain, right brain, the 10% myth from the warm-up, and the guilt teachers feel about memorisation.</p>
+        <span class="go">Read the essay <span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+    <p class="more"><a class="btn" href="https://medium.com/@tretasharma" target="_blank" rel="noopener">All her writing on Medium <span aria-hidden="true">↗</span></a></p>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" aria-labelledby="quiz-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="chip">Final quiz</span>
+      <h2 id="quiz-h">Check your understanding</h2>
+      <p class="objective"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="#fff" stroke="#16213e" stroke-width="2"/><circle cx="11" cy="11" r="4.5" fill="#ff6150" stroke="#16213e" stroke-width="2"/></svg><span><b>No grades, just feedback.</b> Three quick questions about what you just learned.</span></p>
+    </div>
+    <div class="qs" id="qs">
+      <fieldset class="card qq" data-correct="1">
+        <legend><span>1</span>Where did Treta study for her MS in Learning Sciences?</legend>
+        <div class="opts">
+          <button class="opt" type="button">Stanford University</button>
+          <button class="opt" type="button">Northwestern University</button>
+          <button class="opt" type="button">University of Delhi</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </fieldset>
+      <fieldset class="card qq" data-correct="1">
+        <legend><span>2</span>Who did she teach to use ChatGPT?</legend>
+        <div class="opts">
+          <button class="opt" type="button">A room of tech executives</button>
+          <button class="opt" type="button">Her parents and her in-laws</button>
+          <button class="opt" type="button">Her houseplants</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </fieldset>
+      <fieldset class="card qq" data-correct="2">
+        <legend><span>3</span>What did she retitle that neuroscientist’s article for her student?</legend>
+        <div class="opts">
+          <button class="opt" type="button">“Brains Are Overrated”</button>
+          <button class="opt" type="button">“The 10% Club”</button>
+          <button class="opt" type="button">“You Can Be Smarter Than Albert Einstein”</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </fieldset>
+    </div>
+    <div class="card score" id="score" hidden>
+      <div class="num" id="score-num">0/3</div>
+      <p class="msg" id="score-msg" aria-live="polite"></p>
+      <button class="btn" type="button" id="retry">Try again</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- CONTACT -->
+<footer class="contact" id="hello-contact" aria-labelledby="bye">
+  <div class="wrap">
+    <span class="chip">End of lesson</span>
+    <h2 id="bye">Class dismissed! <span>Say hello.</span></h2>
+    <p class="lede">Building something for learners or educators? Curious about AI in the classroom? Treta would love to hear about it.</p>
+    <a class="mail" href="mailto:tretasharma@gmail.com"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="3" y="6" width="22" height="16" rx="3" fill="#fff" stroke="#16213e" stroke-width="2.2"/><path d="M4 8l10 7 10-7" fill="none" stroke="#16213e" stroke-width="2.2" stroke-linejoin="round"/></svg>tretasharma@gmail.com</a>
+    <div class="links">
+      <a href="https://linkedin.com/in/tretasharma" target="_blank" rel="noopener"><span>LinkedIn<small>/in/tretasharma</small></span><span aria-hidden="true">↗</span></a>
+      <a href="https://medium.com/@tretasharma" target="_blank" rel="noopener"><span>Medium<small>@tretasharma</small></span><span aria-hidden="true">↗</span></a>
+      <a href="https://x.com/sharmatreta" target="_blank" rel="noopener"><span>X<small>@sharmatreta</small></span><span aria-hidden="true">↗</span></a>
+      <a href="../shared/Treta-Sharma-Resume.pdf" download><span>Résumé<small>PDF download</small></span><span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="fine small">
+      <span>© Treta Sharma · Mountain View, California</span>
+      <span>Set in Lexend, a typeface designed to improve reading fluency.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // progress bar
+  var bar = document.getElementById('bar');
+  function prog(){
+    var h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, scrollY / h) : 0) + ')';
+  }
+  addEventListener('scroll', prog, {passive:true}); addEventListener('resize', prog); prog();
+
+  // lesson nav: tick off sections you've reached
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting){
+          var a = document.querySelector('nav.lessons a[data-sec="' + e.target.id + '"]');
+          if (a){ a.classList.add('done'); a.setAttribute('aria-label', a.textContent.trim() + ', visited'); }
+        }
+      });
+    }, {rootMargin:'0px 0px -55% 0px'});
+    ['who','work','projects','writing','quiz'].forEach(function(id){ io.observe(document.getElementById(id)); });
+  }
+
+  // warm-up quiz
+  var reveal = document.getElementById('reveal');
+  reveal.hidden = true;
+  var tf = document.querySelectorAll('.tf .btn');
+  tf.forEach(function(b){
+    b.addEventListener('click', function(){
+      var right = b.dataset.ans === 'false';
+      tf.forEach(function(x){ x.disabled = true; x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      var v = document.getElementById('verdict');
+      v.classList.toggle('wrong', !right);
+      v.querySelector('.badge').textContent = right ? '✓' : '✗';
+      document.getElementById('verdict-text').textContent = right
+        ? 'Correct! It’s a myth.'
+        : 'Nope! But you’re in good company: it’s a famous myth.';
+      reveal.hidden = false;
+    });
+  });
+
+  // flip cards
+  var flips = document.querySelectorAll('.flip');
+  var count = document.getElementById('flip-count');
+  function setFlip(f, open){
+    f.setAttribute('aria-expanded', open ? 'true' : 'false');
+    f.querySelector('.front').setAttribute('aria-hidden', open ? 'true' : 'false');
+    f.querySelector('.back').setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  function updateCount(){
+    var n = document.querySelectorAll('.flip[aria-expanded="true"]').length;
+    count.textContent = n === flips.length ? 'All 6 revealed. Nice work!' : n + ' of 6 revealed';
+    document.getElementById('flip-all').textContent = n === flips.length ? 'Hide all' : 'Reveal all';
+  }
+  flips.forEach(function(f){
+    setFlip(f, false);
+    f.addEventListener('click', function(){ setFlip(f, f.getAttribute('aria-expanded') !== 'true'); updateCount(); });
+  });
+  document.getElementById('flip-all').addEventListener('click', function(){
+    var all = document.querySelectorAll('.flip[aria-expanded="true"]').length === flips.length;
+    flips.forEach(function(f){ setFlip(f, !all); }); updateCount();
+  });
+
+  // career tabs
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.lvl'));
+  function select(t, focus){
+    tabs.forEach(function(x){
+      var on = x === t;
+      x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) t.focus();
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ select(t); });
+    t.addEventListener('keydown', function(e){
+      var j = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (i + 1) % tabs.length;
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (i - 1 + tabs.length) % tabs.length;
+      if (e.key === 'Home') j = 0;
+      if (e.key === 'End') j = tabs.length - 1;
+      if (j !== null){ e.preventDefault(); select(tabs[j], true); }
+    });
+  });
+
+  // final quiz
+  var qs = document.querySelectorAll('.qq');
+  var score = document.getElementById('score');
+  var feedback = [
+    ['Not quite. Her MS was at Northwestern.', 'Yes! Northwestern’s School of Education & Social Policy, 2024–25.', 'Close: Delhi University is where she did her B.Com. The MS was at Northwestern.'],
+    ['Nope. Her toughest audience was closer to home.', 'Yes! Both sets of parents. The hook: crafting birthday wishes for relatives.', 'Ha. Not yet. It was her parents and in-laws.'],
+    ['Not quite. She went for something more encouraging.', 'Nope, though it would make a great club.', 'Yes! “You Can Be Smarter Than Albert Einstein.”']
+  ];
+  function tally(){
+    var answered = 0, right = 0;
+    qs.forEach(function(q){ if (q.dataset.done){ answered++; if (q.dataset.done === 'right') right++; } });
+    if (answered === qs.length){
+      score.hidden = false;
+      document.getElementById('score-num').textContent = right + '/3';
+      document.getElementById('score-msg').textContent = right === 3
+        ? 'Full marks! You were clearly paying attention. Treta would be proud.'
+        : right === 2 ? 'Nicely done. One more pass and you’ll have it.'
+        : 'That’s what second tries are for. Learning is a loop, not a line.';
+    }
+  }
+  qs.forEach(function(q, qi){
+    var opts = q.querySelectorAll('.opt'), fb = q.querySelector('.fb'), c = +q.dataset.correct;
+    opts.forEach(function(o, oi){
+      o.addEventListener('click', function(){
+        opts.forEach(function(x, xi){ x.disabled = true; if (xi === c) x.classList.add('right'); });
+        if (oi !== c) o.classList.add('wrong');
+        fb.textContent = (oi === c ? '✓ ' : '✗ ') + feedback[qi][oi];
+        q.dataset.done = oi === c ? 'right' : 'wrong';
+        tally();
+      });
+    });
+  });
+  document.getElementById('retry').addEventListener('click', function(){
+    qs.forEach(function(q){
+      delete q.dataset.done; q.querySelector('.fb').textContent = '';
+      q.querySelectorAll('.opt').forEach(function(o){ o.disabled = false; o.classList.remove('right','wrong'); });
+    });
+    score.hidden = true;
+    qs[0].querySelector('.opt').focus();
+    if (!reduce) qs[0].scrollIntoView({behavior:'smooth', block:'center'});
+  });
+})();
+</script>
+</body>
+</html>

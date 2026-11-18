@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treta Sharma · Learning Scientist</title>
+<meta name="description" content="Treta Sharma is a learning scientist and learning experience designer in Mountain View, California.">
+<link rel="icon" href="../shared/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fff8f1;--ink:#2b1b3d;--soft:#5e4f6e;--coral:#ff6b4a;--coral-d:#d9472a;
+  --lilac:#ece2ff;--lilac-d:#c9b5f5;--mint:#d8f3e6;--mint-d:#7cc9a4;--sun:#ffd76b;--line:rgba(43,27,61,.12);
+  --r:28px;
+}
+*{box-sizing:border-box}
+html,body{overflow-x:clip}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:var(--cream);color:var(--ink);font:18px/1.6 'Instrument Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+em.s,.serif{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:999px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* nav */
+.top{position:sticky;top:14px;z-index:20;padding:0 16px}
+.nav{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:18px;background:var(--cream);padding:6px 16px 6px 6px;border-radius:999px;box-shadow:0 0 0 1.5px var(--ink)}
+.brand img{width:36px;height:36px;border-radius:50%;background:var(--lilac);object-fit:cover;object-position:50% 15%}
+.pill-nav{display:flex;gap:4px;background:var(--lilac);border:1.5px solid var(--ink);border-radius:999px;padding:5px;box-shadow:3px 3px 0 var(--ink)}
+.pill-nav a{text-decoration:none;font-weight:500;font-size:15px;padding:8px 18px;border-radius:999px;transition:background .2s}
+.pill-nav a:hover{background:#fff}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 'Instrument Sans',sans-serif;text-decoration:none;padding:15px 24px;border-radius:999px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+.btn.coral{background:var(--coral);color:#fff}
+.btn.coral .ar{color:#fff}
+.btn.mint{background:var(--mint)}
+.btn.sm{padding:11px 18px;font-size:15px}
+.ar{display:inline-block;transition:transform .2s}
+.btn:hover .ar{transform:translateX(3px)}
+
+/* hero */
+.hero{padding:72px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;background:#fff;border:1.5px solid var(--ink);border-radius:999px;padding:7px 14px 7px 10px}
+.eyebrow b{width:10px;height:10px;border-radius:50%;background:var(--mint-d);box-shadow:0 0 0 4px var(--mint)}
+h1{font-weight:600;font-size:clamp(44px,6.4vw,86px);line-height:.98;letter-spacing:-.035em;margin:26px 0 24px}
+h1 em.s{color:var(--coral);font-size:1.08em;letter-spacing:-.01em}
+.lede{font-size:clamp(18px,1.6vw,21px);color:var(--soft);max-width:34em;margin:0 0 34px}
+.lede strong{color:var(--ink);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.portrait{position:relative;justify-self:center;width:min(100%,430px)}
+.arch{position:absolute;left:0;right:0;bottom:0;height:80%;border-radius:999px 999px 30px 30px;background:var(--coral);border:1.5px solid var(--ink);box-shadow:10px 10px 0 var(--ink)}
+.arch::after{content:"";position:absolute;inset:14px 14px auto;height:calc(100% - 28px);border-radius:999px 999px 20px 20px;border:1.5px dashed rgba(255,255,255,.55)}
+.cut{position:relative;z-index:1;display:block;width:100%;height:auto;border-radius:0 0 30px 30px}
+.blob{position:absolute;z-index:-1;border-radius:50%}
+.blob.a{width:180px;height:180px;background:var(--sun);right:-40px;top:-30px}
+.blob.b{width:120px;height:120px;background:var(--lilac-d);left:-40px;bottom:60px}
+.badge{position:absolute;z-index:2;display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--ink);border-radius:999px;padding:9px 16px;font-weight:600;font-size:14.5px;white-space:nowrap;box-shadow:3px 3px 0 var(--ink);animation:bob 6s ease-in-out infinite}
+.badge .dot{width:9px;height:9px;border-radius:50%}
+.badge.one{left:-46px;top:30%}
+.badge.two{right:-34px;top:56%;animation-delay:-2s;background:var(--mint)}
+.badge.three{left:-10px;bottom:-18px;animation-delay:-4s;background:var(--sun)}
+@keyframes bob{50%{transform:translateY(-8px)}}
+
+/* wave */
+.wave{display:block;width:100%;height:56px}
+
+/* orgs */
+.orgs{background:#fff;padding:34px 0 44px}
+.orgs p{text-align:center;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin:0 0 22px}
+.orgs ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:18px 54px}
+.orgs li{font-size:25px;color:var(--ink);opacity:.82;white-space:nowrap}
+.w1{font-weight:700;letter-spacing:.14em}
+.w1 span{color:var(--coral)}
+.w2{font-family:'Instrument Serif',serif;font-size:29px!important}
+.w3{font-weight:700;letter-spacing:-.03em}
+.w3 span{display:inline-block;background:var(--ink);color:#fff;padding:0 7px;border-radius:6px;margin-left:4px}
+.w4{font-family:'Instrument Serif',serif;font-style:italic;font-size:28px!important}
+
+/* sections */
+section{padding:96px 0}
+.kicker{display:inline-block;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--coral-d);margin:0 0 14px}
+h2{font-weight:600;font-size:clamp(34px,4.4vw,56px);line-height:1.04;letter-spacing:-.03em;margin:0 0 18px}
+h2 em.s{color:var(--coral)}
+.intro{max-width:40em;color:var(--soft);margin:0 0 48px;font-size:19px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.head-row .intro{margin:0;max-width:28em}
+
+/* do */
+.do{background:var(--lilac)}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1.5px solid var(--ink);border-radius:var(--r);padding:30px;box-shadow:5px 5px 0 var(--ink)}
+.card .ic{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;border:1.5px solid var(--ink);margin-bottom:22px}
+.card h3{font-size:24px;line-height:1.15;letter-spacing:-.02em;margin:0 0 10px}
+.card p{margin:0 0 16px;color:var(--soft);font-size:16.5px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;list-style:none;margin:0;padding:0}
+.chips li{font-size:13.5px;font-weight:500;padding:5px 11px;border-radius:999px;background:var(--cream);border:1px solid var(--line)}
+
+/* work */
+.work-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.case{grid-column:span 2;display:flex;flex-direction:column;background:#fff;border:1.5px solid var(--ink);border-radius:var(--r);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.case:hover{transform:translateY(-4px);box-shadow:6px 8px 0 var(--ink)}
+.case.big,.case.half{grid-column:span 3}
+.case.half .art{height:200px}
+.case .art{height:190px;border-bottom:1.5px solid var(--ink);position:relative;overflow:hidden}
+.case.big .art{height:240px}
+.case .art svg{width:100%;height:100%;display:block}
+.case .body{padding:24px 26px 28px;display:flex;flex-direction:column;flex:1}
+.meta{font-size:13.5px;font-weight:600;color:var(--soft);letter-spacing:.03em;margin-bottom:8px}
+.case h3{font-size:23px;line-height:1.18;letter-spacing:-.02em;margin:0 0 10px}
+.case p{font-size:16px;color:var(--soft);margin:0 0 18px}
+.stats{display:flex;flex-wrap:wrap;gap:10px 22px;margin:auto 0 16px;padding-top:4px}
+.stats div{line-height:1.1}
+.stats b{display:block;font-size:30px;letter-spacing:-.03em;color:var(--coral-d)}
+.stats span{font-size:13px;color:var(--soft)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--lilac)}
+.tags span:nth-child(2n){background:var(--mint)}
+
+/* human */
+.human{background:var(--mint)}
+.human .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.facts{display:grid;gap:16px}
+.fact{display:flex;gap:18px;background:#fff;border:1.5px solid var(--ink);border-radius:22px;padding:22px 24px;box-shadow:4px 4px 0 var(--ink)}
+.fact .n{flex:none;width:46px;height:46px;border-radius:50%;background:var(--sun);border:1.5px solid var(--ink);display:grid;place-items:center;font:italic 400 24px/1 'Instrument Serif',serif}
+.fact:nth-child(2) .n{background:var(--lilac)}
+.fact:nth-child(3) .n{background:var(--coral);color:#fff}
+.fact h3{margin:2px 0 4px;font-size:19px;letter-spacing:-.01em}
+.fact p{margin:0;font-size:16px;color:var(--soft)}
+blockquote{margin:30px 0 0;font:italic 400 clamp(30px,3.4vw,42px)/1.12 'Instrument Serif',serif;color:var(--ink)}
+blockquote span{color:var(--coral-d)}
+blockquote cite{display:block;margin-top:12px;font:500 15px/1.4 'Instrument Sans',sans-serif;font-style:normal;color:var(--soft)}
+.langs{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.langs span{font-weight:600;font-size:14px;padding:7px 14px;border-radius:999px;background:#fff;border:1.5px solid var(--ink)}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:170px;top:10px;bottom:10px;width:2px;background:var(--line)}
+.tl>li{display:grid;grid-template-columns:150px 1fr;gap:56px;padding:0 0 46px;position:relative}
+.tl>li::before{content:"";position:absolute;left:162px;top:8px;width:18px;height:18px;border-radius:50%;background:var(--coral);border:3px solid var(--cream);box-shadow:0 0 0 1.5px var(--ink)}
+.tl>li:nth-child(2)::before{background:var(--mint-d)}
+.tl>li:nth-child(3)::before{background:var(--lilac-d)}
+.when{font-weight:600;font-size:15px;color:var(--soft);padding-top:3px;text-align:right}
+.tl h3{font-size:25px;letter-spacing:-.02em;margin:0 0 2px;line-height:1.2}
+.org{font-weight:600;color:var(--coral-d);margin:0 0 12px;font-size:16px}
+.tl ul{margin:0;padding-left:20px;color:var(--soft);font-size:16.5px}
+.tl ul li{margin:4px 0}
+.edu{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+.edu div{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:20px}
+.edu div:first-child{background:var(--lilac);border-color:var(--ink)}
+.edu b{display:block;font-size:17px;line-height:1.25;margin-bottom:6px}
+.edu span{font-size:14.5px;color:var(--soft);display:block}
+.edu i{font-style:normal;font-weight:600;font-size:13px;color:var(--coral-d);display:block;margin-top:8px}
+h3.sub{font-size:22px;letter-spacing:-.02em;margin:24px 0 0}
+
+/* writing */
+.writing{background:var(--ink);color:var(--cream)}
+.writing h2{color:#fff}
+.writing .kicker{color:var(--sun)}
+.writing .intro{color:#d8cfe3}
+.posts{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.post{display:flex;flex-direction:column;gap:12px;text-decoration:none;background:#3a2850;border:1.5px solid #574272;border-radius:var(--r);padding:30px;transition:background .2s,transform .2s}
+.post:hover{background:#463161;transform:translateY(-3px)}
+.post .d{font-size:13.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--sun)}
+.post h3{font-size:clamp(23px,2.2vw,28px);line-height:1.15;letter-spacing:-.02em;margin:0;color:#fff}
+.post p{margin:0;color:#d8cfe3;font-size:16px}
+.post .go{margin-top:auto;font-weight:600;font-size:15px;color:var(--coral)}
+.post:nth-child(1){background:var(--coral);border-color:var(--coral)}
+.post:nth-child(1) .d{color:var(--ink)}
+.post:nth-child(1) h3{color:var(--ink)}
+.post:nth-child(1) p{color:#3d1f12}
+.post:nth-child(1) .go{color:var(--ink)}
+.post:nth-child(1):hover{background:#ff7d60}
+
+/* contact */
+.contact{padding:110px 0 70px;text-align:center}
+.contact h2{font-size:clamp(46px,7vw,100px);line-height:.95;letter-spacing:-.045em;margin:10px 0 22px}
+.contact .intro{margin:0 auto 38px}
+.contact .cta{justify-content:center}
+.mail{display:inline-block;font:italic 400 clamp(26px,3.4vw,40px)/1.2 'Instrument Serif',serif;color:var(--ink);text-decoration:none;border-bottom:3px solid var(--coral);margin-bottom:36px;word-break:break-word}
+.mail:hover{color:var(--coral-d)}
+.socials{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:20px}
+footer{border-top:1.5px solid var(--line);padding:28px 0 40px;font-size:14.5px;color:var(--soft)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* responsive */
+@media (max-width:1020px){
+  .work-grid{grid-template-columns:repeat(2,1fr)}
+  .case,.case.big,.case.half{grid-column:span 1}
+  .edu{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  .pill-nav{display:none}
+  .hero{padding-top:44px}
+  .hero .wrap{grid-template-columns:1fr;gap:64px}
+  .portrait{width:min(100%,380px)}
+  .cards3{grid-template-columns:1fr}
+  .human .wrap{grid-template-columns:1fr;gap:36px}
+  .posts{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{font-size:17px}
+  .wrap{padding:0 20px}
+  .top{padding:0 12px;top:10px}
+  section{padding:72px 0}
+  .work-grid{grid-template-columns:1fr}
+  .badge{font-size:13px;padding:7px 12px}
+  .badge.one{left:-8px;top:12%}
+  .badge.two{right:-8px}
+  .badge.three{left:8px}
+  .blob.a{right:-10px;width:130px;height:130px}
+  .blob.b{left:-14px}
+  .tl::before{left:8px}
+  .tl>li{grid-template-columns:1fr;gap:6px;padding-left:38px}
+  .tl>li::before{left:0}
+  .when{text-align:left}
+  .edu{grid-template-columns:1fr}
+  .orgs li{font-size:21px}
+  .w2,.w4{font-size:24px!important}
+  .card,.post{padding:24px}
+  .brand{font-size:16px}
+  .eyebrow{font-size:12px;letter-spacing:.03em}
+  .fact{padding:20px;gap:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="#top"><img src="../shared/treta-square.webp" width="720" height="720" alt="">Treta Sharma</a>
+    <div class="pill-nav">
+      <a href="#work">Work</a><a href="#about">About</a><a href="#writing">Writing</a><a href="#contact">Contact</a>
+    </div>
+    <a class="btn coral sm" href="#contact">Say hello <span class="ar" aria-hidden="true">→</span></a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="h">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow"><b aria-hidden="true"></b>Learning Scientist · Mountain View, CA</span>
+      <h1 id="h">Learning people are <em class="s">genuinely excited</em> to show up for.</h1>
+      <p class="lede">I'm Treta. For <strong>8+ years</strong> I've designed learning products, curricula and teacher programs, from one classroom in Delhi to <strong>1.2M+ learners</strong> across India. Now I bring the learning sciences and AI together to do it better.</p>
+      <div class="cta">
+        <a class="btn coral" href="#work">See my work <span class="ar" aria-hidden="true">→</span></a>
+        <a class="btn" href="../shared/Treta-Sharma-Resume.pdf">Download résumé <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+    <div class="portrait">
+      <span class="blob a" aria-hidden="true"></span><span class="blob b" aria-hidden="true"></span>
+      <div class="arch" aria-hidden="true"></div><img class="cut" src="../shared/treta-cutout.webp" width="671" height="721" alt="Portrait of Treta Sharma smiling, with curly dark hair and a light-blue top">
+      <span class="badge one"><span class="dot" style="background:var(--coral)"></span>1.2M+ learners reached</span>
+      <span class="badge two">MS Learning Sciences · Northwestern</span>
+      <span class="badge three">EN · HI · ES</span>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 240 0 480 0 720 28 S 1200 60 1440 18 V56 H0Z" fill="#fff"/></svg>
+<div class="orgs">
+  <div class="wrap">
+    <p>Where I've done the work</p>
+    <ul>
+      <li class="w1">LEAD<span>.</span> SCHOOLS</li>
+      <li class="w2">Shiv Nadar Foundation</li>
+      <li class="w3">Teach For<span>India</span></li>
+      <li class="w4">Northwestern University</li>
+    </ul>
+  </div>
+</div>
+<svg class="wave" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true" style="background:#fff"><path d="M0 18 C 300 60 560 52 820 26 S 1240 0 1440 30 V56 H0Z" fill="#ece2ff"/></svg>
+
+<section class="do" aria-labelledby="do-h" style="padding-top:64px">
+  <div class="wrap">
+    <span class="kicker">What I do</span>
+    <h2 id="do-h">Three things I'm <em class="s">really</em> good at</h2>
+    <p class="intro">Grounded in research, tested with real learners and teachers, and built to work at scale.</p>
+    <div class="cards3">
+      <article class="card">
+        <div class="ic" style="background:var(--sun)"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="4" y="5" width="22" height="16" rx="3" fill="none" stroke="#2b1b3d" stroke-width="2"/><path d="M10 26h10M15 21v5" stroke="#2b1b3d" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="13" r="3" fill="#ff6b4a"/><path d="M17 11h5M17 15h3" stroke="#2b1b3d" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>Learning experience design</h3>
+        <p>Curricula, courses and digital learning products shaped by user research and learning analytics, from a single lesson to a national platform.</p>
+        <ul class="chips"><li>UDL</li><li>Bloom's &amp; DOK</li><li>Gamification</li><li>User research</li></ul>
+      </article>
+      <article class="card">
+        <div class="ic" style="background:var(--lilac)"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M15 3l2.6 7.4L25 13l-7.4 2.6L15 23l-2.6-7.4L5 13l7.4-2.6z" fill="#ff6b4a" stroke="#2b1b3d" stroke-width="1.8" stroke-linejoin="round"/><circle cx="24" cy="24" r="3" fill="#7cc9a4" stroke="#2b1b3d" stroke-width="1.6"/></svg></div>
+        <h3>AI &amp; learning</h3>
+        <p>AI-powered platforms for self-directed learners, and AI-literacy workshops that help educators and families use AI with confidence.</p>
+        <ul class="chips"><li>AI learning solutions</li><li>AI literacy</li><li>Academic integrity</li></ul>
+      </article>
+      <article class="card">
+        <div class="ic" style="background:var(--mint)"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="10" cy="10" r="4.5" fill="#ffd76b" stroke="#2b1b3d" stroke-width="1.8"/><circle cx="21" cy="12" r="3.5" fill="#fff" stroke="#2b1b3d" stroke-width="1.8"/><path d="M2.5 25c0-4.5 3.4-7.5 7.5-7.5s7.5 3 7.5 7.5M16 25c.3-3.6 2.4-6 5-6s4.7 2.4 5 6" fill="none" stroke="#2b1b3d" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Teacher training &amp; coaching</h3>
+        <p>Training institutes, classroom observation and 1:1 debriefs that change what happens in the classroom, and show up in student results.</p>
+        <ul class="chips"><li>ADDIE</li><li>Kirkpatrick</li><li>SAM</li><li>Instructional coaching</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+<svg class="wave" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true" style="background:#ece2ff"><path d="M0 30 C 260 64 520 6 800 22 S 1260 54 1440 20 V56 H0Z" fill="#fff8f1"/></svg>
+
+<section id="work" aria-labelledby="work-h" style="padding-top:64px">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <span class="kicker">Selected work</span>
+        <h2 id="work-h">Projects I'm <em class="s">proud</em> of</h2>
+      </div>
+      <p class="intro">From national curriculum systems to a board game about energy.</p>
+    </div>
+    <div class="work-grid">
+      <article class="case big">
+        <div class="art" style="background:var(--lilac)">
+          <svg viewBox="0 0 600 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g fill="#2b1b3d" opacity=".9">
+              <circle cx="80" cy="60" r="5"/><circle cx="120" cy="90" r="5"/><circle cx="160" cy="55" r="5"/><circle cx="210" cy="100" r="5"/><circle cx="250" cy="70" r="5"/><circle cx="105" cy="140" r="5"/><circle cx="170" cy="170" r="5"/><circle cx="60" cy="190" r="5"/>
+            </g>
+            <g fill="none" stroke="#2b1b3d" stroke-width="1.5" opacity=".35"><path d="M80 60L120 90L160 55L210 100L250 70M120 90L105 140L170 170L60 190M210 100L170 170"/></g>
+            <rect x="330" y="40" width="210" height="160" rx="18" fill="#fff" stroke="#2b1b3d" stroke-width="2"/>
+            <rect x="355" y="140" width="22" height="40" rx="4" fill="#7cc9a4"/><rect x="390" y="115" width="22" height="65" rx="4" fill="#ffd76b"/><rect x="425" y="95" width="22" height="85" rx="4" fill="#c9b5f5"/><rect x="460" y="70" width="22" height="110" rx="4" fill="#ff6b4a"/>
+            <path d="M355 72h80M355 88h50" stroke="#2b1b3d" stroke-width="5" stroke-linecap="round"/>
+            <path d="M250 70 C 290 70 300 110 330 110" fill="none" stroke="#ff6b4a" stroke-width="2.5" stroke-dasharray="6 6"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">LEAD Schools · 2022–23</div>
+          <h3>Curriculum analytics for one of India's largest school networks</h3>
+          <p>Designed data-driven digital learning experiences, ran 50+ user-research sessions, and folded five education boards into a single learning-management platform.</p>
+          <div class="stats"><div><b>1.2M+</b><span>learners</span></div><div><b>3,000+</b><span>schools</span></div><div><b>20%</b><span>student performance lift</span></div></div>
+          <div class="tags"><span>Learning analytics</span><span>TPACK</span><span>Product</span></div>
+        </div>
+      </article>
+      <article class="case big">
+        <div class="art" style="background:var(--mint)">
+          <svg viewBox="0 0 600 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect x="70" y="40" width="300" height="160" rx="20" fill="#fff" stroke="#2b1b3d" stroke-width="2"/>
+            <rect x="92" y="62" width="180" height="26" rx="13" fill="#ece2ff"/><rect x="146" y="102" width="200" height="26" rx="13" fill="#ffd76b"/><rect x="92" y="142" width="150" height="26" rx="13" fill="#ece2ff"/>
+            <path d="M405 70l11 30 30 11-30 11-11 30-11-30-30-11 30-11z" fill="#ff6b4a" stroke="#2b1b3d" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="490" cy="170" r="26" fill="#fff" stroke="#2b1b3d" stroke-width="2"/><path d="M478 170l8 8 16-16" fill="none" stroke="#2b1b3d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M462 110 C 500 110 510 130 495 144" fill="none" stroke="#2b1b3d" stroke-width="2" stroke-dasharray="5 6"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">Independent · 2024–ongoing</div>
+          <h3>An AI-integrated platform for self-directed learners</h3>
+          <p>A web platform that pairs AI with learner autonomy, so people can build personal learning pathways instead of following someone else's.</p>
+          <div class="tags"><span>AI learning</span><span>Self-directed learning</span><span>Product design</span></div>
+        </div>
+      </article>
+      <article class="case">
+        <div class="art" style="background:var(--sun)">
+          <svg viewBox="0 0 400 190" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g stroke="#2b1b3d" stroke-width="2">
+              <rect x="70" y="40" width="40" height="40" rx="6" fill="#fff"/><rect x="110" y="40" width="40" height="40" rx="6" fill="#ff6b4a"/><rect x="150" y="40" width="40" height="40" rx="6" fill="#fff"/><rect x="190" y="40" width="40" height="40" rx="6" fill="#d8f3e6"/>
+              <rect x="190" y="80" width="40" height="40" rx="6" fill="#fff"/><rect x="190" y="120" width="40" height="40" rx="6" fill="#ece2ff"/><rect x="150" y="120" width="40" height="40" rx="6" fill="#fff"/>
+            </g>
+            <path d="M290 50l-22 46h22l-14 46 40-60h-24l16-32z" fill="#fff" stroke="#2b1b3d" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="130" cy="140" r="14" fill="#2b1b3d"/><circle cx="125" cy="135" r="2.6" fill="#fff"/><circle cx="135" cy="145" r="2.6" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">Game design · 2024</div>
+          <h3>"The Energy City" board game</h3>
+          <p>A board game that teaches energy concepts through engineering design, aligned to NGSS 3-5-ETS1-3.</p>
+          <div class="tags"><span>Game-based learning</span><span>NGSS</span></div>
+        </div>
+      </article>
+      <article class="case">
+        <div class="art" style="background:#ffe1d8">
+          <svg viewBox="0 0 400 190" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect x="80" y="40" width="240" height="110" rx="16" fill="#fff" stroke="#2b1b3d" stroke-width="2"/>
+            <text x="200" y="108" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="52" fill="#2b1b3d">AI?</text>
+            <circle cx="110" cy="170" r="12" fill="#ffd76b" stroke="#2b1b3d" stroke-width="2"/><circle cx="160" cy="170" r="12" fill="#c9b5f5" stroke="#2b1b3d" stroke-width="2"/><circle cx="210" cy="170" r="12" fill="#7cc9a4" stroke="#2b1b3d" stroke-width="2"/><circle cx="260" cy="170" r="12" fill="#ff6b4a" stroke="#2b1b3d" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">Northwestern · 2025</div>
+          <h3>AI literacy workshop curriculum</h3>
+          <p>A workshop series that introduces AI to educators and learners, practically and without the hype.</p>
+          <div class="tags"><span>AI literacy</span><span>Workshops</span></div>
+        </div>
+      </article>
+      <article class="case">
+        <div class="art" style="background:var(--lilac)">
+          <svg viewBox="0 0 400 190" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <path d="M40 150h320" stroke="#2b1b3d" stroke-width="2"/>
+            <rect x="80" y="80" width="56" height="70" fill="#fff" stroke="#2b1b3d" stroke-width="2"/><path d="M74 82l34-30 34 30" fill="#ff6b4a" stroke="#2b1b3d" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="160" y="60" width="70" height="90" fill="#ffd76b" stroke="#2b1b3d" stroke-width="2"/><rect x="176" y="80" width="14" height="14" fill="#fff" stroke="#2b1b3d" stroke-width="1.5"/><rect x="200" y="80" width="14" height="14" fill="#fff" stroke="#2b1b3d" stroke-width="1.5"/>
+            <rect x="254" y="96" width="60" height="54" fill="#d8f3e6" stroke="#2b1b3d" stroke-width="2"/>
+            <circle cx="320" cy="50" r="18" fill="#fff" stroke="#2b1b3d" stroke-width="2"/><path d="M333 63l14 14" stroke="#2b1b3d" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">Leadership program · 2021–22</div>
+          <h3>Community-centred tech innovation</h3>
+          <p>Mentored young people as they researched problems in their own communities and built tech and non-tech solutions.</p>
+          <div class="tags"><span>Design thinking</span><span>Mentoring</span></div>
+        </div>
+      </article>
+      <article class="case half">
+        <div class="art" style="background:var(--mint)">
+          <svg viewBox="0 0 400 190" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <g fill="#fff" stroke="#2b1b3d" stroke-width="2"><circle cx="120" cy="95" r="44"/><circle cx="200" cy="95" r="44"/><circle cx="280" cy="95" r="44"/></g>
+            <g fill="#ff6b4a"><circle cx="105" cy="85" r="6"/><circle cx="130" cy="110" r="6"/></g>
+            <g fill="#ffd76b" stroke="#2b1b3d" stroke-width="1.5"><circle cx="190" cy="80" r="7"/><circle cx="214" cy="104" r="7"/></g>
+            <g fill="#c9b5f5" stroke="#2b1b3d" stroke-width="1.5"><circle cx="270" cy="90" r="7"/><circle cx="292" cy="108" r="7"/></g>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">Shiv Nadar Foundation · 2019–22</div>
+          <h3>Art-integrated STEM programs</h3>
+          <p>STEM learning through art, with gamified assessments built on Bloom's taxonomy and DOK, and design-thinking workshops.</p>
+          <div class="stats"><div><b>450+</b><span>STEM learners</span></div></div>
+          <div class="tags"><span>Art-integrated STEM</span><span>Assessment design</span></div>
+        </div>
+      </article>
+      <article class="case half">
+        <div class="art" style="background:#ffe1d8">
+          <svg viewBox="0 0 400 190" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <path d="M60 150 C 110 60 170 160 220 90 S 320 60 350 120" fill="none" stroke="#2b1b3d" stroke-width="2.5" stroke-dasharray="7 7"/>
+            <g stroke="#2b1b3d" stroke-width="2"><circle cx="60" cy="150" r="12" fill="#ff6b4a"/><circle cx="220" cy="90" r="12" fill="#ffd76b"/><circle cx="350" cy="120" r="12" fill="#7cc9a4"/></g>
+            <path d="M206 54 l14 -26 14 26z" fill="#fff" stroke="#2b1b3d" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">With Teach For India · 2018–19</div>
+          <h3>Socio-economic research in Delhi's urban villages</h3>
+          <p>Field research in the communities my students came from, which shaped how and what I taught.</p>
+          <div class="tags"><span>Field research</span><span>Equity</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 C 280 0 600 60 900 30 S 1300 8 1440 26 V56 H0Z" fill="#d8f3e6"/></svg>
+<section class="human" id="about" aria-labelledby="about-h" style="padding-top:64px">
+  <div class="wrap">
+    <div>
+      <span class="kicker">A bit more human</span>
+      <h2 id="about-h">Still a <em class="s">student</em> at heart</h2>
+      <p class="intro" style="margin-bottom:0">I started out in commerce and journalism, found my way into a classroom with Teach For India, and never really left learning. These days I'm in Mountain View, writing about how brains learn and building tools that help them.</p>
+      <blockquote>“Our brains are amazing <span>(blow a kiss to yours!)</span>”<cite>from my essay on learning myths</cite></blockquote>
+      <div class="langs" aria-label="Languages"><span>English</span><span>हिन्दी Hindi</span><span>Español</span></div>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="n" aria-hidden="true">1</span><div><h3>Back to school in my thirties</h3><p>I went back for a Master's in Learning Sciences at Northwestern at the brain age of 32! My family joked I'd enrolled at the age of raising kids.</p></div></div>
+      <div class="fact"><span class="n" aria-hidden="true">2</span><div><h3>Both sets of parents use ChatGPT</h3><p>I taught my parents and in-laws to use it. The winning hook was crafting birthday wishes for relatives.</p></div></div>
+      <div class="fact"><span class="n" aria-hidden="true">3</span><div><h3>Smarter than Einstein</h3><p>When a 12-year-old told me we only use 10% of our brains, I printed a neuroscientist's article for the class the next day and retitled it "You Can Be Smarter Than Albert Einstein."</p></div></div>
+    </div>
+  </div>
+</section>
+<svg class="wave" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true" style="background:#d8f3e6"><path d="M0 22 C 320 60 620 4 940 28 S 1300 50 1440 24 V56 H0Z" fill="#fff8f1"/></svg>
+
+<section id="experience" aria-labelledby="exp-h" style="padding-top:64px">
+  <div class="wrap">
+    <span class="kicker">Experience</span>
+    <h2 id="exp-h">Classroom → coaching → <em class="s">scale</em></h2>
+    <p class="intro">Each role taught me something the next one needed.</p>
+    <ol class="tl">
+      <li>
+        <div class="when">Feb 2022 – Apr 2023</div>
+        <div>
+          <h3>Curriculum Excellence Analyst</h3>
+          <p class="org">LEAD Schools, EdTech unicorn · India</p>
+          <ul>
+            <li>Digital learning experiences for 1.2M+ learners across 3,000+ schools, driven by learning analytics</li>
+            <li>Ran 50+ user-research sessions; applied TPACK to tech integration and interface design</li>
+            <li>Unified the requirements of 5 education boards into one learning-management platform</li>
+            <li>Teacher training through systematic debriefs led to a 20% lift in student performance at partner schools</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="when">May 2019 – Jan 2022</div>
+        <div>
+          <h3>Learning Experience Designer &amp; Faculty</h3>
+          <p class="org">Shiv Nadar Foundation (HCL Technologies)</p>
+          <ul>
+            <li>Art-integrated STEM programs for 450+ learners</li>
+            <li>Gamified assessments using Bloom's taxonomy and DOK</li>
+            <li>Design-thinking workshops where students prototyped fixes for community problems</li>
+            <li>Trained faculty on technology-enhanced teaching; applied India's National Education Policy to curriculum</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="when">2017 – 2019</div>
+        <div>
+          <h3>Fellow, then Fellow Advisor</h3>
+          <p class="org">Teach For India</p>
+          <ul>
+            <li>Taught 120+ first-generation learners in low-income schools</li>
+            <li>Trained 100+ fellows at the residential institute and coached 53 one-on-one</li>
+            <li>Served on a School Management Committee, working with local MLAs on resources for the school</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+    <h3 class="sub">Education</h3>
+    <div class="edu">
+      <div><b>MS, Learning Sciences</b><span>Northwestern University, Evanston IL</span><i>2024–2025</i></div>
+      <div><b>Bachelor of Education</b><span>GGS Indraprastha University, Delhi</span><i>2015–2017</i></div>
+      <div><b>PG Diploma, Mass Communication &amp; Journalism</b><span>Bhartiya Vidya Bhavan, New Delhi</span><i>2013–2014</i></div>
+      <div><b>Bachelor of Commerce</b><span>University of Delhi</span><i>2010–2013</i></div>
+    </div>
+  </div>
+</section>
+
+<section class="writing" id="writing" aria-labelledby="wr-h">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <span class="kicker">Writing</span>
+        <h2 id="wr-h">Notes on how <em class="s">we</em> learn</h2>
+      </div>
+      <p class="intro">Short, friendly essays on Medium about learning science, AI and going back to school.</p>
+    </div>
+    <div class="posts">
+      <a class="post" href="https://medium.com/@tretasharma/back-to-school-before-40-bfb900603d34"><span class="d">Feb 2025</span><h3>Back to School before 40!</h3><p>Returning to study in my thirties, and why the 30s may be a cognitive sweet spot.</p><span class="go">Read on Medium →</span></a>
+      <a class="post" href="https://medium.com/@tretasharma/do-your-parents-know-about-chatgpt-mine-do-1ef3c666ad8a"><span class="d">Sep 2024</span><h3>Do Your Parents Know About ChatGPT? Mine do!</h3><p>The six steps I used to get my parents and in-laws using AI.</p><span class="go">Read on Medium →</span></a>
+      <a class="post" href="https://medium.com/@tretasharma/perspective-multiplier-0cd557a1641d"><span class="d">Jul 2024</span><h3>Perspective Multiplier</h3><p>The science of why diverse perspectives make for better thinking.</p><span class="go">Read on Medium →</span></a>
+      <a class="post" href="https://medium.com/@tretasharma/debunk-myths-for-better-learning-7778f8a190c1"><span class="d">Jun 2024</span><h3>Debunk Myths for Better Learning</h3><p>Left brain, right brain, the 10% myth, and the guilt teachers feel about memorisation.</p><span class="go">Read on Medium →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="c-h">
+  <div class="wrap">
+    <span class="kicker">Contact</span>
+    <h2 id="c-h">Let's make learning<br> <em class="s">people love.</em></h2>
+    <p class="intro">Building a learning product, a curriculum or a training program? I'd love to hear about it.</p>
+    <a class="mail" href="mailto:tretasharma@gmail.com">tretasharma@gmail.com</a>
+    <div class="socials">
+      <a class="btn coral" href="mailto:tretasharma@gmail.com">Email me <span class="ar" aria-hidden="true">→</span></a>
+      <a class="btn" href="https://linkedin.com/in/tretasharma">LinkedIn</a>
+      <a class="btn mint" href="https://medium.com/@tretasharma">Medium</a>
+      <a class="btn" href="https://x.com/sharmatreta">X</a>
+      <a class="btn" href="../shared/Treta-Sharma-Resume.pdf">Résumé ↓</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© Treta Sharma · Mountain View, California</span><span>Authorized to work in the US</span></div>
+</footer>
+</body>
+</html>

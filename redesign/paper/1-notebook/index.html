@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treta Sharma</title>
+<meta name="description" content="Treta Sharma is a learning scientist and former classroom teacher who designs learning that makes learners and educators genuinely excited to show up.">
+<link rel="icon" href="../../shared/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,100;1,9..144,300..800,100&family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,300..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --desk:#e6dccb;
+  --paper:#fbf7ee;
+  --ink:#2a2521;
+  --ink-soft:#5d544b;
+  --pen:#2c4a8c;          /* ballpoint blue */
+  --margin:#e08b7b;       /* red margin rule */
+  --dot:#cbd3dc;
+  --hl:#ffe17a;
+  --sticky-y:#fff0a3; --sticky-p:#ffd9cf; --sticky-b:#d6ebf3; --sticky-g:#dcefcf;
+  --m:128px;              /* margin line x */
+  --hand:'Caveat', 'Segoe Print', cursive;
+  --display:'Fraunces', Georgia, serif;
+  --body:'Literata', Georgia, serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--desk); color:var(--ink);
+  font-family:var(--body); font-size:18px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .18 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--pen);outline-offset:3px;border-radius:4px}
+img{max-width:100%;display:block}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* back link */
+.back{position:fixed;top:14px;right:14px;z-index:50;font:600 14px/1 var(--body);background:var(--ink);color:var(--paper);padding:9px 13px;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+
+/* ---------- the sheet ---------- */
+.sheet{
+  position:relative; max-width:1080px; margin:48px auto 64px; background:var(--paper);
+  border-radius:3px 6px 6px 3px;
+  box-shadow:0 1px 0 rgba(0,0,0,.04), 0 18px 40px -12px rgba(70,50,30,.35), 0 2px 6px rgba(70,50,30,.12);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .32 0 0 0 0 .2 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(circle, var(--dot) 1.15px, transparent 1.4px);
+  background-size:300px 300px, 28px 28px;
+  background-position:0 0, 14px 14px;
+  overflow:hidden;
+}
+/* red margin rule */
+.sheet::before{content:"";position:absolute;top:0;bottom:0;left:var(--m);width:2px;background:var(--margin);opacity:.55;box-shadow:5px 0 0 rgba(224,139,123,.35)}
+/* punched holes */
+.sheet::after{content:"";position:absolute;top:0;bottom:0;left:22px;width:26px;
+  background:radial-gradient(circle at 13px 13px, var(--desk) 9px, rgba(0,0,0,.12) 10px, transparent 11px) 0 40px/26px 96px repeat-y}
+
+.wrap{position:relative;padding:0 64px 0 calc(var(--m) + 48px)}
+section{position:relative;padding:72px 0 24px}
+
+/* hand + helpers */
+.hand{font-family:var(--hand);color:var(--pen);font-weight:500;line-height:1.15}
+.hl{background:linear-gradient(100deg,transparent 0 1%,var(--hl) 2% 97%,transparent 98%);background-size:100% 62%;background-position:0 78%;background-repeat:no-repeat;padding:0 .12em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.margin-note{position:absolute;left:calc(-1 * (var(--m) + 48px) + 14px);width:calc(var(--m) - 28px);font-size:22px;transform:rotate(-4deg);text-align:right}
+
+/* section headings: notebook tabs */
+.tab{display:flex;align-items:baseline;gap:18px;margin:0 0 28px}
+.tab .num{font-family:var(--hand);font-size:30px;color:var(--margin);font-weight:700}
+.tab h2{font-family:var(--display);font-variation-settings:"SOFT" 100;font-weight:600;font-size:clamp(34px,4.4vw,50px);line-height:1.05;letter-spacing:-.01em;margin:0}
+.tab h2 em{font-style:italic;font-weight:400}
+
+/* ---------- hero ---------- */
+.hero{padding-top:80px;display:grid;grid-template-columns:1.25fr .9fr;gap:56px;align-items:center}
+.hero .hi{font-size:34px;margin:0 0 4px;transform:rotate(-2deg);display:inline-block}
+.hero h1{font-family:var(--display);font-variation-settings:"SOFT" 100;font-weight:700;font-size:clamp(56px,8.4vw,108px);line-height:.92;letter-spacing:-.025em;margin:0 0 26px}
+.hero h1 .under{position:relative;white-space:nowrap}
+.hero h1 .under svg{position:absolute;left:-2%;bottom:-.16em;width:104%;height:.3em;overflow:visible}
+.squig{fill:none;stroke:var(--pen);stroke-width:4;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 1.6s .4s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.lede{font-size:clamp(19px,1.9vw,22px);line-height:1.6;max-width:34ch;margin:0 0 22px}
+.meta{font-size:15.5px;color:var(--ink-soft);margin:0 0 30px;letter-spacing:.01em}
+.meta span+span::before{content:"·";margin:0 .55em;color:var(--margin)}
+.ctas{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center}
+.btn{font:600 17px/1 var(--body);text-decoration:none;padding:15px 22px;border-radius:12px 14px 11px 15px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);box-shadow:3px 4px 0 rgba(42,37,33,.18);transition:transform .2s, box-shadow .2s}
+.btn:hover{transform:translate(-1px,-2px) rotate(-1deg);box-shadow:5px 7px 0 rgba(42,37,33,.18)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.circled{position:relative;font-family:var(--hand);font-size:26px;color:var(--pen);text-decoration:none;padding:4px 10px}
+.circled svg{position:absolute;inset:-8px -14px;width:calc(100% + 28px);height:calc(100% + 16px);overflow:visible;pointer-events:none}
+.circled svg path{fill:none;stroke:var(--pen);stroke-width:2.2;stroke-linecap:round;opacity:0;transition:opacity .2s}
+.circled:hover svg path,.circled:focus-visible svg path{opacity:1}
+
+.photo-wrap{position:relative;justify-self:center;width:min(100%,370px)}
+.polaroid{margin:0;background:#fff;padding:14px 14px 0;transform:rotate(3deg);box-shadow:0 14px 30px -10px rgba(60,40,20,.45),0 2px 4px rgba(0,0,0,.08)}
+.polaroid img{aspect-ratio:1/1;object-fit:cover;width:100%;height:auto;filter:saturate(.95) contrast(1.02)}
+.polaroid figcaption{font-family:var(--hand);font-size:25px;color:var(--ink);text-align:center;padding:12px 4px 16px}
+.tape{position:absolute;width:128px;height:34px;background:repeating-linear-gradient(45deg,rgba(236,163,140,.72) 0 8px,rgba(244,190,170,.72) 8px 16px);box-shadow:0 1px 2px rgba(0,0,0,.1);z-index:2}
+.tape.t1{top:-14px;left:50%;transform:translateX(-50%) rotate(-5deg)}
+.photo-note{position:absolute;left:-200px;top:-18px;width:190px;font-size:24px;transform:rotate(-5deg);text-align:right}
+.photo-note svg{display:block;width:90px;height:44px;margin:2px 0 0 96px;overflow:visible}
+.photo-note svg path{fill:none;stroke:var(--pen);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- sticky notes ---------- */
+.stickies-title{font-size:30px;margin:0 0 22px;transform:rotate(-1.5deg);display:inline-block}
+.stickies{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+.sticky{padding:18px 16px 20px;min-height:170px;box-shadow:0 10px 18px -10px rgba(60,40,20,.45),0 1px 2px rgba(0,0,0,.06);position:relative;transition:transform .25s}
+.sticky::before{content:"";position:absolute;top:0;left:0;right:0;height:22px;background:rgba(0,0,0,.035)}
+.sticky:nth-child(1){background:var(--sticky-y);transform:rotate(-2.5deg)}
+.sticky:nth-child(2){background:var(--sticky-p);transform:rotate(1.8deg) translateY(8px)}
+.sticky:nth-child(3){background:var(--sticky-b);transform:rotate(-1deg)}
+.sticky:nth-child(4){background:var(--sticky-g);transform:rotate(2.4deg) translateY(6px)}
+.sticky:nth-child(5){background:var(--sticky-y);transform:rotate(-1.6deg)}
+.sticky:hover{transform:rotate(0) translateY(-4px)}
+.sticky b{display:block;font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:40px;line-height:1;margin:6px 0 8px;letter-spacing:-.02em}
+.sticky span{font-family:var(--hand);font-size:22px;line-height:1.15;color:#3b342e}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:56px}
+.about p{margin:0 0 1.1em;max-width:60ch}
+.about p:first-child::first-letter{font-family:var(--display);float:left;font-size:4.1em;line-height:.8;padding:.06em .1em 0 0;font-weight:700;color:var(--margin)}
+.index-card{background:#fff;border-radius:2px;padding:0 26px 24px;align-self:start;transform:rotate(1.5deg);box-shadow:0 12px 24px -12px rgba(60,40,20,.45);
+  background-image:linear-gradient(#e7a49a,#e7a49a),repeating-linear-gradient(transparent 0 31px,#cfe0ee 31px 32px);
+  background-size:100% 2px,100% 100%;background-position:0 58px,0 26px;background-repeat:no-repeat,repeat}
+.index-card h3{font-family:var(--hand);font-size:28px;color:var(--ink);margin:0;padding:18px 0 12px;font-weight:700;line-height:1}
+.index-card ul{list-style:none;margin:16px 0 0;padding:0}
+.index-card li{font-family:var(--hand);font-size:23px;color:var(--pen);line-height:32px;padding-left:28px;position:relative}
+.index-card li::before{content:"";position:absolute;left:2px;top:9px;width:14px;height:14px;border:2px solid var(--pen);border-radius:3px}
+.index-card li.done::after{content:"";position:absolute;left:5px;top:3px;width:8px;height:16px;border:solid var(--margin);border-width:0 3px 3px 0;transform:rotate(40deg)}
+.quote{font-family:var(--display);font-style:italic;font-size:26px;line-height:1.3;margin:30px 0 0;padding-left:20px;border-left:3px solid var(--hl);max-width:30ch}
+.quote cite{display:block;font:500 15px/1.4 var(--body);font-style:normal;color:var(--ink-soft);margin-top:10px}
+
+/* ---------- experience ---------- */
+.timeline{list-style:none;margin:0;padding:0}
+.job{position:relative;padding:0 0 46px}
+.job .when{position:absolute;left:calc(-1 * (var(--m) + 48px));width:var(--m);padding-right:18px;text-align:right;font-family:var(--hand);font-size:24px;color:var(--pen);top:4px;line-height:1.05}
+.job::before{content:"";position:absolute;left:-56px;top:13px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:2.5px solid var(--margin)}
+.job h3{font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:28px;font-weight:600;margin:0;line-height:1.2}
+.job .org{font-size:17px;color:var(--ink-soft);margin:4px 0 14px;font-style:italic}
+.job ul{margin:0;padding:0;list-style:none;max-width:68ch}
+.job li{position:relative;padding-left:28px;margin:0 0 8px}
+.job li::before{content:"";position:absolute;left:2px;top:.62em;width:13px;height:2px;background:var(--pen);transform:rotate(-8deg);border-radius:2px}
+.job .aside{font-size:22px;margin-top:10px;display:inline-block;transform:rotate(-1.5deg)}
+
+/* ---------- projects ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:30px}
+.card{position:relative;background:#fff;padding:30px 24px 24px;box-shadow:0 12px 22px -14px rgba(60,40,20,.5),0 1px 2px rgba(0,0,0,.05);transition:transform .25s}
+.card:nth-child(odd){transform:rotate(-1deg)} .card:nth-child(even){transform:rotate(1.1deg)}
+.card:hover{transform:rotate(0) translateY(-4px)}
+.card .pin{position:absolute;top:-9px;left:50%;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f19a8a,#c0503e 70%);box-shadow:0 3px 4px rgba(0,0,0,.25)}
+.card .yr{font-family:var(--hand);font-size:21px;color:var(--pen)}
+.card h3{font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:23px;line-height:1.2;margin:4px 0 10px;font-weight:600}
+.card p{font-size:16px;line-height:1.55;margin:0;color:#3d3630}
+.stamp{position:absolute;top:16px;right:14px;font:700 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;padding:6px 8px;border:2px solid currentColor;border-radius:4px;transform:rotate(8deg);opacity:.8}
+.stamp.on{color:#b0473a} .stamp.done{color:#4b7a46}
+
+/* ---------- writing ---------- */
+.essays{list-style:none;margin:0;padding:0;max-width:820px}
+.essay{border-bottom:1.5px dashed #d2c6b4}
+.essay a{display:grid;grid-template-columns:110px 1fr auto;gap:20px;align-items:baseline;padding:22px 0;text-decoration:none}
+.essay .d{font-family:var(--hand);font-size:22px;color:var(--pen)}
+.essay h3{font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:clamp(22px,2.4vw,28px);font-weight:600;margin:0 0 6px;line-height:1.2}
+.essay p{margin:0;font-size:16.5px;color:var(--ink-soft)}
+.essay .go{font-family:var(--hand);font-size:24px;color:var(--pen);white-space:nowrap}
+.essay a:hover h3 .t{background:linear-gradient(100deg,transparent 0 1%,var(--hl) 2% 97%,transparent 98%) 0 85%/100% 55% no-repeat}
+.essay a:hover .go{transform:translateX(4px)}
+.essay .go{transition:transform .2s;display:inline-block}
+
+/* ---------- education + toolbox ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.two .tab h2{font-size:clamp(30px,3.1vw,40px)}
+.schools{list-style:none;margin:0;padding:0}
+.schools li{padding:14px 0;border-bottom:1px solid #e2d8c8}
+.schools b{font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:21px;font-weight:600;display:block;line-height:1.25}
+.schools span{font-size:16px;color:var(--ink-soft)}
+.schools .y{font-family:var(--hand);font-size:21px;color:var(--pen);float:right;margin-left:12px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0 0 22px}
+.chips li{font-size:15.5px;padding:7px 13px;border:1.8px solid var(--ink);border-radius:18px 14px 17px 13px;background:var(--paper)}
+.chips.tools li{border-style:dashed;border-color:#8b7f72}
+.sub{font-family:var(--hand);font-size:26px;color:var(--pen);margin:0 0 10px;font-weight:600}
+.certs{margin:0;padding-left:20px;font-size:16px}
+.certs li{margin-bottom:6px}
+
+/* ---------- contact ---------- */
+.contact{margin-top:40px;padding:84px 0 96px;text-align:center}
+.contact .hand.big{font-size:clamp(44px,6vw,72px);color:var(--ink);transform:rotate(-2deg);display:inline-block;margin:0}
+.contact p.lead{font-size:20px;max-width:46ch;margin:18px auto 30px}
+.mail{display:inline-block;font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:clamp(24px,3.6vw,40px);font-weight:600;text-decoration:none;border-bottom:3px solid var(--hl);padding-bottom:2px;word-break:break-all}
+.mail:hover{background:var(--hl)}
+.links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 30px;margin:34px 0 0;padding:0;list-style:none}
+.note-small{font-size:15px;color:var(--ink-soft);margin-top:28px}
+footer{text-align:center;padding:0 0 40px}
+footer .hand{font-size:28px}
+
+.divider{display:block;width:180px;height:24px;margin:40px auto 0;overflow:visible}
+.divider path{fill:none;stroke:#c8b9a4;stroke-width:2;stroke-linecap:round}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .stickies{grid-template-columns:repeat(3,1fr)}
+  .photo-note{display:none}
+}
+@media (max-width:820px){
+  :root{--m:34px}
+  body{font-size:17px}
+  .sheet{margin:0;border-radius:0}
+  .sheet::after{left:6px;width:18px;background:radial-gradient(circle at 9px 9px, var(--desk) 5px, rgba(0,0,0,.12) 6px, transparent 7px) 0 30px/18px 70px repeat-y}
+  .wrap{padding:0 18px 0 calc(var(--m) + 18px)}
+  .hero,.about,.two{grid-template-columns:1fr;gap:40px}
+  .hero{padding-top:64px}
+  .photo-wrap{width:min(86%,320px)}
+  .stickies{grid-template-columns:repeat(2,1fr);gap:16px}
+  .sticky{min-height:0}
+  .sticky b{font-size:32px}
+  .margin-note{position:static;width:auto;text-align:left;margin:0 0 14px;display:inline-block}
+  .job .when{position:static;width:auto;text-align:left;padding:0;display:block;margin-bottom:2px}
+  .job::before{left:-27px;top:8px;width:11px;height:11px}
+  .essay a{grid-template-columns:1fr;gap:4px}
+  .essay .go{display:none}
+  section{padding-top:56px}
+}
+@media (max-width:420px){
+  .stickies{grid-template-columns:1fr 1fr}
+  .sticky{padding:14px 12px 16px}
+  .sticky b{font-size:28px}
+  .sticky span{font-size:19px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .squig{stroke-dashoffset:0}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<a class="back" href="../index.html">&larr; All variations</a>
+
+<main class="sheet">
+  <div class="wrap">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="name">
+      <div>
+        <p class="hand hi">hi there! I'm</p>
+        <h1 id="name">Treta <span class="under">Sharma<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path class="squig" d="M3 13 C 40 4, 70 18, 110 10 S 180 4, 220 11 S 280 14, 297 7"/></svg></span></h1>
+        <p class="lede">I'm a learning scientist and a former classroom teacher. I design learning experiences, curricula and EdTech products that make learners and educators <span class="hl">genuinely excited to show up.</span></p>
+        <p class="meta"><span>MS Learning Sciences, Northwestern</span><span>8+ years in classrooms &amp; EdTech</span><span>Mountain View, CA</span></p>
+        <div class="ctas">
+          <a class="btn" href="../../shared/Treta-Sharma-Resume.pdf" target="_blank" rel="noopener">Read my résumé</a>
+          <a class="circled" href="#hello">or just say hello<svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M30 8 C 90 -2, 190 4, 194 28 S 120 60, 60 54 S 2 40, 8 24 S 50 4, 110 6"/></svg></a>
+        </div>
+      </div>
+
+      <div class="photo-wrap">
+        <span class="tape t1" aria-hidden="true"></span>
+        <figure class="polaroid">
+          <img src="../../shared/treta-warm.jpg" alt="Portrait of Treta Sharma, smiling softly, dark wavy hair" width="800" height="800">
+          <figcaption>still a student at heart</figcaption>
+        </figure>
+        <p class="hand photo-note" aria-hidden="true">that's me, thinking about brains<svg viewBox="0 0 90 44"><path d="M6 4 C 30 2, 58 10, 82 34 M70 35 L83 36 L81 23"/></svg></p>
+      </div>
+    </section>
+
+    <!-- NUMBERS -->
+    <section aria-labelledby="nums" style="padding-top:40px">
+      <h2 id="nums" class="hand stickies-title">a few numbers I'm proud of &rarr;</h2>
+      <ul class="stickies">
+        <li class="sticky"><b>1.2M+</b><span>learners reached through curriculum work at LEAD</span></li>
+        <li class="sticky"><b>3,000+</b><span>schools on one learning platform</span></li>
+        <li class="sticky"><b>450+</b><span>young scientists learning STEM through art</span></li>
+        <li class="sticky"><b>120+</b><span>first-generation learners in my own classroom</span></li>
+        <li class="sticky"><b>100+</b><span>new teachers trained at Teach For India</span></li>
+      </ul>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-h">
+      <div class="tab"><span class="num" aria-hidden="true">01</span><h2 id="about-h">A little <em>about me</em></h2></div>
+      <div class="about">
+        <div>
+          <p>I started out studying commerce and journalism, then found my way into a classroom with Teach For India, teaching first-generation learners in Delhi. That's where I fell for this work. Since then I've coached new teachers, designed art-integrated STEM programs, and helped shape the curriculum behind a platform used by more than a million learners.</p>
+          <p>In 2024 I went back to school, <span class="hl">at the brain age of 32!</span>, for a Master's in Learning Sciences at Northwestern. My family still jokes about it. These days I'm most curious about how AI can support people who are steering their own learning, without taking the wheel from them.</p>
+          <p>When I'm not designing learning, I'm writing about it on Medium, or serving as my family's unofficial AI tutor. Both sets of parents now use ChatGPT. Mostly for birthday wishes.</p>
+          <blockquote class="quote">&ldquo;Our brains are amazing (blow a kiss to yours!)&rdquo;<cite>from my essay <a href="https://medium.com/@tretasharma/perspective-multiplier-0cd557a1641d">Perspective Multiplier</a></cite></blockquote>
+        </div>
+        <aside class="index-card" aria-label="Things I care about">
+          <h3>things I care about</h3>
+          <ul>
+            <li class="done">learners who are the first in their family</li>
+            <li class="done">teachers who feel supported, not judged</li>
+            <li class="done">evidence over myths</li>
+            <li class="done">AI that builds autonomy</li>
+            <li class="done">art inside science class</li>
+            <li>one more good question</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="work" aria-labelledby="work-h">
+      <div class="tab"><span class="num" aria-hidden="true">02</span><h2 id="work-h">Where I've <em>taught &amp; built</em></h2></div>
+      <ol class="timeline">
+        <li class="job">
+          <span class="when">2024 &ndash;<br>2025</span>
+          <h3>MS, Learning Sciences</h3>
+          <p class="org">Northwestern University, School of Education &amp; Social Policy</p>
+          <ul>
+            <li>Studied educational product design, learning analytics, design of learning environments and instructional coaching.</li>
+            <li>Designed an AI literacy workshop series for educators and learners.</li>
+          </ul>
+        </li>
+        <li class="job">
+          <span class="when">2022 &ndash;<br>2023</span>
+          <h3>Curriculum Excellence Analyst</h3>
+          <p class="org">LEAD Schools, an EdTech unicorn in India</p>
+          <ul>
+            <li>Shaped digital learning experiences for <strong>1.2M+ learners across 3,000+ schools</strong>, guided by learning analytics.</li>
+            <li>Ran 50+ user-research sessions and worked side by side with product and engineering.</li>
+            <li>Unified the requirements of 5 education boards into a single learning platform.</li>
+            <li>Built teacher-debrief training that lifted student performance by 20% at partner schools.</li>
+          </ul>
+        </li>
+        <li class="job">
+          <span class="when">2019 &ndash;<br>2022</span>
+          <h3>Learning Experience Designer &amp; Faculty</h3>
+          <p class="org">Shiv Nadar Foundation, HCL Technologies</p>
+          <ul>
+            <li>Created art-integrated STEM programs for 450+ learners.</li>
+            <li>Designed gamified assessments using Bloom's taxonomy and Depth of Knowledge.</li>
+            <li>Ran design-thinking workshops where students studied problems in their own communities and prototyped fixes.</li>
+            <li>Trained faculty in technology-enhanced teaching.</li>
+          </ul>
+        </li>
+        <li class="job">
+          <span class="when">2017 &ndash;<br>2019</span>
+          <h3>Fellow, then Fellow Advisor</h3>
+          <p class="org">Teach For India</p>
+          <ul>
+            <li>Taught 120+ first-generation learners in a low-income school.</li>
+            <li>Trained 100+ new fellows at the residential institute and coached 53 of them one-on-one.</li>
+            <li>Sat on the School Management Committee, working with local legislators on resources for the school.</li>
+          </ul>
+          <span class="hand aside">&uarr; where it all started</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" aria-labelledby="proj-h">
+      <div class="tab"><span class="num" aria-hidden="true">03</span><h2 id="proj-h">Things I've <em>made</em></h2></div>
+      <div class="cards">
+        <article class="card"><span class="pin" aria-hidden="true"></span><span class="stamp on">Ongoing</span><span class="yr">2024 &rarr;</span><h3>An AI learning companion for self-directed learners</h3><p>A web platform that pairs AI with learner autonomy, so people can chart their own personal learning paths.</p></article>
+        <article class="card"><span class="pin" aria-hidden="true"></span><span class="stamp done">Done</span><span class="yr">2025</span><h3>AI literacy workshops</h3><p>A workshop series at Northwestern introducing AI concepts and everyday uses to educators and learners.</p></article>
+        <article class="card"><span class="pin" aria-hidden="true"></span><span class="stamp done">Done</span><span class="yr">2024</span><h3>&ldquo;The Energy City&rdquo; board game</h3><p>A board game for young engineers, aligned to NGSS 3-5-ETS1-3, that teaches energy through design trade-offs.</p></article>
+        <article class="card"><span class="pin" aria-hidden="true"></span><span class="stamp done">Done</span><span class="yr">2021&ndash;22</span><h3>Community tech innovation program</h3><p>Mentored young people as they researched their own communities and built tech and non-tech solutions.</p></article>
+        <article class="card"><span class="pin" aria-hidden="true"></span><span class="stamp done">Done</span><span class="yr">2018&ndash;19</span><h3>Delhi's urban villages</h3><p>Field research with Teach For India on socio-economic patterns in Delhi's urban villages, to inform how we teach.</p></article>
+      </div>
+    </section>
+
+    <!-- WRITING -->
+    <section id="writing" aria-labelledby="write-h">
+      <div class="tab"><span class="num" aria-hidden="true">04</span><h2 id="write-h">Things I've <em>written</em></h2></div>
+      <ul class="essays">
+        <li class="essay"><a href="https://medium.com/@tretasharma/back-to-school-before-40-bfb900603d34"><span class="d">Feb 2025</span><span><h3><span class="t">Back to School before 40!</span></h3><p>Why going back to study in your thirties might be perfect timing for your brain.</p></span><span class="go">read &rarr;</span></a></li>
+        <li class="essay"><a href="https://medium.com/@tretasharma/do-your-parents-know-about-chatgpt-mine-do-1ef3c666ad8a"><span class="d">Sep 2024</span><span><h3><span class="t">Do Your Parents Know About ChatGPT? Mine do!</span></h3><p>The six small steps that got my parents and in-laws using AI.</p></span><span class="go">read &rarr;</span></a></li>
+        <li class="essay"><a href="https://medium.com/@tretasharma/perspective-multiplier-0cd557a1641d"><span class="d">Jul 2024</span><span><h3><span class="t">Perspective Multiplier</span></h3><p>The science of why many viewpoints make for better thinking.</p></span><span class="go">read &rarr;</span></a></li>
+        <li class="essay"><a href="https://medium.com/@tretasharma/debunk-myths-for-better-learning-7778f8a190c1"><span class="d">Jun 2024</span><span><h3><span class="t">Debunk Myths for Better Learning</span></h3><p>A student, the &ldquo;10% of your brain&rdquo; myth, and an article retitled &ldquo;You Can Be Smarter Than Albert Einstein.&rdquo;</p></span><span class="go">read &rarr;</span></a></li>
+      </ul>
+    </section>
+
+    <!-- EDUCATION + TOOLBOX -->
+    <section aria-labelledby="school-h">
+      <div class="two">
+        <div>
+          <div class="tab"><span class="num" aria-hidden="true">05</span><h2 id="school-h">Where I've <em>studied</em></h2></div>
+          <ul class="schools">
+            <li><span class="y">2024&ndash;25</span><b>Northwestern University</b><span>MS, Learning Sciences &middot; Evanston, IL</span></li>
+            <li><span class="y">2015&ndash;17</span><b>GGS Indraprastha University</b><span>Bachelor of Education &middot; Delhi</span></li>
+            <li><span class="y">2013&ndash;14</span><b>Bhartiya Vidya Bhavan</b><span>PG Diploma, Mass Communication &amp; Journalism &middot; New Delhi</span></li>
+            <li><span class="y">2010&ndash;13</span><b>University of Delhi</b><span>Bachelor of Commerce</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="tab"><span class="num" aria-hidden="true">06</span><h2 id="tools-h">In my <em>pencil case</em></h2></div>
+          <p class="sub">what I do</p>
+          <ul class="chips">
+            <li>Learning experience design</li><li>Curriculum design</li><li>Instructional design</li><li>UDL</li><li>Assessment design</li><li>Learning analytics</li><li>User research</li><li>Gamification</li><li>Teacher coaching</li><li>AI learning solutions</li>
+          </ul>
+          <p class="sub">what I use</p>
+          <ul class="chips tools">
+            <li>Figma</li><li>Miro</li><li>Canva</li><li>Adobe CS</li><li>Excalidraw</li><li>Stata</li><li>Qualtrics</li><li>NVivo</li><li>Google Analytics</li>
+          </ul>
+          <p class="sub">what I speak</p>
+          <ul class="chips"><li>English</li><li lang="hi">हिन्दी</li><li lang="es">Español</li></ul>
+          <p class="sub">certificates</p>
+          <ul class="certs">
+            <li>ISTE: Academic Integrity in an AI World</li>
+            <li>CTET, Government of India</li>
+            <li>Instructional Design, LinkedIn Learning</li>
+            <li>Centre for Teacher Accreditation: Rank 48, Northern India</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="hello" class="contact" aria-labelledby="hello-h">
+      <svg class="divider" viewBox="0 0 180 24" aria-hidden="true"><path d="M2 12 C 20 2, 30 22, 48 12 S 76 2, 94 12 S 122 22, 140 12 S 168 2, 178 12"/></svg>
+      <h2 id="hello-h" class="hand big">Let's talk about learning</h2>
+      <p class="lead">I'm always happy to talk learning design, EdTech, AI in education, or the myths we still believe about our brains.</p>
+      <a class="mail" href="mailto:tretasharma@gmail.com">tretasharma@gmail.com</a>
+      <ul class="links">
+        <li><a class="circled" href="https://linkedin.com/in/tretasharma">LinkedIn<svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M30 8 C 90 -2, 190 4, 194 28 S 120 60, 60 54 S 2 40, 8 24 S 50 4, 110 6"/></svg></a></li>
+        <li><a class="circled" href="https://medium.com/@tretasharma">Medium<svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M30 8 C 90 -2, 190 4, 194 28 S 120 60, 60 54 S 2 40, 8 24 S 50 4, 110 6"/></svg></a></li>
+        <li><a class="circled" href="https://x.com/sharmatreta">X / Twitter<svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M30 8 C 90 -2, 190 4, 194 28 S 120 60, 60 54 S 2 40, 8 24 S 50 4, 110 6"/></svg></a></li>
+        <li><a class="circled" href="../../shared/Treta-Sharma-Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)<svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M30 8 C 90 -2, 190 4, 194 28 S 120 60, 60 54 S 2 40, 8 24 S 50 4, 110 6"/></svg></a></li>
+      </ul>
+      <p class="note-small">Based in Mountain View, California &middot; Authorized to work in the US, no sponsorship needed.</p>
+    </section>
+
+    <footer><p class="hand">thanks for reading! &mdash; T.</p></footer>
+  </div>
+</main>
+</body>
+</html>

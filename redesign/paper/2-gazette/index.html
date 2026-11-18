@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treta Sharma</title>
+<meta name="description" content="Treta Sharma, learning scientist. Eight-plus years making classrooms, curricula and learning products better, from Teach For India to LEAD to Northwestern.">
+<link rel="icon" href="../../shared/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#efe8d8;
+    --paper-deep:#e6dcc6;
+    --desk:#d8ccb4;
+    --ink:#1f1b18;
+    --ink-soft:#4f453c;
+    --ink-faint:#7a6d60;
+    --red:#b23a2a;
+    --rule:#1f1b18;
+    --serif:"Newsreader", "Iowan Old Style", Georgia, serif;
+    --display:"Playfair Display", "Didot", Georgia, serif;
+    --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --black:"UnifrakturMaguntia", "Old English Text MT", serif;
+    --gutter:clamp(16px, 3vw, 40px);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--desk);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.55;
+    font-optical-sizing:auto;
+    text-rendering:optimizeLegibility;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+  a:hover{color:var(--red)}
+  :focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:1px}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* ---------- the sheet ---------- */
+  .sheet{
+    position:relative;
+    max-width:1200px;
+    margin:28px auto 48px;
+    padding:28px var(--gutter) 40px;
+    background-color:var(--paper);
+    box-shadow:0 1px 0 rgba(0,0,0,.05), 0 18px 40px -18px rgba(60,40,20,.45), 0 2px 6px rgba(60,40,20,.12);
+    isolation:isolate;
+  }
+  /* newsprint grain + faint fold */
+  .sheet::before{
+    content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .18 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity:.32;mix-blend-mode:multiply;
+  }
+  .sheet::after{
+    content:"";position:absolute;left:0;right:0;top:min(52%, 1400px);height:60px;z-index:-1;pointer-events:none;
+    background:linear-gradient(180deg, transparent, rgba(80,60,30,.07) 48%, rgba(255,255,255,.25) 52%, transparent);
+  }
+
+  /* ---------- masthead ---------- */
+  .ears{display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .ear{
+    width:190px;border:1px solid var(--rule);padding:8px 10px;
+    font-family:var(--mono);font-size:10.5px;line-height:1.45;letter-spacing:.04em;text-transform:uppercase;text-align:center
+  }
+  .ear strong{display:block;font-family:var(--display);font-style:italic;text-transform:none;font-size:15px;letter-spacing:0;margin-top:2px}
+  .nameplate{
+    flex:1;text-align:center;margin:0;
+    font-family:var(--black);font-weight:400;
+    font-size:clamp(2.1rem, 8.4vw, 6.6rem);line-height:1;letter-spacing:.005em;
+    text-wrap:balance;
+  }
+  .nameplate a{text-decoration:none}
+  .nameplate a:hover{color:var(--ink)}
+  .motto{
+    text-align:center;margin:10px 0 14px;
+    font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink-soft)
+  }
+  .dateline{
+    border-top:3px double var(--rule);border-bottom:1px solid var(--rule);
+    padding:7px 0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 18px;
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase
+  }
+  .dateline span:nth-child(2){color:var(--red);font-weight:600}
+  .sections{
+    border-bottom:3px double var(--rule);
+    display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0;padding:8px 0;margin:0 0 28px;list-style:none
+  }
+  .sections li{display:flex;align-items:center}
+  .sections li+li::before{content:"✦";font-size:8px;color:var(--red);margin:0 12px}
+  .sections a{
+    font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:4px 0
+  }
+  .sections a:hover{text-decoration:underline}
+
+  /* ---------- type helpers ---------- */
+  .kicker{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:600;margin:0 0 8px
+  }
+  .section-head{
+    display:flex;align-items:center;gap:14px;margin:0 0 18px;
+    font-family:var(--display);font-weight:900;font-size:clamp(1.35rem, 2.4vw, 1.75rem);letter-spacing:.01em;text-transform:uppercase
+  }
+  .section-head::before,.section-head::after{content:"";flex:1;height:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding-top:3px}
+  .section-head small{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.1em;color:var(--ink-faint);text-transform:uppercase}
+  .byline{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:6px 0;margin:14px 0 16px;
+    display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:space-between
+  }
+  .cols{column-gap:28px;column-rule:1px solid rgba(31,27,24,.35)}
+  .cols p{margin:0 0 .85em;hyphens:auto;-webkit-hyphens:auto}
+  .dropcap::first-letter{
+    float:left;font-family:var(--display);font-weight:900;color:var(--red);
+    font-size:4.9em;line-height:.78;padding:.06em .08em 0 0;margin-top:.02em
+  }
+  blockquote{margin:0}
+
+  /* ---------- front page ---------- */
+  .front{display:grid;grid-template-columns:minmax(0,2.05fr) minmax(0,1fr);gap:0 32px}
+  .front > aside{border-left:1px solid var(--rule);padding-left:28px}
+  .headline{
+    font-family:var(--display);font-weight:900;margin:0;
+    font-size:clamp(2.2rem, 5.4vw, 4.4rem);line-height:.98;letter-spacing:-.01em;text-wrap:balance
+  }
+  .deck{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:clamp(1.12rem, 1.9vw, 1.4rem);line-height:1.35;margin:14px 0 0;color:var(--ink-soft);text-wrap:pretty
+  }
+  .lead-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:26px;align-items:start}
+  .photo{margin:0}
+  .photo .frame{border:1px solid var(--rule);padding:6px;background:var(--paper)}
+  .photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;mix-blend-mode:multiply;filter:contrast(1.04)}
+  .photo figcaption{font-size:14px;line-height:1.4;margin-top:8px;font-style:italic;color:var(--ink-soft)}
+  .photo figcaption b{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);font-weight:600}
+  .lead-text{column-count:2}
+  .continued{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-top:4px}
+
+  .numbers{border:2px solid var(--rule);padding:4px;margin-bottom:26px}
+  .numbers-inner{border:1px solid var(--rule);padding:14px 16px 6px}
+  .numbers h2{font-family:var(--display);font-weight:900;font-size:22px;margin:0 0 4px;text-align:center;text-transform:uppercase;letter-spacing:.04em}
+  .numbers .sub{text-align:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 10px}
+  .numbers dl{margin:0}
+  .numbers dl > div{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;padding:9px 0;border-top:1px dotted rgba(31,27,24,.5)}
+  .numbers dt{font-family:var(--display);font-weight:900;font-size:28px;line-height:1;color:var(--red);font-variant-numeric:lining-nums;min-width:3.4ch}
+  .numbers dd{margin:0;font-size:15px;line-height:1.35}
+
+  .pull{
+    text-align:center;padding:18px 6px 20px;border-top:3px double var(--rule);border-bottom:3px double var(--rule);margin-bottom:26px
+  }
+  .pull p{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(1.4rem, 2.4vw, 1.8rem);line-height:1.18;margin:0;text-wrap:balance}
+  .pull p::before{content:"“";color:var(--red)}
+  .pull p::after{content:"”";color:var(--red)}
+  .pull cite{display:block;margin-top:10px;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+
+  .correction{background:var(--paper-deep);border:1px solid var(--rule);padding:14px 16px;font-size:15px;line-height:1.45}
+  .correction h3{margin:0 0 6px;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+  .correction p{margin:0}
+
+  /* ---------- bands ---------- */
+  .band{margin-top:44px}
+  .dispatches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+  .dispatch{padding:0 22px}
+  .dispatch:first-child{padding-left:0}
+  .dispatch:last-child{padding-right:0}
+  .dispatch+.dispatch{border-left:1px solid var(--rule)}
+  .dispatch h3{font-family:var(--display);font-weight:800;font-size:clamp(1.3rem, 2vw, 1.62rem);line-height:1.08;margin:0 0 8px;text-wrap:balance}
+  .dispatch .role{font-style:italic;color:var(--ink-soft);margin:0 0 10px;font-size:15.5px}
+  .dispatch p{margin:0 0 .7em;hyphens:auto}
+  .dispatch ul{list-style:none;margin:0;padding:0;font-size:15.5px;line-height:1.45}
+  .dispatch li{padding:6px 0 6px 16px;border-top:1px dotted rgba(31,27,24,.4);position:relative}
+  .dispatch li::before{content:"■";position:absolute;left:0;top:8px;font-size:8px;color:var(--red)}
+  .dispatch-dateline{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+  .dispatch-dateline::after{content:" —";color:var(--red)}
+
+  .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:0 32px}
+  .split > :last-child{border-left:1px solid var(--rule);padding-left:30px}
+
+  .brief{padding:12px 0;border-top:1px solid var(--rule)}
+  .brief:first-of-type{border-top:0;padding-top:0}
+  .brief h3{font-family:var(--display);font-weight:800;font-size:18.5px;line-height:1.18;margin:0 0 4px}
+  .brief p{margin:0;font-size:15.5px;line-height:1.45}
+  .brief .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);font-weight:600}
+
+  .opinion-intro{font-style:italic;color:var(--ink-soft);margin:-6px 0 18px;text-align:center}
+  .essays{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+  .essay{padding:4px 22px 20px}
+  .essay:nth-child(odd){padding-left:0;border-right:1px solid var(--rule)}
+  .essay:nth-child(even){padding-right:0}
+  .essay:nth-child(n+3){border-top:1px solid var(--rule);padding-top:18px}
+  .essay .when{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+  .essay h3{font-family:var(--display);font-weight:900;font-style:italic;font-size:clamp(1.35rem, 2.2vw, 1.7rem);line-height:1.08;margin:4px 0 8px;text-wrap:balance}
+  .essay h3 a{text-decoration:none}
+  .essay h3 a:hover{text-decoration:underline;text-decoration-thickness:2px}
+  .essay p{margin:0 0 10px;font-size:16px;line-height:1.5}
+  .essay .quip{font-style:italic;color:var(--ink-soft);font-size:15px}
+  .readmore{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--red);text-decoration:none;border-bottom:1px solid currentColor}
+  .readmore:hover{color:var(--ink)}
+
+  .notices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .notice{border:1px solid var(--rule);padding:16px 16px 14px;text-align:center;position:relative;background:linear-gradient(var(--paper),var(--paper))}
+  .notice::before{content:"";position:absolute;inset:4px;border:1px solid rgba(31,27,24,.35);pointer-events:none}
+  .notice .type{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:600}
+  .notice h3{font-family:var(--display);font-weight:800;font-size:19px;line-height:1.15;margin:6px 0 4px}
+  .notice .where{font-style:italic;font-size:15px;margin:0 0 6px;color:var(--ink-soft)}
+  .notice .yrs{font-family:var(--display);font-weight:700;font-size:15px;margin:0 0 6px}
+  .notice p{margin:0;font-size:14.5px;line-height:1.42}
+  .orn{display:block;text-align:center;color:var(--red);letter-spacing:.5em;font-size:11px;margin:4px 0 6px}
+
+  .certs{margin-top:16px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 0;display:flex;flex-wrap:wrap;gap:6px 0;justify-content:center;font-size:15px}
+  .certs b{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-right:12px;align-self:center}
+  .certs span+span::before{content:"·";margin:0 12px;color:var(--ink-faint)}
+
+  .classifieds{column-count:4;column-gap:14px}
+  .ad{break-inside:avoid;border:1px solid var(--rule);padding:10px 12px 12px;margin:0 0 14px;font-size:14.5px;line-height:1.42;display:inline-block;width:100%}
+  .ad h3{font-family:var(--mono);font-weight:600;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px;padding-bottom:5px;border-bottom:1px solid rgba(31,27,24,.35)}
+  .ad p{margin:0}
+  .ad.inverse{background:var(--ink);color:var(--paper)}
+  .ad.inverse h3{border-color:rgba(239,232,216,.4);color:#f0c9b9}
+  .ad.big h3{font-family:var(--display);font-size:22px;letter-spacing:0;text-transform:none;font-weight:900;line-height:1.05}
+  .ad .call{display:block;margin-top:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+
+  /* ---------- letters ---------- */
+  .letters{border:3px double var(--rule);padding:30px clamp(16px,4vw,48px) 28px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:30px;align-items:center;background:rgba(255,250,238,.35)}
+  .letters h3{font-family:var(--display);font-weight:900;font-size:clamp(2rem, 4.4vw, 3.3rem);line-height:.98;margin:0 0 12px;text-wrap:balance}
+  .letters h3 em{color:var(--red)}
+  .letters p{margin:0 0 10px;font-size:17px}
+  .letters .fine{font-size:14px;color:var(--ink-soft);font-style:italic}
+  .contact-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+  .contact-list li{border-bottom:1px solid var(--rule)}
+  .contact-list a{display:grid;grid-template-columns:7.5em 1fr auto;gap:10px;align-items:baseline;padding:11px 2px;text-decoration:none}
+  .contact-list .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+  .contact-list .val{font-size:17px;overflow-wrap:anywhere}
+  .contact-list .arr{color:var(--red);font-family:var(--mono)}
+  .contact-list a:hover .val{text-decoration:underline}
+  .stamp{
+    display:inline-block;margin-top:14px;transform:rotate(-4deg);
+    border:2px solid var(--red);color:var(--red);padding:6px 12px 5px;border-radius:3px;
+    font-family:var(--mono);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+    box-shadow:inset 0 0 0 2px var(--paper), inset 0 0 0 3px var(--red);
+  }
+  .stamp:hover{background:var(--red);color:var(--paper);box-shadow:none}
+
+  footer.colophon{margin-top:34px;border-top:3px double var(--rule);padding-top:10px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 18px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+
+  .back{
+    position:fixed;left:14px;bottom:14px;z-index:20;
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-decoration:none;
+    background:var(--paper);color:var(--ink);border:1px solid var(--ink);padding:7px 11px;
+    box-shadow:3px 3px 0 var(--ink)
+  }
+  .back:hover{color:var(--red);border-color:var(--red);box-shadow:3px 3px 0 var(--red)}
+
+  a,.stamp,.back{transition:color .15s ease, background-color .15s ease, box-shadow .15s ease}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1060px){
+    .notices{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .classifieds{column-count:3}
+  }
+  @media (max-width:920px){
+    .front{grid-template-columns:1fr}
+    .front > aside{border-left:0;padding-left:0;margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:0 24px;align-items:start}
+    .front > aside .pull{grid-column:1 / -1;order:-1}
+    .dispatches{grid-template-columns:1fr}
+    .dispatch,.dispatch:first-child,.dispatch:last-child{padding:0}
+    .dispatch+.dispatch{border-left:0;border-top:1px solid var(--rule);padding-top:20px;margin-top:20px}
+    .split{grid-template-columns:1fr}
+    .split > :last-child{border-left:0;padding-left:0;margin-top:40px}
+    .letters{grid-template-columns:1fr}
+    .ear{display:none}
+  }
+  @media (max-width:700px){
+    body{font-size:16.5px}
+    .sheet{margin:0;box-shadow:none;padding-top:18px}
+    .sheet::after{display:none}
+    .lead-body{grid-template-columns:1fr}
+    .photo{max-width:340px}
+    .lead-text{column-count:1}
+    .front > aside{grid-template-columns:1fr}
+    .essays{grid-template-columns:1fr}
+    .essay,.essay:nth-child(odd),.essay:nth-child(even){padding:16px 0;border-right:0}
+    .essay+.essay{border-top:1px solid var(--rule)}
+    .essay:first-child{padding-top:0}
+    .notices{grid-template-columns:1fr}
+    .classifieds{column-count:1}
+    .dateline{justify-content:center;text-align:center}
+    .dateline span:nth-child(n+3){display:none}
+    .contact-list a{grid-template-columns:5.8em 1fr auto}
+    .back{left:auto;right:12px;bottom:12px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;animation:none !important}
+    html{scroll-behavior:auto}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    html{scroll-behavior:smooth}
+  }
+  @media print{
+    body{background:#fff}
+    .sheet{box-shadow:none;margin:0}
+    .sheet::before,.sheet::after,.back{display:none}
+  }
+</style>
+</head>
+<body>
+<a class="back" href="../index.html">← All variations</a>
+
+<div class="sheet">
+  <header>
+    <div class="ears">
+      <div class="ear" aria-hidden="true">Today's forecast<strong>Clear, with a high chance of curiosity</strong></div>
+      <h1 class="nameplate"><a href="#top" id="top">The Treta Sharma Gazette</a></h1>
+      <div class="ear" aria-hidden="true">Now spoken here<strong>English · हिंदी · Español</strong></div>
+    </div>
+    <p class="motto">All the news that's fit to learn</p>
+    <div class="dateline">
+      <span>Vol. VIII · No. 1</span>
+      <span>Mountain View, California</span>
+      <span>Learning Sciences Edition</span>
+      <span>Est. 2017</span>
+      <span>Price: one good question</span>
+    </div>
+    <nav aria-label="Sections">
+      <ul class="sections">
+        <li><a href="#front">Front Page</a></li>
+        <li><a href="#dispatches">Dispatches</a></li>
+        <li><a href="#brief">In Brief</a></li>
+        <li><a href="#opinion">Opinion</a></li>
+        <li><a href="#notices">Notices</a></li>
+        <li><a href="#classifieds">Classifieds</a></li>
+        <li><a href="#letters">Letters</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================= FRONT PAGE ================= -->
+    <section class="front" id="front" aria-labelledby="lead-hed">
+      <article>
+        <p class="kicker">Profile · Learning Sciences</p>
+        <h2 class="headline" id="lead-hed">Local Learning Scientist Still Convinced Every Classroom Can Be Better</h2>
+        <p class="deck">Eight years, three classrooms-worth of careers and one Master's degree later, Treta Sharma is designing learning that makes students <em>and</em> teachers want to show up.</p>
+        <div class="byline"><span>By the Gazette Staff</span><span>Filed from Mountain View, Calif.</span></div>
+
+        <div class="lead-body">
+          <figure class="photo">
+            <div class="frame"><img src="../../shared/treta-halftone.jpg" alt="Portrait of Treta Sharma, smiling slightly, with long dark hair" width="800" height="800"></div>
+            <figcaption><b>Treta Sharma</b> — learning scientist, former classroom teacher, and the person her parents call when ChatGPT does something strange.</figcaption>
+          </figure>
+
+          <div class="lead-text cols">
+            <p class="dropcap">For more than eight years, Treta Sharma has done the patient, stubborn work of making learning better: first by standing in front of a classroom, then by coaching the people who stand in front of many, and finally by designing the systems that reach more than a million learners at once.</p>
+            <p>She began as a Teach For India Fellow, teaching more than 120 first-generation learners in low-income schools and sitting on a School Management Committee alongside local MLAs to argue for what her school needed. She stayed on as a Fellow Advisor, training new teachers through classroom observation and long one-on-one debriefs.</p>
+            <p>At the Shiv Nadar Foundation she brought art into STEM for 450+ learners. At LEAD, an EdTech unicorn, she led curriculum analytics for 1.2 million learners across 3,000+ schools, and folded the requirements of five education boards into a single platform.</p>
+            <p>Then, in a twist her family still teases her about, she went back to school, enrolling in Northwestern's Learning Sciences programme "at the brain age of 32!" She wanted, she wrote, to become a refined distributor of knowledge rather than just a consumer of it.</p>
+            <p>Today she works at the meeting point of learning science, AI and product design, building learning products and environments that leave learners and educators "genuinely excited to show up."</p>
+            <p class="continued">Career record continues on page 2 ▸ <a href="#dispatches">Dispatches</a></p>
+          </div>
+        </div>
+      </article>
+
+      <aside aria-label="Sidebar">
+        <div class="pull">
+          <blockquote><p>Our brains are amazing (blow a kiss to yours!)</p></blockquote>
+          <cite>— T. Sharma, “Perspective Multiplier”</cite>
+        </div>
+
+        <section class="numbers" aria-labelledby="nums-hed">
+          <div class="numbers-inner">
+            <h2 id="nums-hed">By the Numbers</h2>
+            <p class="sub">A career, tallied</p>
+            <dl>
+              <div><dt>1.2M+</dt><dd>learners reached through curriculum analytics at LEAD</dd></div>
+              <div><dt>3,000+</dt><dd>schools served across India</dd></div>
+              <div><dt>450+</dt><dd>STEM learners taught through art integration</dd></div>
+              <div><dt>120+</dt><dd>first-generation learners in her own classroom</dd></div>
+              <div><dt>100+</dt><dd>Teach For India fellows trained</dd></div>
+              <div><dt>20%</dt><dd>lift in student performance after her teacher training</dd></div>
+              <div><dt>5</dt><dd>education boards unified into one platform</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="correction" aria-labelledby="corr-hed">
+          <h3 id="corr-hed">Correction</h3>
+          <p>A 12-year-old student once informed Ms. Sharma that people use only 10% of their brains, and that only Einstein ever used all of his. She came back the next day with a neuroscientist's article retitled <em>“You Can Be Smarter Than Albert Einstein.”</em> The Gazette regrets the original error.</p>
+        </section>
+      </aside>
+    </section>
+
+    <!-- ================= DISPATCHES ================= -->
+    <section class="band" id="dispatches" aria-labelledby="disp-hed">
+      <h2 class="section-head" id="disp-hed">Dispatches <small>· Career</small></h2>
+      <div class="dispatches">
+        <article class="dispatch">
+          <h3>Analyst Turns 1.2 Million Learners' Data Into Better Lessons</h3>
+          <p class="role">Curriculum Excellence Analyst, LEAD Schools</p>
+          <p><span class="dispatch-dateline">India, Feb 2022 – Apr 2023</span> At one of India's EdTech unicorns, Ms. Sharma used learning analytics to shape digital learning experiences at national scale, working shoulder to shoulder with product and engineering.</p>
+          <ul>
+            <li>Ran 50+ user-research sessions; applied TPACK to tech integration and interface design</li>
+            <li>Unified the requirements of 5 education boards into one learning management platform</li>
+            <li>Teacher training through systematic debriefs led to a 20% improvement in student performance</li>
+            <li>Served on the Rapid Response Team, cutting turnaround time for client schools</li>
+          </ul>
+        </article>
+        <article class="dispatch">
+          <h3>Art Quietly Moves Into the STEM Lab</h3>
+          <p class="role">Learning Experience Designer &amp; Faculty, Shiv Nadar Foundation (HCL Technologies)</p>
+          <p><span class="dispatch-dateline">May 2019 – Jan 2022</span> Ms. Sharma designed art-integrated STEM programmes for 450+ learners across grade levels, and made assessment something students looked forward to.</p>
+          <ul>
+            <li>Built gamified assessments grounded in Bloom's taxonomy and DOK</li>
+            <li>Ran design-thinking workshops where students studied community problems and prototyped fixes</li>
+            <li>Trained fellow faculty in technology-enhanced teaching</li>
+            <li>Applied India's National Education Policy to curriculum design</li>
+          </ul>
+        </article>
+        <article class="dispatch">
+          <h3>New Teacher Stays On to Teach the Teachers</h3>
+          <p class="role">Fellow, then Fellow Advisor, Teach For India</p>
+          <p><span class="dispatch-dateline">2017 – 2019</span> What began in her own classroom of first-generation learners turned into coaching the next cohort of teachers through their first, hardest year.</p>
+          <ul>
+            <li>Taught 120+ first-generation learners in low-income schools</li>
+            <li>Trained 100+ adult fellows at the residential institute; coached 53 more using ADDIE, Kirkpatrick and SAM</li>
+            <li>Observed classrooms and ran 1:1 debriefs as an instructional coach</li>
+            <li>Sat on a School Management Committee, working with local MLAs on resources</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= IN BRIEF + OPINION ================= -->
+    <div class="band split">
+      <section id="brief" aria-labelledby="brief-hed">
+        <h2 class="section-head" id="brief-hed">In Brief</h2>
+        <article class="brief">
+          <span class="tag">Ongoing · 2024–</span>
+          <h3>An AI study companion for self-directed learners</h3>
+          <p>An independent project: a web platform pairing AI with learner autonomy so people can chart their own learning paths.</p>
+        </article>
+        <article class="brief">
+          <span class="tag">Northwestern · 2025</span>
+          <h3>AI literacy, taught gently</h3>
+          <p>A workshop series introducing AI concepts and uses to educators and learners.</p>
+        </article>
+        <article class="brief">
+          <span class="tag">Game design · 2024</span>
+          <h3>“The Energy City” board game</h3>
+          <p>An NGSS-aligned game (3-5-ETS1-3, engineering design) that teaches energy concepts through play.</p>
+        </article>
+        <article class="brief">
+          <span class="tag">Leadership · 2021–22</span>
+          <h3>Young innovators, local problems</h3>
+          <p>Mentored young people researching their own communities to build tech and non-tech solutions.</p>
+        </article>
+        <article class="brief">
+          <span class="tag">Field research · 2018–19</span>
+          <h3>Delhi's urban villages, studied up close</h3>
+          <p>Socio-economic field research with Teach For India that shaped how teachers approached their classrooms.</p>
+        </article>
+      </section>
+
+      <section id="opinion" aria-labelledby="op-hed">
+        <h2 class="section-head" id="op-hed">From the Opinion Page</h2>
+        <p class="opinion-intro">Columns by Treta Sharma, as first published on Medium.</p>
+        <div class="essays">
+          <article class="essay">
+            <span class="when">February 2025</span>
+            <h3><a href="https://medium.com/@tretasharma/back-to-school-before-40-bfb900603d34">Back to School before 40!</a></h3>
+            <p>On returning to study in her thirties, and why that decade may be a cognitive sweet spot rather than a slow decline.</p>
+            <p class="quip">Her family's verdict: she went back to school at the age for raising kids.</p>
+            <a class="readmore" href="https://medium.com/@tretasharma/back-to-school-before-40-bfb900603d34">Read the column →</a>
+          </article>
+          <article class="essay">
+            <span class="when">September 2024</span>
+            <h3><a href="https://medium.com/@tretasharma/do-your-parents-know-about-chatgpt-mine-do-1ef3c666ad8a">Do Your Parents Know About ChatGPT? Mine Do!</a></h3>
+            <p>Six simple steps she used to get both sets of parents (emails, Facebook posts, recipes and all) comfortable with AI.</p>
+            <p class="quip">The opening pitch: you can write birthday wishes for the relatives!</p>
+            <a class="readmore" href="https://medium.com/@tretasharma/do-your-parents-know-about-chatgpt-mine-do-1ef3c666ad8a">Read the column →</a>
+          </article>
+          <article class="essay">
+            <span class="when">July 2024</span>
+            <h3><a href="https://medium.com/@tretasharma/perspective-multiplier-0cd557a1641d">Perspective Multiplier</a></h3>
+            <p>The science of why many viewpoints make for better thinking, from Galton's ox-weighing crowd to cognitive flexibility.</p>
+            <a class="readmore" href="https://medium.com/@tretasharma/perspective-multiplier-0cd557a1641d">Read the column →</a>
+          </article>
+          <article class="essay">
+            <span class="when">June 2024</span>
+            <h3><a href="https://medium.com/@tretasharma/debunk-myths-for-better-learning-7778f8a190c1">Debunk Myths for Better Learning</a></h3>
+            <p>Left brain, right brain, the 10% myth, and the guilt teachers feel about memorisation, taken apart one at a time.</p>
+            <a class="readmore" href="https://medium.com/@tretasharma/debunk-myths-for-better-learning-7778f8a190c1">Read the column →</a>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= NOTICES ================= -->
+    <section class="band" id="notices" aria-labelledby="not-hed">
+      <h2 class="section-head" id="not-hed">Notices <small>· Education</small></h2>
+      <div class="notices">
+        <article class="notice">
+          <span class="type">Graduation</span>
+          <span class="orn" aria-hidden="true">✦ ✦ ✦</span>
+          <h3>Master of Science, Learning Sciences</h3>
+          <p class="where">Northwestern University, Evanston, Ill.</p>
+          <p class="yrs">2024 – 2025</p>
+          <p>School of Education &amp; Social Policy. Studies included educational product design, learning analytics and global education policy.</p>
+        </article>
+        <article class="notice">
+          <span class="type">Graduation</span>
+          <span class="orn" aria-hidden="true">✦ ✦ ✦</span>
+          <h3>Bachelor of Education</h3>
+          <p class="where">GGS Indraprastha University, Delhi</p>
+          <p class="yrs">2015 – 2017</p>
+          <p>Gamification, learner psychology and education policy.</p>
+        </article>
+        <article class="notice">
+          <span class="type">Press Pass</span>
+          <span class="orn" aria-hidden="true">✦ ✦ ✦</span>
+          <h3>PG Diploma, Mass Communication &amp; Journalism</h3>
+          <p class="where">Bhartiya Vidya Bhavan, New Delhi</p>
+          <p class="yrs">2013 – 2014</p>
+          <p>Which is why this website is a newspaper.</p>
+        </article>
+        <article class="notice">
+          <span class="type">Graduation</span>
+          <span class="orn" aria-hidden="true">✦ ✦ ✦</span>
+          <h3>Bachelor of Commerce</h3>
+          <p class="where">University of Delhi</p>
+          <p class="yrs">2010 – 2013</p>
+          <p>Business administration, management and economics.</p>
+        </article>
+      </div>
+      <p class="certs"><b>Also certified</b><span>ISTE: Academic Integrity in an AI World</span><span>CTET, Govt. of India</span><span>Instructional Design, LinkedIn Learning</span><span>Centre for Teacher Accreditation: Rank 48, Northern India</span></p>
+    </section>
+
+    <!-- ================= CLASSIFIEDS ================= -->
+    <section class="band" id="classifieds" aria-labelledby="cl-hed">
+      <h2 class="section-head" id="cl-hed">Classifieds <small>· Toolbox</small></h2>
+      <div class="classifieds">
+        <div class="ad big inverse">
+          <h3>Learning scientist available.</h3>
+          <p>8+ years across classrooms, coaching and EdTech product teams. Based in Mountain View. Authorized to work in the US, no sponsorship required.</p>
+          <a class="call" href="#letters" style="color:#f0c9b9">Inquire within ▸</a>
+        </div>
+        <div class="ad">
+          <h3>Learning experiences, designed</h3>
+          <p>Learning experience design, curriculum and instructional design, UDL. Built for real learners, not ideal ones.</p>
+        </div>
+        <div class="ad">
+          <h3>Assessment that doesn't feel like one</h3>
+          <p>Assessment design with Bloom's taxonomy and DOK. Gamification on request.</p>
+        </div>
+        <div class="ad">
+          <h3>Your data, explained kindly</h3>
+          <p>Learning analytics and user research, qualitative and quantitative. Stata, Qualtrics, NVivo, Google Analytics, Excel.</p>
+        </div>
+        <div class="ad">
+          <h3>Teachers coached</h3>
+          <p>Training and instructional coaching, from residential institutes to 1:1 debriefs after class.</p>
+        </div>
+        <div class="ad">
+          <h3>AI, introduced patiently</h3>
+          <p>AI learning solutions and AI literacy workshops. Works on educators, students and parents alike.</p>
+        </div>
+        <div class="ad">
+          <h3>Programs kept on track</h3>
+          <p>Program management, multi-stakeholder collaboration, change management and policy implementation.</p>
+        </div>
+        <div class="ad">
+          <h3>Tools, well used</h3>
+          <p>Figma, Canva, Adobe Creative Suite, Miro, Excalidraw, Google Analytics, Excel.</p>
+        </div>
+        <div class="ad">
+          <h3>Se habla español</h3>
+          <p>Also हिंदी, and English, naturally.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LETTERS ================= -->
+    <section class="band" id="letters" aria-labelledby="let-hed">
+      <h2 class="section-head" id="let-hed">Letters to the Editor</h2>
+      <div class="letters">
+        <div>
+          <h3>Building something for learners? <em>Write in.</em></h3>
+          <p>Whether you're hiring a learning scientist, shaping an EdTech product, or trying to get your own parents comfortable with AI, the editor reads every letter.</p>
+          <p class="fine">Authorized to work in the US. No sponsorship required.</p>
+          <a class="stamp" href="../../shared/Treta-Sharma-Resume.pdf">Full record · Résumé PDF</a>
+        </div>
+        <ul class="contact-list">
+          <li><a href="mailto:tretasharma@gmail.com"><span class="lbl">By post</span><span class="val">tretasharma@gmail.com</span><span class="arr" aria-hidden="true">→</span></a></li>
+          <li><a href="https://linkedin.com/in/tretasharma"><span class="lbl">LinkedIn</span><span class="val">in/tretasharma</span><span class="arr" aria-hidden="true">→</span></a></li>
+          <li><a href="https://medium.com/@tretasharma"><span class="lbl">Medium</span><span class="val">@tretasharma</span><span class="arr" aria-hidden="true">→</span></a></li>
+          <li><a href="https://x.com/sharmatreta"><span class="lbl">X</span><span class="val">@sharmatreta</span><span class="arr" aria-hidden="true">→</span></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <span>© 2026 Treta Sharma</span>
+    <span>Set in Newsreader &amp; Playfair Display</span>
+    <span>Printed with care in Mountain View, California</span>
+  </footer>
+</div>
+</body>
+</html>
